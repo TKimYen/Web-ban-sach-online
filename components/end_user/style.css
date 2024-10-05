@@ -2,9 +2,11 @@
     --bg-color: rgb(249, 241, 231);
     --white-color: white;
     --text-color: rgb(20, 18, 18);
+    --shadow-color: rgba(20, 18, 18, 0,6);
     --button-color: rgb(20, 18, 18);
     --hover-color: rgba(82, 79, 79, 0.8);
     --price-color: rgb(238, 67, 67);
+    --white-hover-color: rgb(242, 242, 242);
 }
 
 * {
@@ -12,18 +14,20 @@
     padding: 0;
     list-style: none;
     text-decoration: none;
+    box-sizing: border-box;
 }
 
 html {
     font-size: 62.5%;
     font-family: 'Roboto', sans-serif;
-    box-sizing: border-box;
     background: var(--bg-color);
 }
 
 .wrapper {
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
     min-height: 100vh;
 }
 
@@ -87,6 +91,7 @@ header {
 }
 .header__navbar-search-btn:hover {
     background-color: var(--hover-color);
+    cursor: pointer;
 }
 
 .header__navbar-search-btn-icon {
@@ -106,6 +111,7 @@ header {
 
 .header__navbar-cart-icon:hover {
     color: var(--hover-color);
+    cursor: pointer;
 }
 
 .header__navbar-item {
@@ -132,6 +138,7 @@ header {
 .header__navbar-item-signup-btn:hover {
     color: var(--hover-color);
     border: 2px var(--hover-color) solid;
+    cursor: pointer;
 }
 
 .header__navbar-item-login-btn {
@@ -151,18 +158,162 @@ header {
     /* color: var(--white-color); */
     /* border-color: transparent; */
     background-color: var(--hover-color);
+    cursor: pointer;
 }
 
     /*--------- container -------- */
 .container {
     flex: 1;
+    width: 80%;
+    justify-items: center;
+    align-content: center;
 }
+
+    /* -----Yen container__cart-payment start----- */
+
+.container__cart-payment {
+    min-height: auto;
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+    gap: 20px;
+    padding: 20px 0;
+}
+
+.cart-info {
+    padding: 20px;
+    border-radius: 5px;
+    grid-column: span 8;
+    grid-row: span 4;
+    background-color: var(--white-color);
+    color: var(--text-color);
+}
+
+.section {
+    width: 100%;
+    padding-bottom: 10px;
+}
+
+.section > h1 {
+    font-size: 22px;
+    font-weight: 500;
+    padding: 10px 0;
+}
+
+.shipping-address-details {
+    display: flex;
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 10px;
+    background-color: #F8F8F8;
+    border: 0.2px solid black;
+    justify-content: space-between;
+}
+
+.address-info p {
+    font-size: 16px;
+}
+
+.change-address-button {
+    border: 0.2px solid black;
+    border-radius: 10px;
+    padding: 0 10px;
+    background-color: var(--white-color);
+}
+
+.change-address-button:hover {
+    color: var(--hover-color);
+    cursor: pointer;
+}
+
+.payment-radio {
+    font-size: 16px;
+    margin-bottom: 6px;
+}
+
+.payment-radio input[type="radio"] {
+    margin-right: 8px;
+}
+
+.cart-product {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.product-img-name {
+    display: flex;
+}
+
+.cart-product h4 {
+    font-size: 16px;
+    font-weight: 400;
+}
+
+.cart-product p {
+    font-size: 15px;
+    font-weight: 400;
+    display: flex;
+    align-items: center;
+}
+
+.cart-img-product {
+    width: 90px;
+    height: 100px;
+}
+
+.cart-shipping-and-total {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    border-radius: 5px;
+    grid-column: span 4;
+    grid-row: span 2;
+    background-color: var(--white-color);
+    color: var(--text-color);
+    justify-content: flex-start;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+.cart-shipping-and-total h1 {
+    padding-bottom: 10px;
+}
+
+.total-amount, .shipping-fee, .total-cost {
+    width: 90%;
+    display: flex;
+    justify-content: space-between;
+    font-size: 18px;
+    padding: 10px;
+    border-bottom: 1px solid black;
+}
+
+.btn-checkout {
+    margin-top: 20px;
+    width: 140px;
+    height: 36px;
+    border-color: transparent;
+    outline: none;
+    font-size: 16px;
+    border-radius: 10px;
+    padding: 8px 10px;
+    background-color: var(--button-color);
+    color: var(--white-color);
+}
+
+.btn-checkout:hover {
+    background-color: var(--hover-color);
+    cursor: pointer;
+}
+
+    /* -----Yen container__cart-payment end----- */
 
     /*--------- footer -------- */
 footer {
     width: 100%;
     display: flex;
-    position: relative;
+    /* position: relative; */
     top: 2rem;
     bottom: 0;
     background-color: var(--white-color);

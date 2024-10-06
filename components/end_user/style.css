@@ -1,12 +1,12 @@
+
+
 :root {
     --bg-color: rgb(249, 241, 231);
     --white-color: white;
     --text-color: rgb(20, 18, 18);
-    --shadow-color: rgba(20, 18, 18, 0,6);
     --button-color: rgb(20, 18, 18);
     --hover-color: rgba(82, 79, 79, 0.8);
     --price-color: rgb(238, 67, 67);
-    --white-hover-color: rgb(242, 242, 242);
 }
 
 * {
@@ -14,25 +14,25 @@
     padding: 0;
     list-style: none;
     text-decoration: none;
-    box-sizing: border-box;
 }
 
-html {
+/* html {
     font-size: 62.5%;
     font-family: 'Roboto', sans-serif;
+    box-sizing: border-box;
     background: var(--bg-color);
-}
+} */
 
 .wrapper {
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
     min-height: 100vh;
 }
 
+
+
     /*--------- header -------- */
-header {
+/* header {
     width: 100%;
     height: 80px;
     background-color: var(--white-color);
@@ -48,9 +48,9 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-}
+} */
 
-.header__navbar-logo {
+/* .header__navbar-logo {
     display: block;
     float: left;
     color: var(--text-color);
@@ -79,9 +79,9 @@ header {
     border-radius: 10px;
     font-size: 1.6rem;
     color: var(--text-color);
-}
+} */
 
-.header__navbar-search-btn{
+/* .header__navbar-search-btn{
     background-color: var(--button-color);
     border:none;
     height: 42px;
@@ -91,7 +91,6 @@ header {
 }
 .header__navbar-search-btn:hover {
     background-color: var(--hover-color);
-    cursor: pointer;
 }
 
 .header__navbar-search-btn-icon {
@@ -111,209 +110,63 @@ header {
 
 .header__navbar-cart-icon:hover {
     color: var(--hover-color);
-    cursor: pointer;
-}
+} */
 
-.header__navbar-item {
+/* .header__navbar-item {
     width: 120px;
     height: 40px;
     font-size: 1.6rem;
     display: inline-block;
     margin: 0 10px;
-}
+} */
 
-.header__navbar-item-signup-btn {
+/* .header__navbar-item-signup-btn {
     width: 100%;
-    height: 100%;
+    height: 100%; */
     /* border: none; */
-    border: 2px var(--button-color) solid;
+    /* border: 2px var(--button-color) solid;
     outline: none;
     font-size: 1.6rem;
     border-radius: 10px;
     padding: 8px;
     background-color: var(--white-color);
     color: var(--button-color);
-}
+} */
 
-.header__navbar-item-signup-btn:hover {
+/* .header__navbar-item-signup-btn:hover {
     color: var(--hover-color);
     border: 2px var(--hover-color) solid;
-    cursor: pointer;
 }
 
 .header__navbar-item-login-btn {
     width: 100%;
-    height: 100%;
+    height: 100%; */
     /* border: none; */
-    border-color: transparent;
+    /* border-color: transparent;
     outline: none;
     font-size: 1.6rem;
     border-radius: 10px;
     padding: 8px 12px;
     background-color: var(--button-color);
     color: var(--white-color);
-}
+} */
 
-.header__navbar-item-login-btn:hover {
-    /* color: var(--white-color); */
-    /* border-color: transparent; */
+/* .header__navbar-item-login-btn:hover {
+    color: var(--white-color);
+    border-color: transparent;
     background-color: var(--hover-color);
-    cursor: pointer;
-}
+} */
 
     /*--------- container -------- */
-.container {
+/* .container {
     flex: 1;
-    width: 80%;
-    justify-items: center;
-    align-content: center;
-}
-
-    /* -----Yen container__cart-payment start----- */
-
-.container__cart-payment {
-    min-height: auto;
-    display: grid;
-    grid-template-columns: repeat(12, 1fr);
-    grid-template-rows: 1fr 1fr 1fr 1fr;
-    gap: 20px;
-    padding: 20px 0;
-}
-
-.cart-info {
-    padding: 20px;
-    border-radius: 5px;
-    grid-column: span 8;
-    grid-row: span 4;
-    background-color: var(--white-color);
-    color: var(--text-color);
-}
-
-.section {
-    width: 100%;
-    padding-bottom: 10px;
-}
-
-.section > h1 {
-    font-size: 22px;
-    font-weight: 500;
-    padding: 10px 0;
-}
-
-.shipping-address-details {
-    display: flex;
-    border-radius: 5px;
-    padding: 10px;
-    margin-bottom: 10px;
-    background-color: #F8F8F8;
-    border: 0.2px solid black;
-    justify-content: space-between;
-}
-
-.address-info p {
-    font-size: 16px;
-}
-
-.change-address-button {
-    border: 0.2px solid black;
-    border-radius: 10px;
-    padding: 0 10px;
-    background-color: var(--white-color);
-}
-
-.change-address-button:hover {
-    color: var(--hover-color);
-    cursor: pointer;
-}
-
-.payment-radio {
-    font-size: 16px;
-    margin-bottom: 6px;
-}
-
-.payment-radio input[type="radio"] {
-    margin-right: 8px;
-}
-
-.cart-product {
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-}
-
-.product-img-name {
-    display: flex;
-}
-
-.cart-product h4 {
-    font-size: 16px;
-    font-weight: 400;
-}
-
-.cart-product p {
-    font-size: 15px;
-    font-weight: 400;
-    display: flex;
-    align-items: center;
-}
-
-.cart-img-product {
-    width: 90px;
-    height: 100px;
-}
-
-.cart-shipping-and-total {
-    display: flex;
-    flex-direction: column;
-    padding: 20px;
-    border-radius: 5px;
-    grid-column: span 4;
-    grid-row: span 2;
-    background-color: var(--white-color);
-    color: var(--text-color);
-    justify-content: flex-start;
-    align-items: center;
-    flex-shrink: 0;
-}
-
-.cart-shipping-and-total h1 {
-    padding-bottom: 10px;
-}
-
-.total-amount, .shipping-fee, .total-cost {
-    width: 90%;
-    display: flex;
-    justify-content: space-between;
-    font-size: 18px;
-    padding: 10px;
-    border-bottom: 1px solid black;
-}
-
-.btn-checkout {
-    margin-top: 20px;
-    width: 140px;
-    height: 36px;
-    border-color: transparent;
-    outline: none;
-    font-size: 16px;
-    border-radius: 10px;
-    padding: 8px 10px;
-    background-color: var(--button-color);
-    color: var(--white-color);
-}
-
-.btn-checkout:hover {
-    background-color: var(--hover-color);
-    cursor: pointer;
-}
-
-    /* -----Yen container__cart-payment end----- */
+} */
 
     /*--------- footer -------- */
-footer {
+/* footer {
     width: 100%;
     display: flex;
-    /* position: relative; */
+    position: relative;
     top: 2rem;
     bottom: 0;
     background-color: var(--white-color);
@@ -325,9 +178,9 @@ footer {
     width: 300px;
     margin-left: 3rem;
     margin-top: 3rem;
-}
+} */
 
-.footer-logo img {
+/* .footer-logo img {
     width: 120px;
 }
 
@@ -356,4 +209,213 @@ footer {
 .footer__column i {
     font-size: 18px;
     margin-right: 8px;
+} */
+
+
+/* Xuan Mai */
+
+@font-face{
+    font-family: Montserrat-light;
+    src: url(/assets/font/Montserrat/static/Montserrat-Light.ttf);
+}
+
+
+.sign_up-sign_in{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 100vh;
+}
+
+.container{
+    background-color: var(--bg-color);
+    border-radius: 30px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.35);
+    position: relative;
+    overflow: hidden;
+    width: 768px;
+    max-width: 100%;
+    min-height: 480px;
+}
+
+.container p{
+    font-size: 14px;
+    line-height: 20px;
+    letter-spacing: 0.3px;
+    margin: 20px 0;
+}
+
+.container span{
+    font-size: 12px;
+    padding: 10px ;
+}
+
+.container a{
+    color: #333;
+    font-size: 13px;
+    text-decoration: none;
+    margin: 15px 0 10px;
+}
+
+.container button{
+    background-color: black;
+    color: #fff;
+    font-size: 12px;
+    padding: 10px 45px;
+    border: 1px solid transparent;
+    border-radius: 8px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+.container button.hidden{
+    background-color: transparent;
+    border-color: #fff;
+}
+
+.container form{
+    background-color: var(--bg-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 0 40px;
+    height: 100%;
+}
+
+.container input{
+    background-color: white;
+    border: none;
+    margin: 8px 0;
+    padding: 10px 15px;
+    font-size: 13px;
+    border-radius: 8px;
+    width: 100%;
+    outline: none;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.35);
+}
+
+.form-container{
+    position: absolute;
+    top: 0;
+    height: 100%;
+    transition: all 0.6s ease-in-out;
+}
+
+.sign-in{
+    left: 0;
+    width: 50%;
+    z-index: 2;
+}
+
+.container.active .sign-in{
+    transform: translateX(100%);
+}
+
+.sign-up{
+    left: 0;
+    width: 50%;
+    opacity: 0;
+    z-index: 1;
+}
+
+.container.active .sign-up{
+    transform: translateX(100%);
+    opacity: 1;
+    z-index: 5;
+    animation: move 0.6s;
+}
+
+@keyframes move{
+    0%, 49.99%{
+        opacity: 0;
+        z-index: 1;
+    }
+    50%, 100%{
+        opacity: 1;
+        z-index: 5;
+    }
+}
+
+.social-icons{
+    margin: 20px 0;
+}
+
+.social-icons a{
+    border: 1px solid #ccc;
+    border-radius: 20%;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 3px;
+    width: 40px;
+    height: 40px;
+}
+
+.toggle-container{
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 50%;
+    height: 100%;
+    overflow: hidden;
+    transition: all 0.6s ease-in-out;
+    border-radius: 150px 0 0 100px;
+    z-index: 1000;
+}
+
+.container.active .toggle-container{
+    transform: translateX(-100%);
+    border-radius: 0 150px 100px 0;
+}
+
+.toggle{
+    background-color: black;
+    height: 100%;
+    color: var(--bg-color);
+    position: relative;
+    left: -100%;
+    height: 100%;
+    width: 200%;
+    transform: translateX(0);
+    transition: all 0.6s ease-in-out;
+}
+
+.container.active .toggle{
+    transform: translateX(50%);
+}
+
+.toggle-panel{
+    position: absolute;
+    width: 50%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    top: 0;
+    transform: translateX(0);
+    transition: all 0.6s ease-in-out;
+}
+
+.toggle-left{
+    transform: translateX(-200%);
+}
+
+.container.active .toggle-left{
+    transform: translateX(0);
+}
+
+.toggle-right{
+    right: 0;
+    transform: translateX(0);
+}
+
+.container.active .toggle-right{
+    transform: translateX(200%);
 }

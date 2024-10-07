@@ -419,3 +419,275 @@
 .container.active .toggle-right{
     transform: translateX(200%);
 }
+
+/*
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    background-color: rgb(249, 241, 231);
+    color: #333;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 10px;
+}
+
+header {
+    background-color: #fff;
+    border-bottom: 1px solid #e0e0e0;
+    padding: 20px 0;
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+    margin-right: 15px;
+}
+
+.dropdown{
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-btn {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 5px;
+    font-size: 16px;
+    color: #333;
+}
+
+.dropdown-btn img{
+    width: 40px;
+    height: 40px;
+    background-color: transparent; 
+    border: none; 
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    top: 100%; 
+    left: 0;
+    background-color: #fff;
+    box-shadow: 0px 8px 16px rgba(0,0,0,0.1);
+    min-width: 180px;
+    z-index: 1;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.dropdown-content a {
+    color: #333;
+    padding: 12px 15px;
+    text-decoration: none;
+    display: block;
+    border-bottom: 1px solid #ddd;
+}
+
+.dropdown-content a:hover {
+    background-color: #f1f1f1;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.search-bar {
+    flex-grow: 1;
+    margin: 0 20px;
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.search-bar input {
+    width: 100%;
+    padding: 10px;
+    padding-right: 50px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    outline: none;
+}
+
+.search-btn {
+    position: absolute;
+    right: 0px;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: #000;
+    color: #fff;
+    border: none;
+    padding: 10px;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.header-icons button {
+    background-color: #000;
+    color: #fff;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    margin-left: 10px;
+    border-radius: 4px;
+}
+
+.cart-btn{
+    background-color: #000;
+    color: #fff;
+    border: none;
+    padding: 10px;
+    width: 40px;
+    height: 40px;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-left: 20px;
+}
+
+<--Banner Section-->
+ .banner img {
+    width: 100%;
+    max-width: 600px;
+    display: block;
+    margin: 20px auto;
+    border-radius: 10px;
+}
+
+<--Product Section-->
+.product-section {
+    padding: 40px;
+    margin: 20px;
+    background-color: #fff;
+}
+
+.product-section h2 {
+    font-size: 28px;
+    margin-bottom: 50px;
+    text-align: left; 
+    font-weight: bold;
+}
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+.product-item {
+    text-align: center;
+}
+
+.product-item img {
+    max-width: 150px;
+    height: 200px;
+    border-radius: 10px;
+}
+
+.product-item p {
+    margin: 10px 0;
+    font-weight: bold;
+}
+
+.product-item .price {
+    color: red;
+}
+
+.view-more {
+    display: block;
+    margin: 20px auto;
+    padding: 10px 20px;
+    background-color: #000;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+<--Footer Section-->
+footer {
+    background-color: #fff;
+    padding: 20px 0;
+    border-top: 1px solid #e0e0e0;
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.footer-logo p {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.footer-services, .footer-contact {
+    text-align: left;
+}
+
+.footer-services p, .footer-contact p {
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.footer-services ul, .footer-contact ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-services ul li, .footer-contact ul li {
+    margin-bottom: 10px;
+}
+
+.footer-services ul li a {
+    text-decoration: none;
+    color: #333;
+}
+
+.footer-services ul li a:hover {
+    text-decoration: underline;
+}
+
+.footer-contact ul li i {
+    margin-right: 10px;
+}
+
+.footer-contact ul li {
+    display: flex;
+    align-items: center;
+    color: #333;
+}
+
+.footer-contact ul li i {
+    font-size: 16px;
+}
+
+*/
+
+/* Hoang Anh */

@@ -566,27 +566,16 @@ footer {
     transform: translateX(200%);
 }
 
-/*
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: Arial, Helvetica, sans-serif;
-}
+/*Hoang Anh__homepage*/
 
-body {
-    background-color: rgb(249, 241, 231);
-    color: #333;
-}
-
-.container {
+.container__homepage {
     max-width: 1200px;
     margin: 0 auto;
     padding: 10px;
 }
 
-header {
+header__homepage {
     background-color: #fff;
     border-bottom: 1px solid #e0e0e0;
     padding: 20px 0;
@@ -598,7 +587,7 @@ header {
     align-items: center;
 }
 
-.logo {
+.logo__homepage {
     font-size: 24px;
     font-weight: bold;
     margin-right: 15px;
@@ -714,7 +703,7 @@ header {
     margin-left: 20px;
 }
 
-<--Banner Section-->
+
  .banner img {
     width: 100%;
     max-width: 600px;
@@ -723,7 +712,7 @@ header {
     border-radius: 10px;
 }
 
-<--Product Section-->
+
 .product-section {
     padding: 40px;
     margin: 20px;
@@ -748,9 +737,9 @@ header {
 }
 
 .product-item img {
-    max-width: 150px;
+    max-width: 200px;
     height: 200px;
-    border-radius: 10px;
+    border-radius: 0px;
 }
 
 .product-item p {
@@ -773,8 +762,8 @@ header {
     cursor: pointer;
 }
 
-<--Footer Section-->
-footer {
+
+.footer_homepage {
     background-color: #fff;
     padding: 20px 0;
     border-top: 1px solid #e0e0e0;
@@ -786,11 +775,6 @@ footer {
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
-}
-
-.footer-logo p {
-    font-size: 24px;
-    font-weight: bold;
 }
 
 .footer-services, .footer-contact {
@@ -809,6 +793,7 @@ footer {
 
 .footer-services ul li, .footer-contact ul li {
     margin-bottom: 10px;
+    margin-right: 40px;
 }
 
 .footer-services ul li a {
@@ -834,6 +819,4 @@ footer {
     font-size: 16px;
 }
 
-*/
-
-/* Hoang Anh */
+/*Hoang Anh*/

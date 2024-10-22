@@ -54,6 +54,46 @@
 </div> 
         <!--header-->
         <header>
+            <div class="container__homepage header-container">
+                <div class="logo__homepage">
+                    <img src="/assets/img/AMYTH.svg" alt="">
+                </div>
+    
+            <div class="logo-dropdown">
+                <div class="dropdown"> 
+                    <button class="dropdown-btn"> 
+                    <i class="fas fa-bars"></i>
+                    </button>
+                    <div class="dropdown-content">
+                        <a href="#">Văn Học Trong Nước</a>
+                        <a href="#">Văn Học Nước Ngoài</a>
+                        <a href="#">Sách Kinh Tế</a>
+                        <a href="#">Sách Thiếu Nhi</a>
+                        <a href="#">Sách Phát Triển Bản Thân</a>
+                        <a href="#">Sách Giáo Khoa - Giáo Trình</a>
+                        <a href="#">Sách Học Ngoại Ngữ</a>
+                        <a href="#">Manga, Comic</a>
+                    </div>
+                </div>
+            </div>
+    
+                <div class="search-bar">
+                    <input type="text" placeholder="Tìm kiếm...">
+                    <button class="search-btn">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </div>
+    
+                <div class="header-icons">
+                    <button class="cart-btn">
+                        <i class="fas fa-shopping-cart"></i>
+                    </button>
+                    <button class="login-btn">Đăng nhập</button>
+                    <button class="signup-btn">Đăng ký</button>
+                </div>
+            </div>
+        </header>
+        <!-- <header>
             <nav class="header__navbar">   
                 <div class="header__navbar-logo">
                     <img class="header__navbar-logo-img" src="../../assets/img/AMYTH.svg">
@@ -72,9 +112,74 @@
                     <li class="header__navbar-item"><button class="header__navbar-item-login-btn">Đăng Ký</button></li>
                 </ul>
             </nav>
-        </header>
+        </header> -->
         <!-- content containter -->
         <div class="main">
+             <!--Homepage-->
+        <!--Banner-->
+            <section class="banner">
+                <img src="https://via.placeholder.com/900x300" alt="banner">
+            </section>
+
+            <!-- Best Seller Section -->
+            <section class="product-section">
+                <div class="container__homepage">
+                <h2>Best Seller</h2>
+                <div class="product-grid">
+                    <div class="product-item">
+                        <img src="/assets/img/book/mangacomic/frieren_phap_su_tien_tang_ban_thuong_bia_tap_12.webp">
+                        <p>Frieren - Pháp sư tiễn táng</p>
+                        <span class="price">119.000 đ</span>
+                    </div>
+                    <div class="product-item">
+                        <img src="/assets/img/book/kinhte/nenkinhtetudo.webp" alt="Product 3">
+                        <p>Nền kinh tế tự do</p>
+                        <span class="price">119.000 đ</span>
+                    </div>
+                    <div class="product-item">
+                        <img src="/assets/img/book/mangacomic/spyxfamily_bia_tap_10.webp" alt="Product 3">
+                        <p>Spy x Family </p>
+                        <span class="price">119.000 đ</span>
+                    </div>
+                    <div class="product-item">
+                        <img src="/assets/img/book/mangacomic/haikyutap41.webp" alt="Product 4">
+                        <p>Haikyuu</p>
+                        <span class="price">119.000 đ</span>
+                    </div>
+                </div>
+                <button class="view-more">Xem Thêm</button>
+                </div>
+            </section>
+
+            <!-- San Pham Noi Bat -->
+            <section class="product-section">
+                <div class="container__homepage">
+                    <h2>Sản Phẩm Nổi Bật</h2>
+                    <div class="product-grid">
+                        <div class="product-item">
+                            <img src="/assets/img/book/vanhocnuocngoai/bongtoigiuachungta.webp">
+                            <p>Bóng tối giữa chúng ta</p>
+                            <span class="price">119.000 đ</span>
+                        </div>
+                        <div class="product-item">
+                            <img src="/assets/img/book/phattrienbanthan/camnangcanva.webp">
+                            <p>Cẩm nang Canva</p>
+                            <span class="price">119.000 đ</span>
+                        </div>
+                        <div class="product-item">
+                            <img src="/assets/img/book/vanhocnuocngoai/truongca.png">
+                            <p>Trường ca Achilles</p>
+                            <span class="price">119.000 đ</span>
+                        </div>
+                        <div class="product-item">
+                            <img src="/assets/img/book/vanhoctrongnuoc/noibuonchientranh.webp">
+                            <p>Nỗi buồn chiến tranh.</p>
+                            <span class="price">119.000 đ</span>
+                        </div>
+                    </div>
+                    <button class="view-more">Xem thêm</button>
+                </div>
+            </section>
             <!-- -----Yen-container__cart-payment----- -->
             <div class="container__cart-payment">
                 <div class="cart-info">
@@ -85,7 +190,7 @@
                                 <p>Nguyễn Vân Anh (0102030405)</p>
                                 <p>123 Đường ABC, Phường XYZ, Quận 1, TP.HCM</p>
                             </div>                   
-                            <button class="change-address-button">Thay đổi</button>
+                            <button id="change-address">Thay đổi</button>
                         </div> 
                     </div>
 
@@ -132,10 +237,101 @@
                     <div class="total-cost">
                         <span>Tổng tiền: </span><span>230.000 đ</span>
                     </div>
-                    <button class="btn-checkout">Thanh Toán</button>
+                    <button class="btn btn-checkout" id ="btn-checkout">Thanh Toán</button>
                 </div>
             </div>
-            <!-- -----Yen-container__cart-payment end----- -->
+
+            <!-- shipping address modal -->
+            <div class="shipping-address-popup">
+                <div class="overlay" id="shipping-address-overlay">
+                    <div class="shipping-address-content" id ="shipping-address-content">
+                        <h1>Địa Chỉ Của Tôi</h1>
+                        <div id="address-list"><ul>
+                        </ul></div>
+                        <div class="shipping-address-btns">
+                            <button class ="btn" id="add-address">Thêm địa chỉ</button>
+                            <button class ="btn" id="confirm-address">Xác nhận</button>
+                        </div>
+                    </div>  
+                </div>
+            </div>
+            <!-- add address modal -->
+            <div class="add-address-popup">
+                <div class="overlay" id="add-address-overlay">
+                    <div class="add-address-content" id="add-address-content">
+                        <h1>Thêm Địa Chỉ</h1>
+                        <form>
+                            <div class="input-address-info">
+                                <label for="userName">Tên người nhận</label>
+                                <input type="text" id="addUserName" name="userName" required>
+                            </div>
+                            <div class="input-address-info">
+                                <label for="phoneNumber">Số điện thoại</label>
+                                <input type="tel" id="addPhoneNumber" name="phoneNumber" required>
+                            </div>
+                            <div class="input-address-info">
+                                <label for="shippingAddress">Địa chỉ nhận hàng</label>
+                                <input id="addShippingAddress" name="shippingAddress" required></input>
+                            </div>
+                            <div class="setDefault">
+                                <input type="checkbox" id="default-address">
+                                <label for="default-address">Đặt làm địa chỉ mặc định</label>
+                            </div>
+                            <div class="add-address-btns">
+                                <button type="submit" class = "btn" id="confirm-add-address">Xác nhận</button>
+                                <button type="button" class= "btn" id="cancel-add-address">Hủy bỏ</button>
+                            </div>
+                          </form>
+                    </div>
+                </div>
+            </div>
+            <!-- edit address modal -->
+            <div class="edit-address-popup">
+                <!-- Modal chỉnh sửa địa chỉ -->
+                <div class="overlay" id="edit-address-overlay">
+                    <div class="edit-address-content" id ="edit-address-content">
+                        <h1>Chỉnh sửa địa chỉ</h1>
+                        <form id="edit-address-form">
+                            <div class="edit-address">
+                                <label for="userName">Tên người nhận</label>
+                                <input type="text" id="editUserName" name="userName" required>
+                            </div>
+                            <div class="edit-address">
+                                <label for="phoneNumber">Số điện thoại</label>
+                                <input type="tel" id="editPhoneNumber" name="phoneNumber" required>
+                            </div>
+                            <div class="edit-address">
+                                <label for="shippingAddress">Địa chỉ nhận hàng</label>
+                                <input id="editShippingAddress" name="shippingAddress" required></input>
+                            </div>
+                            <div class="edit-address-btns">
+                                <button type="submit" class = "btn" id="save-edit-address">Lưu</button>
+                                <button type="button" class = "btn" id="cancel-edit-address">Hủy</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+            <!-- order successfully-->
+            <div class="order-successfully-popup">
+                <div class="overlay" id="order-successfully-overlay"> 
+                    <div class="order-successfully-content">
+                        <div class="circle-container">
+                            <div class="circle light">
+                                <div class="circle medium">
+                                    <div class="circle dark"><i class="fa-solid fa-basket-shopping"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <h1>Đơn Hàng Của Bạn Đã Hoàn Tất</h1>
+                        <button class="btn" id="view-order-btn">Kiểm Tra Đơn Hàng</button>
+                        <button class="btn-white" id="return-homepage-btn">Quay Về Trang Chủ</button>
+                    </div>
+                </div>
+            </div>
+            <!-- -----Yen end----- -->
         </div>
         <!-- footer -->
         <footer>
@@ -164,123 +360,13 @@
         </div>
 
 
-        <!--Homepage-->
-     <!-- Header -->
-     <header>
-        <div class="container__homepage header-container">
-            <div class="logo__homepage">
-                <img src="/assets/img/AMYTH.svg" alt="">
-            </div>
-
-        <div class="logo-dropdown">
-            <div class="dropdown"> 
-                <button class="dropdown-btn"> 
-                <i class="fas fa-bars"></i>
-                </button>
-                <div class="dropdown-content">
-                    <a href="#">Văn Học Trong Nước</a>
-                    <a href="#">Văn Học Nước Ngoài</a>
-                    <a href="#">Sách Kinh Tế</a>
-                    <a href="#">Sách Thiếu Nhi</a>
-                    <a href="#">Sách Phát Triển Bản Thân</a>
-                    <a href="#">Sách Giáo Khoa - Giáo Trình</a>
-                    <a href="#">Sách Học Ngoại Ngữ</a>
-                    <a href="#">Manga, Comic</a>
-                </div>
-            </div>
-        </div>
-
-            <div class="search-bar">
-                <input type="text" placeholder="Tìm kiếm...">
-                <button class="search-btn">
-                    <i class="fas fa-search"></i>
-                </button>
-            </div>
-
-            <div class="header-icons">
-                <button class="cart-btn">
-                    <i class="fas fa-shopping-cart"></i>
-                </button>
-                <button class="login-btn">Đăng nhập</button>
-                <button class="signup-btn">Đăng ký</button>
-            </div>
-        </div>
-    </header>
-
-    <!--Banner-->
-    <section class="banner">
-        <img src="https://via.placeholder.com/900x300" alt="banner">
-    </section>
-
-    <!-- Best Seller Section -->
-    <section class="product-section">
-        <div class="container__homepage">
-          <h2>Best Seller</h2>
-          <div class="product-grid">
-            <div class="product-item">
-                <img src="/assets/img/book/mangacomic/frieren_phap_su_tien_tang_ban_thuong_bia_tap_12.webp">
-                <p>Frieren - Pháp sư tiễn táng</p>
-                <span class="price">119.000 đ</span>
-            </div>
-            <div class="product-item">
-                <img src="/assets/img/book/kinhte/nenkinhtetudo.webp" alt="Product 3">
-                <p>Nền kinh tế tự do</p>
-                <span class="price">119.000 đ</span>
-            </div>
-            <div class="product-item">
-                <img src="/assets/img/book/mangacomic/spyxfamily_bia_tap_10.webp" alt="Product 3">
-                <p>Spy x Family </p>
-                <span class="price">119.000 đ</span>
-            </div>
-            <div class="product-item">
-                <img src="/assets/img/book/mangacomic/haikyutap41.webp" alt="Product 4">
-                <p>Haikyuu</p>
-                <span class="price">119.000 đ</span>
-            </div>
-          </div>
-          <button class="view-more">Xem Thêm</button>
-        </div>
-    </section>
-
-    <!-- San Pham Noi Bat -->
-    <section class="product-section">
-        <div class="container__homepage">
-            <h2>Sản Phẩm Nổi Bật</h2>
-            <div class="product-grid">
-                <div class="product-item">
-                    <img src="/assets/img/book/vanhocnuocngoai/bongtoigiuachungta.webp">
-                    <p>Bóng tối giữa chúng ta</p>
-                    <span class="price">119.000 đ</span>
-                </div>
-                <div class="product-item">
-                    <img src="/assets/img/book/phattrienbanthan/camnangcanva.webp">
-                    <p>Cẩm nang Canva</p>
-                    <span class="price">119.000 đ</span>
-                </div>
-                <div class="product-item">
-                    <img src="/assets/img/book/vanhocnuocngoai/truongca.png">
-                    <p>Trường ca Achilles</p>
-                    <span class="price">119.000 đ</span>
-                </div>
-                <div class="product-item">
-                    <img src="/assets/img/book/vanhoctrongnuoc/noibuonchientranh.webp">
-                    <p>Nỗi buồn chiến tranh.</p>
-                    <span class="price">119.000 đ</span>
-                </div>
-            </div>
-            <button class="view-more">Xem thêm</button>
-        </div>
-    </section>
-
     <!-- Footer -->
-    <footer class="footer__homepage">
+    <!-- <footer class="footer__homepage">
         <div class="container__homepage footer-container">
-            <!-- Logo Section -->
             <div class="footer-logo">
                 <img src="/assets/img/AMYTH.svg">
             </div>
 
-            <!-- Services Section -->
             <div class="footer-services">
                 <p>Dịch vụ</p>
                 <ul>
@@ -290,7 +376,6 @@
                 </ul>
             </div>
 
-            <!-- Contact Section -->
             <div class="footer-contact">
                 <p>Thông tin liên hệ</p>
                 <ul>
@@ -300,7 +385,7 @@
                 </ul>
             </div>
         </div>
-    </footer>
+    </footer> -->
 
 </body>
 </html>

@@ -1,6 +1,7 @@
 :root {
     --bg-color: rgb(249, 241, 231);
     --white-color: white;
+    --blue-color: rgb(84, 84, 230);
     --text-color: rgb(20, 18, 18);
     --shadow-color: rgba(20, 18, 18, 0,6);
     --button-color: rgb(20, 18, 18);
@@ -169,11 +170,14 @@ header {
     align-content: center;
 }
 
-    /* -----Yen container__cart-payment start----- */
+    /* -----Yen  start----- */
+
+    /* container__cart-payment */
 
 .container__cart-payment {
     min-height: auto;
     display: grid;
+    /* display: none; */
     grid-template-columns: repeat(12, 1fr);
     grid-template-rows: 1fr 1fr 1fr 1fr;
     gap: 20px;
@@ -290,17 +294,22 @@ header {
     border-bottom: 1px solid black;
 }
 
-.btn-checkout {
-    margin-top: 20px;
-    width: 140px;
+.btn {
     height: 36px;
+    margin-top: 10px;
     border-color: transparent;
     outline: none;
     font-size: 16px;
     border-radius: 10px;
     padding: 8px 10px;
     background-color: var(--button-color);
-    color: var(--white-color);
+    color: var(--white-color); 
+    cursor: pointer;
+}
+
+.btn-checkout{
+    width: 50%;
+    height: 36px;
 }
 
 .btn-checkout:hover {
@@ -308,7 +317,258 @@ header {
     cursor: pointer;
 }
 
-    /* -----Yen container__cart-payment end----- */
+    /* Start: show address */
+#address-list {
+    margin-bottom: 10px;
+}
+
+.overlay {
+    display: none; /* none -> flex */
+    position: absolute; 
+    z-index: 10000;
+    align-items: center;
+    justify-content: center;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(0,0,0,0.4); 
+}
+
+.shipping-address-content{
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    position: absolute;
+    background-color: var(--white-color);
+    padding: 20px;
+    width: 50vw;
+    border-radius: 10px;
+    z-index: 10001;
+}
+
+.shipping-address-content h1{
+    padding-bottom: 10px;
+}
+
+li .address-item {
+    border-radius: 8px;
+    background-color: var(--white-color);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); 
+}
+
+.address-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    margin-bottom: 5px;
+}
+
+.address-item p{
+    font-size: 16px;
+}
+
+.address-item .username {
+    font-weight: 700;
+}
+
+.address-item-choice {
+    display: flex;
+    align-items: center;
+    height: 8rem;
+    justify-content: space-between;
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 10px;
+    flex: 1;
+}
+
+.address-item-info {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.shipping-address-btns {
+    display: flex;
+    justify-content: space-between;
+}
+
+.address-item-btns {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.edit-address-btn, .delete-address-btn {
+    height: 36px;
+    border-color: transparent;
+    outline: none;
+    font-size: 16px;
+    border-radius: 10px;
+    padding: 8px 10px;
+    background-color: #fff;
+    color: var(--blue-color); 
+    cursor: pointer;
+}
+    /* End: show address */
+
+    /* Start: add address*/
+#add-address-overlay {
+    display: none;
+}
+.add-address-content{
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    position: absolute;
+    background-color: var(--white-color);
+    padding: 20px;
+    width: 50vw;
+    border-radius: 10px;
+    z-index: 10001;
+}
+
+.add-address-btns {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+}
+
+.input-address-info {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    padding: 6px;
+}
+
+.add-address-content label{
+    font-size: 16px;
+}
+
+.add-address-content input{
+    font-size: 18px;
+    height: 40px;
+}
+
+input[type="checkbox"],
+label[for="default-address"] {
+    display: inline-block;
+    vertical-align: middle;
+    margin: 0 5px;
+}
+    /* End: add address*/
+    /* Start: edit address*/
+#edit-address-overlay {
+    display: none;
+}
+.edit-address-content{
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    position: absolute;
+    background-color: var(--white-color);
+    padding: 20px;
+    width: 50vw;
+    border-radius: 10px;
+    z-index: 10001;
+}
+
+.edit-address-btns {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+}
+
+.edit-address {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    padding: 6px;
+}
+
+.edit-address-content label{
+    font-size: 16px;
+}
+
+.edit-address-content input{
+    font-size: 18px;
+    height: 40px;
+}
+    /* End: edit address*/
+    /* Start: order successfully*/
+#order-successfully-overlay{
+    display: flex;
+}
+
+.order-successfully-content{
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    position: absolute;
+    background-color: var(--white-color);
+    padding: 20px;
+    width: 25vw;
+    border-radius: 10px;
+    z-index: 10001;
+}
+
+.order-successfully-content h1 {
+    padding: 0 0 10px;
+}
+
+.btn-white {
+    height: 36px;
+    margin-top: 10px;
+    border: 1px solid var(--button-color);
+    outline: none;
+    font-size: 16px;
+    border-radius: 10px;
+    padding: 8px 10px;
+    background-color: var(--white-color);
+    color: var(--text-color); 
+    cursor: pointer;
+}
+
+.circle-container {
+    display:flex;
+    justify-content: center;
+    margin: 20px;
+}
+
+.circle {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+}
+
+.light {
+    width: 108px; 
+    height: 108px;
+    background-color: rgba(182, 182, 182, 0.2); /* Light blue */
+}
+
+.medium {
+    width: 86px; 
+    height: 86px;
+    background-color: rgba(99, 99, 99, 0.5); /* Medium blue */
+}
+
+.dark {
+    width: 64px; 
+    height: 64px;
+    background-color: rgba(0, 0, 0, 0.8); /* Dark blue */
+}
+
+.fa-basket-shopping {
+    font-size: 24px;
+    color: white; /* Adjust icon color as needed */
+}
+
+    /* End: order successfully*/
+
+    /* -----Yen end----- */
 
     /*--------- footer -------- */
 footer {

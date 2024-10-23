@@ -827,7 +827,7 @@ footer {
 }
 
 
-/*Hoang Anh__homepage*/
+/*Hoang Anh*/
 
 .container__homepage {
     max-width: 1200px;
@@ -835,16 +835,12 @@ footer {
     padding: 10px;
 }
 
-header__homepage {
-    background-color: #fff;
-    border-bottom: 1px solid #e0e0e0;
-    padding: 20px 0;
-}
-
 .header-container {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    width: 100%;
+    position: relative;
 }
 
 .logo__homepage {
@@ -937,6 +933,11 @@ header__homepage {
     justify-content: center;
     border-radius: 4px;
     cursor: pointer;
+    transition: background-color 0.3s ease; 
+}
+
+.search-btn:hover{
+    background-color: #333;
 }
 
 .header-icons button {
@@ -947,7 +948,9 @@ header__homepage {
     cursor: pointer;
     margin-left: 10px;
     border-radius: 4px;
+    transition: background-color 0.3s ease; 
 }
+
 
 .cart-btn{
     background-color: #000;
@@ -963,6 +966,17 @@ header__homepage {
     margin-left: 20px;
 }
 
+.cart-btn:hover{
+    background-color: #333;
+}
+
+.login-btn:hover{
+    background-color: #333;
+}
+
+.signup-btn:hover{
+    background-color: #333;
+}
 
  .banner img {
     width: 100%;
@@ -975,40 +989,52 @@ header__homepage {
 
 .product-section {
     padding: 40px;
-    margin: 20px;
+    margin: 30px auto;
     background-color: #fff;
+    border-radius: 5px;
+    width:calc(80% - 0px);
+    position: relative;
 }
 
 .product-section h2 {
     font-size: 28px;
-    margin-bottom: 50px;
+    margin-bottom: 40px;
     text-align: left; 
     font-weight: bold;
 }
 
 .product-grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
     gap: 20px;
 }
 
 .product-item {
     text-align: center;
+    transition: background-color 0.3s ease; 
+    border: 1px solid #fff;
+}
+
+.product-item:hover{
+    border: solid 1px rgb(242, 242, 242);
 }
 
 .product-item img {
     max-width: 200px;
     height: 200px;
     border-radius: 0px;
+    margin: 10px;
 }
 
 .product-item p {
     margin: 10px 0;
     font-weight: bold;
+    font-size: 14px;
 }
 
 .product-item .price {
     color: red;
+    font-size: 12px;
 }
 
 .view-more {
@@ -1020,63 +1046,72 @@ header__homepage {
     border: none;
     border-radius: 4px;
     cursor: pointer;
+    transition: background-color 0.3s ease; 
 }
 
-
-.footer_homepage {
-    background-color: #fff;
-    padding: 20px 0;
-    border-top: 1px solid #e0e0e0;
+.view-more:hover {
+    background-color: #333; 
 }
 
-.footer-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-}
-
-.footer-services, .footer-contact {
-    text-align: left;
-}
-
-.footer-services p, .footer-contact p {
-    font-weight: bold;
-    margin-bottom: 10px;
-}
-
-.footer-services ul, .footer-contact ul {
-    list-style: none;
-    padding: 0;
-}
-
-.footer-services ul li, .footer-contact ul li {
-    margin-bottom: 10px;
-    margin-right: 40px;
-}
-
-.footer-services ul li a {
-    text-decoration: none;
-    color: #333;
-}
-
-.footer-services ul li a:hover {
-    text-decoration: underline;
-}
-
-.footer-contact ul li i {
-    margin-right: 10px;
-}
-
-.footer-contact ul li {
+/* Breadcrumb container */
+.breadcrumb {
     display: flex;
     align-items: center;
-    color: #333;
+    font-size: 14px;
+    font-family: Arial, sans-serif;
+    margin-top: 10px;
+    padding: 0 140px;
 }
 
-.footer-contact ul li i {
-    font-size: 16px;
+/* Links */
+.breadcrumb a {
+    text-decoration: none;
+    color: #333; 
+    margin: 0 5px;
+    transition: color 0.3s ease;
 }
+
+/* Separator */
+.breadcrumb span {
+    color: #aaa; 
+    margin: 0 5px;
+}
+
+/* Active Page */
+.breadcrumb a.active {
+    color: #aaa; 
+    pointer-events: none; 
+}
+
+/* Hover effect */
+.breadcrumb a:hover {
+    color: #007bff; 
+}
+/* Pagination */
+.pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.pagination a{
+    color: black;
+    padding: 8px 16px;
+    text-decoration: none;
+    transition: background-color .3s;
+    border-radius: 10px;
+}
+
+.pagination a.active {
+    background-color: #333;
+    color: white;
+    border-radius: 10px;
+}
+
+.pagination a:hover{
+    background-color: #eee;
+    color: #333;
+    border-color: #ccc;
+  }
 
 /*Hoang Anh*/

@@ -498,7 +498,7 @@ label[for="default-address"] {
     /* End: edit address*/
     /* Start: order successfully*/
 #order-successfully-overlay{
-    display: flex;
+    display: none;
 }
 
 .order-successfully-content{

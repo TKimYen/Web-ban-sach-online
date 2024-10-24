@@ -1,0 +1,463 @@
+:root {
+    --bg-color: rgb(249, 241, 231);
+    --white-color: white;
+    --text-color: rgb(20, 18, 18);
+    --shadow-color: rgba(20, 18, 18, 0,6);
+    --button-color: rgb(20, 18, 18);
+    --hover-color: rgba(82, 79, 79, 0.8);
+    --price-color: rgb(238, 67, 67);
+    --white-hover-color: rgb(242, 242, 242);
+}
+
+/* * {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-decoration: none;
+    box-sizing: border-box;
+} */
+
+html {
+    font-size: 62.5%;
+    font-family: 'Roboto', sans-serif;
+    background: var(--bg-color);
+}
+
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+    /*--------- header -------- */
+header {
+    width: 100%;
+    height: 80px;
+    background-color: var(--white-color);
+}
+
+.header__navbar {
+    width: 1250px;
+    height: 100%;
+    margin: auto;
+}
+
+.header__navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header__navbar-logo {
+    display: block;
+    float: left;
+    color: var(--text-color);
+    width: 200px;
+}
+
+.header__navbar-logo-img {
+    width: 120px;
+}
+
+.header__navbar-search{
+    flex: 1;
+    display: flex;
+    height: 46px;
+    border: var(--button-color) 1px solid;
+    border-radius: 10px;
+    background-color: var(--white-color);
+}
+
+.header__navbar-search-input{
+    flex: 1;
+    height: 100%;
+    padding: 0 16px;
+    border: none;
+    outline:none;
+    border-radius: 10px;
+    font-size: 1.6rem;
+    color: var(--text-color);
+}
+
+.header__navbar-search-btn{
+    background-color: var(--button-color);
+    border:none;
+    height: 42px;
+    width: 42px;
+    border-radius: 10px;
+    margin: 2px 2px;
+}
+.header__navbar-search-btn:hover {
+    background-color: var(--hover-color);
+    cursor: pointer;
+}
+
+.header__navbar-search-btn-icon {
+    font-size: 1.6rem;
+    color: var(--white-color);
+}
+
+.header__navbar-cart {
+    width: 100px;
+}
+
+.header__navbar-user{
+    
+   
+}
+
+.header__navbar-cart-icon {
+    margin-left: 16px;
+    font-size: 2.5rem;
+    color: var(--button-color);
+}
+
+.header__navbar-cart-icon:hover {
+    color: var(--hover-color);
+    cursor: pointer;
+}
+
+.header__navbar-item {
+    width: 120px;
+    height: 40px;
+    font-size: 1.6rem;
+    display: inline-block;
+    margin: 0 10px;
+}
+
+.header__navbar-item-signup-btn {
+    width: 100%;
+    height: 100%;
+    /* border: none; */
+    border: 2px var(--button-color) solid;
+    outline: none;
+    font-size: 1.6rem;
+    border-radius: 10px;
+    padding: 8px;
+    background-color: var(--white-color);
+    color: var(--button-color);
+}
+
+.header__navbar-item-signup-btn:hover {
+    color: var(--hover-color);
+    border: 2px var(--hover-color) solid;
+    cursor: pointer;
+}
+
+.header__navbar-item-login-btn {
+    width: 100%;
+    height: 100%;
+    /* border: none; */
+    border-color: transparent;
+    outline: none;
+    font-size: 1.6rem;
+    border-radius: 10px;
+    padding: 8px 12px;
+    background-color: var(--button-color);
+    color: var(--white-color);
+}
+
+.header__navbar-item-login-btn:hover {
+    /* color: var(--white-color); */
+    /* border-color: transparent; */
+    background-color: var(--hover-color);
+    cursor: pointer;
+}
+
+    /*--------- container -------- */
+.main {
+    flex: 1;
+    width: 80%;
+    justify-items: center;
+    align-content: center;
+}
+    /*--------- footer -------- */
+footer {
+    width: 100%;
+    display: flex;
+    /* position: relative; */
+    top: 2rem;
+    bottom: 0;
+    background-color: var(--white-color);
+    justify-content: center;
+    color: var(--text-color);
+}
+
+.footer-logo {
+    width: 300px;
+    margin-left: 3rem;
+    margin-top: 3rem;
+}
+
+.footer-logo img {
+    width: 120px;
+}
+
+.footer__column {
+    width: 450px;
+    margin: 3rem 0;
+}
+
+.footer__column h3 {
+    margin: 1rem 0;
+    font-size: 20px;
+}
+
+.footer__column a,
+.footer__column li {
+    text-decoration: none;
+    color: var(--text-color);
+    font-size: 16px;
+    margin-bottom: 6px;
+}
+
+.footer__column a:hover {
+    color: var(--hover-color);
+}
+
+.footer__column i {
+    font-size: 18px;
+    margin-right: 8px;
+}
+/* Tổng quan layout */
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: rgb(249, 241, 231); /* Màu da cho nền trang */
+    /* margin: 0; */
+    padding: 0;
+
+}
+
+.account-container {
+    max-width: 1200px;
+    margin : auto;
+    background-color: rgb(249, 241, 231);
+    padding: 20px;
+    border-radius: 10px; 
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    text-align: left;
+    color: #333;
+    margin-left: 28px;
+    font-size: 32px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+h2{
+    font-size: 25px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+select {
+    width: 100%; /* Đặt độ dài cho select */
+    height: 40px; /* Đặt chiều cao cho select */
+    padding: 10px; /* Đặt padding để tạo khoảng cách cho chữ */
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px; /* Thay đổi kích thước chữ */
+    margin-top: 7px;
+    margin-bottom: 7px;
+}
+/* Bố cục 2 div chính: Menu và Form */
+.account-content {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+/* Div bên trái: Menu */
+.menu-container {
+    width: 250px;
+    background-color: #fff; /* Màu trắng cho nền thẻ div */
+    /* padding: 20px; */
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.05); /* Thêm bóng nhẹ */
+    display: inline-block; 
+}
+
+.menu {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.menu .btn {
+    font-size: 16px;  
+    font-weight: 500;
+    width: 250px;
+    padding: 15px;
+    background-color: #ffffff;
+    color: #000000;
+    border: none;
+    /* text-align: left; */
+    cursor: pointer;
+    border-radius: 10px; 
+}
+
+.menu .btn:hover {
+    background-color: #000000;
+    color: #ffffff;
+}
+
+/* Div bên phải: Form nhập thông tin */
+.form-container {
+    flex-grow: 1;
+    margin-left: 20px;
+    background-color: #fff; /* Màu trắng cho nền thẻ div */
+    padding: 20px;
+    border-radius: 8px; 
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.05); /* Thêm bóng nhẹ */
+    display: block;
+}
+/* form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 20px;
+} */
+.form-container label {
+    grid-column: 1 / 3;
+    font-weight: normal;
+    margin-bottom: 10px;
+    font-size: 16px;
+}
+.form-container input[type="text"], input[type="email"], input[type="tel"], input[type="password"] {
+    grid-column: 1 / 3;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 100%;
+    box-sizing: border-box;
+    margin-bottom: 10px;/* Giảm khoảng cách dưới input */
+    margin-top: 5px;
+}
+.radio-group {
+    /* display: flex; */
+    align-items: center;
+    grid-column: 1 / 3;
+    margin-bottom: 7px;
+}
+.radio-group input {
+    margin-right: 5px;
+}
+.radio-group label {
+    margin-right: 20px;
+}
+/* Checkbox */
+input[type="checkbox"] {
+    margin-right: 10px;
+    margin-bottom: 10px;
+}
+.save-button-container {
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+    
+}
+.save-button {
+    padding: 15px;
+    background-color: #000;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    cursor: pointer; /* Con trỏ chuột khi hover */
+    width: 140px; 
+}
+.save-button:hover {
+    background-color: #635e5e;
+}
+
+/* Sổ địa chỉ */
+.sodiachi {
+    flex-grow: 1;
+    margin-left: 20px;
+    background-color: #fff; /* Màu trắng cho nền thẻ div */
+    padding: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.05); /* Thêm bóng nhẹ */
+    display: block;
+}
+
+.sodiachi label {
+    font-size: 1.4rem;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.sodiachi input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid var(--text-color);
+    border-radius: 5px;
+}
+
+.sodiachi-info{
+    display: flex;
+    justify-content: space-between;
+    background-color: var(--white-color);
+    padding: 10px;
+    border-radius: 5px;
+    border-bottom: 1px solid rgb(123, 120, 120);
+}
+.sodiachi-info button{
+    /* margin-bottom: 7px; */
+    margin-top: 20px;
+    width: 70px;
+}
+.sizechu {
+    font-size: 15px ;
+}
+
+/* Thêm địa chỉ */
+.themdiachi{
+    border-radius: 10px;
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    /* width: 40%; */
+    /* height:20%; */
+    padding: 5px;
+    background-color: white;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    z-index: 1000;
+}
+/* Làm mờ nền khi popup hiện */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 500;
+    display: none;
+}
+.themdiachi-container {
+    display: flex;
+    justify-content: right;
+    align-items: right; 
+    
+}
+.themdiachi-button {
+    padding: 12px;
+    background-color: #000;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 13px;
+    cursor: pointer; /* Con trỏ chuột khi hover */
+    width: 120px; 
+    margin-right:4px ;
+}
+.themdiachi-button:hover {
+    background-color: #635e5e;
+}

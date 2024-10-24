@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hiệu Sách Online</title>
+    <link rel="stylesheet" href="./tuan5.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/264e375a82.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <header>
+        <nav class="header__navbar">   
+            <div class="header__navbar-logo">
+                <img class="header__navbar-logo-img" src="AMYTH.svg">
+            </div>
+            <div class="header__navbar-search">
+                <input type="text" class="header__navbar-search-input" placeholder="Tìm kiếm sản phẩm...">
+                <button class="header__navbar-search-btn">
+                    <i class="header__navbar-search-btn-icon fa-solid fa-magnifying-glass"></i>
+                </button>
+            </div>
+            <div class="header__navbar-cart">
+                <i class="header__navbar-cart-icon fa-solid fa-cart-shopping"></i>
+            </div>
+            <div class="header__navbar-user" >
+                <i class="header__navbar-cart-icon fa-solid fa-user "></i>
+            </div>
+            <ul class="header__navbar-list">
+                <li class="header__navbar-item"><button class="header__navbar-item-signup-btn">Đăng Xuất</button></li>
+                
+            </ul>
+           
+        </nav>
+    </header>
+    <!-- end header -->
+    <!-- Body chính -->
+    <div class="account-container">
+        <h1>Tài Khoản</h1>
+        <br>
+        <div class="account-content">
+            <!-- Div bên trái -->
+            <div class="menu-container">
+                <ul class="menu">
+                    <li><button class="btn">Thông tin cá nhân</button></li>
+                    <li><button class="btn">Số địa chỉ</button></li>
+                    <li><button class="btn">Đơn hàng</button></li>
+                    <li><button class="btn">Thông báo</button></li>
+                </ul>
+            </div>
+
+            <!-- Div bên phải -->
+            <div class="form-container">       
+                <label for="ho">Họ</label>
+                <input type="text" id="ho" name="ho" placeholder="Nhập họ...">
+                <label for="ten">Tên</label>
+                <input type="text" id="ten" name="ten" placeholder="Nhập tên...">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" placeholder="Nhập email...">
+                <label for="phone">Số điện thoại</label>
+                <input type="tel" id="phone" name="phone" placeholder="Nhập số điện thoại...">
+                <!-- <label>Giới tính</label> -->
+                <div class="radio-group">
+                    <input type="radio" id="nam" name="gender" value="nam">
+                    <label for="nam">Nam</label>
+                    <input type="radio" id="nu" name="gender" value="nu">
+                    <label for="nu">Nữ</label>
+                </div>
+                <div>
+                    <label for="change-pass"><input type="checkbox" id="change-pass" name="change-pass">Đổi mật khẩu</label>
+                </div>    
+                <label for="current-password">Mật khẩu hiện tại</label>
+                <input type="password" id="current-password" name="current-password" placeholder="Nhập mật khẩu hiện tại...">
+                <label for="new-password">Mật khẩu mới</label>
+                <input type="password" id="new-password" name="new-password" placeholder="Nhập mật khẩu mới...">
+                <label for="confirm-password">Nhập lại mật khẩu</label>
+                <input type="password" id="confirm-password" name="confirm-password" placeholder="Nhập lại mật khẩu mới...">
+                <div class = "save-button-container">
+                    <button class="save-button">Lưu thay đổi</button>
+                </div>            
+            </div>
+
+            <!--  div sổ địa chỉ -->
+            <div class="sodiachi">
+                <div class="sodiachi-info">
+                    <div class="sizechu">
+                        <h3>Vân Anh</h3>
+                        <p>273, Đ.An Dương Vương, Phường 3, Quận 5, Hồ Chí Minh</p>
+                        <p>1234567890</p>
+                    </div>
+                    <div>
+                        <button class="btn"><i class="fas fa-edit"></i> Edit </button>
+                        <br>      
+                        <button class="btn"><i class="fas fa-trash"></i> Delete</button>
+                    </div>
+                </div>
+                <div class="sodiachi-info">
+                    <div class="sizechu">
+                        <h3>Vân Anh</h3>
+                        <p>4, Đ.Tôn Đức Thắng, Bến Nghé, Quận 1, Hồ Chí Minh</p>
+                        <p>1234567890</p>
+                    </div>
+                    <div>
+                        <button class="btn"><i class="fas fa-edit"></i> Edit</button>
+                        <br>      
+                        <button class="btn"><i class="fas fa-trash"></i> Delete</button>
+                    </div>
+                </div>
+                <div class="sodiachi-info">
+                    <div class="sizechu">
+                        <h3>Hoàng Anh</h3>
+                        <p>273, Đ.An Dương Vương, Phường 3, Quận 5, Hồ Chí Minh</p>
+                        <p>0234567890</p>
+                    </div>
+                    <div>
+                        <button class="btn"><i class="fas fa-edit"></i> Edit </button>
+                        <br>      
+                        <button class="btn"><i class="fas fa-trash"></i> Delete</button>
+                    </div>
+                </div>
+                <div class="sodiachi-info">
+                    <div class="sizechu">
+                        <h3>Minh Anh</h3>
+                        <p>273, Đ.An Dương Vương, Phường 3, Quận 5, Hồ Chí Minh</p>
+                        <p>0234567890</p>
+                    </div>
+                    <div>
+                        <button class="btn"><i class="fas fa-edit"></i> Edit </button>
+                        <br>      
+                        <button class="btn"><i class="fas fa-trash"></i> Delete</button>
+                    </div>
+                    
+                </div>
+                <div class = "save-button-container">   
+                    <button id="addAD" class="save-button">Thêm địa chỉ</button>
+                </div>
+            </div>
+            <!-- end div sổ địa chỉ -->
+
+            <!-- div thêm địa chỉ --> 
+            <div class="themdiachi">
+                <div class="form-container">  
+                    <h2>Thêm địa chỉ</h2>  
+                    <br>      
+                    <label for="ten">Tên người nhận</label>
+                    <input type="text" id="ten" name="ten" placeholder="Nhập tên...">
+                    <label for="tel">Số điện thoại</label>
+                    <input type="text" id="phone" name="phone" placeholder="Nhập số điện thoại...">
+                    <label for="diachi">Địa chỉ nhận hàng</label>
+                    <input type="text" id="diachi" name="daichi" placeholder="Nhập địa chỉ nhận hàng...">
+                    <div>
+                        <label for="change-pass"><input type="checkbox" id="dcmacdinh" name="dcmacdinh">Đặt làm địa chỉ mặt định</label>
+                    </div>             
+                    <div class = "themdiachi-container">
+                        <button id ="luuAD" class="themdiachi-button">Xác nhận</button>
+                        <button id ="huyboAD" class="themdiachi-button">Hủy bỏ</button>
+                    </div>     
+                         
+                </div>
+            </div>
+            <div class="overlay"></div>
+            <!-- end div them dia chi-->
+        </div>
+    </div>
+  
+    <!-- footer -->
+    <footer>
+        <div class="footer-logo">
+            <img src="AMYTH.svg">
+        </div>
+
+        <div class="footer__column">
+            <h3 class="footer__heading">Dịch vụ</h3>
+            <ul class="footer-list">
+                <li class="footer-item"><a href="" class="footer-item-link">Điều khoản sử dụng</a></li>
+                <li class="footer-item"><a href="" class="footer-item-link">Giới thiệu về chúng tôi</a></li>
+                <li class="footer-item"><a href="" class="footer-item-link">Hệ thống trung tâm nhà sách</a></li>
+            </ul>
+        </div>
+        <div class="footer__column">
+            <h3 class="footer__heading">Thông tin liên hệ</h3>
+            <ul class="footer-list">
+                <li class="footer-item"><i class="fa-solid fa-phone"></i>1234567890</li>
+                <li class="footer-item"><i class="fa-solid fa-envelope"></i>amyth123@gmail.com</li>
+                <li class="footer-item"><i class="fa-solid fa-location-dot"></i>273 Đ. An Dương Vương, Phường 3, Quận 5, Hồ Chí Minh</li>
+            </ul>
+        </div>    
+    </footer> 
+    <!-- end footer -->
+    <script src="test.js"></script>
+</body>

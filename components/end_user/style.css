@@ -162,12 +162,204 @@ header {
 }
 
     /*--------- container -------- */
+
+
+
 .main {
-    flex: 1;
+    
     width: 80%;
     justify-items: center;
     align-content: center;
+    display:flex;
 }
+.container-cart{
+    min-height: auto;
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+    gap: 20px;
+    padding: 20px 0;
+}
+.cart-items {
+    padding: 10px;
+    border-radius: 5px;
+    grid-column: span 8;
+    grid-row: span 4;
+    background-color: var(--white-color);
+    align-items: center;
+  
+    }
+
+   .chi-tiet{
+      display:flex;
+      padding:10px ;
+      border-bottom: 1px solid black;
+      flex:1;
+      text-align: center;
+      justify-content: space-between;
+      font-size:15px;
+    }
+/*.chi-tiet>div {
+    font-weight: 600;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.chi-tiet>div:nth-child(2) {
+    justify-content: flex-start;
+    flex-basis: 30px;
+}
+.chi-tiet>div:nth-child(3) {
+    justify-content: flex-start;
+    flex-basis: 30px;
+}
+.chi-tiet>div:nth-child(4) {
+    justify-content: flex-start;
+    flex-basis: 30px;
+}*/
+.cart-item {
+        display: flex;
+        align-items: center;
+        padding: 1.6em 0;
+    }
+.cart-checkbox{
+        flex: 2;
+        padding: 8px 0;
+        display: flex;
+        align-items: center;
+        cursor:pointer;
+}
+input:checked ~.squaredcheck  {
+    background-color: black ;
+  }
+    .cart-item-image input{
+        width: 20px;
+        position: relative;
+        height:20px ;
+        box-shadow:rgba(0, 0, 0, 0.35);
+        cursor:pointer;
+    }
+    /* .squaredcheck {
+        position: relative;
+        height:20px ;
+        width:20px ; 
+        box-shadow:rgba(0, 0, 0, 0.35);
+        cursor:pointer;
+    } */
+   
+    .cart-item-image{
+        flex: 2;
+        padding: 8px 0;
+        display: flex;
+        align-items: center;
+    }
+    .group-product-info {
+        display:flex;
+        justify-content: space-between;
+    }
+    .info-product-cart {
+        padding: 0 10px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        line-height: 18px;
+        font-size:15px;
+    }
+    .price-original {
+        padding: 0px;
+        margin-top:20px;
+        font-size:12x;
+        font-weight: 550;
+    
+    }
+    .number-product-cart {
+        flex-basis: 40%;
+        justify-content: center;
+        align-items: center;
+        margin: auto;
+        display: flex;
+    }
+    .cart-item-quantity {
+        display: flex;
+        justify-content: center;
+        padding-right: 10px;
+        padding-left: 10px;
+        padding: 0px 10px 0px 10px;
+        flex: 2;
+    }
+
+    
+    .cart-item-quantity button{
+        width: 25px;
+        height: 25px;
+        outline:none;
+        background:none;
+        border: solid 1px var(--white-hover-color) ; 
+    }
+    
+    
+    .cart-item-quantity input {
+        width: 40px;
+        text-align: center;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        margin: 0 5px;
+    }
+
+    .cart-item-price {
+       padding-right: 10px;
+        align-items: center;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        flex: 3;
+        font-size:15px;
+        font-weight: 550;
+    }
+    .delete{
+        font-size:15px;
+        color:red;
+    }
+    
+
+.cart{
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    border-radius: 5px;
+    grid-column: span 4;
+    grid-row: span 2;
+    background-color: var(--white-color);
+    color: var(--text-color);
+    justify-content: flex-start;
+    align-items: center;
+    flex-shrink: 0;
+    
+}
+.total, .cost {
+    width: 90%;
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid black;
+    font-size: 18px;
+    padding: 10px;
+   
+}
+.pay {
+    margin-top: 10px;
+    width: 140px;
+    height: 36px;
+    border-color: transparent;
+    outline: none;
+    font-size: 16px;
+    border-radius: 10px;
+    background-color: var(--button-color);
+    color: var(--white-color);
+    cursor: pointer;
+}
+
+    
 
     /* -----Yen container__cart-payment start----- */
 
@@ -309,9 +501,8 @@ header {
 }
 
     /* -----Yen container__cart-payment end----- */
-
-    /*--------- footer -------- */
-footer {
+  /*--------- footer -------- */
+  footer {
     width: 100%;
     display: flex;
     /* position: relative; */
@@ -358,6 +549,7 @@ footer {
     font-size: 18px;
     margin-right: 8px;
 }
+    
 /* Xuan Mai */
 
 @font-face{
@@ -566,7 +758,7 @@ footer {
     transform: translateX(200%);
 }
 
-/*
+
 
 * {
     margin: 0;
@@ -714,7 +906,7 @@ header {
     margin-left: 20px;
 }
 
-<--Banner Section-->
+/*<--Banner Section-->*/
  .banner img {
     width: 100%;
     max-width: 600px;
@@ -723,7 +915,7 @@ header {
     border-radius: 10px;
 }
 
-<--Product Section-->
+/*<--Product Section-->*/
 .product-section {
     padding: 40px;
     margin: 20px;
@@ -773,67 +965,7 @@ header {
     cursor: pointer;
 }
 
-<--Footer Section-->
-footer {
-    background-color: #fff;
-    padding: 20px 0;
-    border-top: 1px solid #e0e0e0;
-}
 
-.footer-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-}
 
-.footer-logo p {
-    font-size: 24px;
-    font-weight: bold;
-}
 
-.footer-services, .footer-contact {
-    text-align: left;
-}
 
-.footer-services p, .footer-contact p {
-    font-weight: bold;
-    margin-bottom: 10px;
-}
-
-.footer-services ul, .footer-contact ul {
-    list-style: none;
-    padding: 0;
-}
-
-.footer-services ul li, .footer-contact ul li {
-    margin-bottom: 10px;
-}
-
-.footer-services ul li a {
-    text-decoration: none;
-    color: #333;
-}
-
-.footer-services ul li a:hover {
-    text-decoration: underline;
-}
-
-.footer-contact ul li i {
-    margin-right: 10px;
-}
-
-.footer-contact ul li {
-    display: flex;
-    align-items: center;
-    color: #333;
-}
-
-.footer-contact ul li i {
-    font-size: 16px;
-}
-
-*/
-
-/* Hoang Anh */

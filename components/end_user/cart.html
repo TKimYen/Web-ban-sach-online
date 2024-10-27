@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hiệu Sách Online</title>
+    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <!-- <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet"> -->
+    <script src="https://kit.fontawesome.com/264e375a82.js" crossorigin="anonymous"></script>
+
+</head>
+<body>
+    <div class="wrapper">
+        <!--Đăng kí/ Đăng nhập-->
+    
+        <!--header-->
+        <header>
+            <nav class="header__navbar">   
+                <div class="header__navbar-logo">
+                    <img class="header__navbar-logo-img" src="../../assets/img/AMYTH.svg">
+                </div>
+                <div class="header__navbar-search">
+                    <input type="text" class="header__navbar-search-input" placeholder="Tìm kiếm sản phẩm...">
+                    <button class="header__navbar-search-btn">
+                        <i class="header__navbar-search-btn-icon fa-solid fa-magnifying-glass"></i>
+                    </button>
+                </div>
+                <div class="header__navbar-cart">
+                    <i class="header__navbar-cart-icon fa-solid fa-cart-shopping"></i>
+                </div>
+                <ul class="header__navbar-list">
+                    <li class="header__navbar-item"><button class="header__navbar-item-signup-btn">Đăng Xuất</button></li>
+                </ul>
+            </nav>
+        </header>
+        <!-- content containter -->
+        <div class="main">
+            <!-- ----- Huong cart start ---- -->
+             <div class="container-cart">
+                <div class="cart-items">
+                    <h1>Giỏ hàng </h1>
+                     <div class="chi-tiet">
+                        <p>Tên sản phẩm </p >
+                        <p>Số lượng </p >
+                        <p>Thành tiền </p > 
+                     </div> 
+                     <div class="cart-item">
+                        <div class="cart-checkbox">
+                        <input type="checkbox" value="None" id="squaredcheck"/>
+                        </div>
+                        <div class="cart-item-image">
+                            <img class ="cart-img-product" src="../../assets/img/book/kinhte/bezonomics-kinhtehocbezos.webp">
+                        </div>
+                        <div class="group-product-info ">
+                            <div class="info-product-cart">
+                               
+                                    <p>Bezonomics Kinh Tế Học Bezos</p>
+                               
+                            
+                        
+                        <div class="price-original">
+                            <span class="price">159.100 đ</span>
+
+                        </div>
+                    </div>
+                <div class="number-product-cart">
+                        <div class="cart-item-quantity">
+                        
+                            <button class="minus-btn" onclick="handleMinus()"><i class="fa-solid fa-minus"></i></button>
+                             <input type="text" id="amount" name="amount" value="1">
+                            <button class="plus-btn" onclick="handlePlus()"><i class="fa-solid fa-plus"></i></button>
+                           
+                        </div>
+                    <div class="cart-item-price">
+                             
+                        <p>159.000đ</p>
+                    </div>
+                </div>
+
+                </div>
+
+                          
+                          
+                        <div class="delete">
+                            <i class="fa-solid fa-trash"></i>
+                        </div>
+                    
+                          
+                        
+                    </div>
+                </div>
+                     <div class="cart">
+                        <h1>Thông Tin Đơn Hàng</h1>
+                     <div class="total">
+                        <span>Số sản phẩm: </span><span>1</span>
+                    </div>
+                    <div class="cost">
+                        <span>Tổng tiền: </span><span>159.000 đ</span>
+                    </div>
+                    <button class="pay">Thanh toán </button>
+                     </div>
+                
+            </div>
+        </div>
+    </div>
+
+
+             
+            
+
+             <!-- ----- Huong cart end ---- -->
+            
+        <!-- </div> -->
+        <!-- footer -->
+        <!-- <footer>-->
+         <footer>       
+            <div class="footer-logo">
+                <img src="AMYTH.svg">
+            </div>
+    
+            <div class="footer__column">
+                <h3 class="footer__heading">Dịch vụ</h3>
+                <ul class="footer-list">
+                    <li class="footer-item"><a href="" class="footer-item-link">Điều khoản sử dụng</a></li>
+                    <li class="footer-item"><a href="" class="footer-item-link">Giới thiệu về chúng tôi</a></li>
+                    <li class="footer-item"><a href="" class="footer-item-link">Hệ thống trung tâm nhà sách</a></li>
+                </ul>
+            </div>
+            <div class="footer__column">
+                <h3 class="footer__heading">Thông tin liên hệ</h3>
+                <ul class="footer-list">
+                    <li class="footer-item"><i class="fa-solid fa-phone"></i>1234567890</li>
+                    <li class="footer-item"><i class="fa-solid fa-envelope"></i>amyth123@gmail.com</li>
+                    <li class="footer-item"><i class="fa-solid fa-location-dot"></i>273 Đ. An Dương Vương, Phường 3, Quận 5, Hồ Chí Minh</li>
+                </ul>
+            </div>    
+        </footer> 
+        <script>
+            let amountElement = document.getElementById('amount');
+            let amount = amountElement.value;
+            // console.log(amount);
+    
+            let render = (amount) => {
+                amountElement.value = amount
+            }
+    
+            let handleMinus = () =>{
+                console.log(amount);
+                if (amount>1)
+                amount--
+                render(amount);
+            }
+    
+            let handlePlus = () =>{
+                console.log(amount);
+                amount++
+                render(amount);
+            }
+            amountElement.addEventListener('input',()=>{
+            amount = amountElement.value;
+            amount=parsInt(amount);
+            amount=(isNaN(amount)||amount==0)?1:amount;
+            render(amount);
+        });
+        </script>
+   
+</body>
+</html>

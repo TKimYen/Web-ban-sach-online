@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hiệu Sách Online</title>
+    <link rel="stylesheet" href="./style2.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <body>
+        <div class="wrapper">
+        <header>
+            <nav class="header__navbar">   
+                <div class="header__navbar-logo">
+                    <img class="header__navbar-logo-img" src="AMYTH.svg">
+                </div>
+                <div class="header__navbar-search">
+                    <input type="text" class="header__navbar-search-input" placeholder="Tìm kiếm sản phẩm...">
+                    <button class="header__navbar-search-btn">
+                        <i class="header__navbar-search-btn-icon fa-solid fa-magnifying-glass"></i>
+                    </button>
+                </div>
+                <div class="header__navbar-cart">
+                    <i class="header__navbar-cart-icon fa-solid fa-cart-shopping"></i>
+                </div>
+                <div class="header__navbar-user" >
+                    <i class="header__navbar-cart-icon fa-solid fa-user "></i>
+                </div>
+                <ul class="header__navbar-list">
+                    <li class="header__navbar-item"><button class="header__navbar-item-signup-btn">Đăng Xuất</button></li>
+                    
+                </ul>
+               
+            </nav>
+        </header>
+        <!-- end header -->
+        <!-- Body chính -->
+         <!-- content containter -->
+        <div class="main">
+        <div class="account-container">
+            <div class="sidebar">
+            <div class="main-content">
+                <h1>Tài Khoản</h1>
+            </div>
+            <br>
+            <div class="account-content">
+                <!-- Div bên trái -->
+                <div class="menu-container">
+                    <ul class="menu">
+                        <li><button class="btn">Thông tin cá nhân</button></li>
+                        <li><button class="btn">Số địa chỉ</button></li>
+                        <li><button class="btn">Đơn hàng</button></li>
+                        <li><button class="btn">Thông báo</button></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <footer>
+            <div class="footer-logo">
+                <img src="AMYTH.svg">
+            </div>
+    
+            <div class="footer__column">
+                <h3 class="footer__heading">Dịch vụ</h3>
+                <ul class="footer-list">
+                    <li class="footer-item"><a href="" class="footer-item-link">Điều khoản sử dụng</a></li>
+                    <li class="footer-item"><a href="" class="footer-item-link">Giới thiệu về chúng tôi</a></li>
+                    <li class="footer-item"><a href="" class="footer-item-link">Hệ thống trung tâm nhà sách</a></li>
+                </ul>
+            </div>
+            <div class="footer__column">
+                <h3 class="footer__heading">Thông tin liên hệ</h3>
+                <ul class="footer-list">
+                    <li class="footer-item"><i class="fa-solid fa-phone"></i>1234567890</li>
+                    <li class="footer-item"><i class="fa-solid fa-envelope"></i>amyth123@gmail.com</li>
+                    <li class="footer-item"><i class="fa-solid fa-location-dot"></i>273 Đ. An Dương Vương, Phường 3, Quận 5, Hồ Chí Minh</li>
+                </ul>
+            </div>    
+        </footer> 
+        <!-- end footer -->
+        
+    </body>
+</head>

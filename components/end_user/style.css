@@ -846,9 +846,6 @@ footer {
 }
 
 .search-container{
-    /* justify-content: center;
-    align-items: center;
-    text-align: center; */
     width:calc(80% - 0px);
     position: relative;
     

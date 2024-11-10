@@ -1,0 +1,167 @@
+:root {
+    --bg-color: rgb(249, 241, 231);
+    --white-color: white;
+    --blue-color: rgb(84, 84, 230);
+    --text-color: rgb(20, 18, 18);
+    --shadow-color: rgba(20, 18, 18, 0.6);
+    --button-color: rgb(20, 18, 18);
+    --hover-color: rgba(82, 79, 79, 0.8);
+    --price-color: rgb(238, 67, 67);
+    --white-hover-color: rgb(242, 242, 242);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-decoration: none;
+    box-sizing: border-box;
+}
+
+body {
+    height: 100vh;
+    background-color: var(--bg-color);
+    font-family: Arial, sans-serif;
+}
+
+main {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+}
+
+.sidebar {
+    height: 100vh;
+    grid-column: span 2;
+    background-color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.sidebar img {
+    padding: 30px 0;
+    width: 60%;
+}
+
+.taskbar {
+    display: flex;
+    flex-direction: column;
+    padding: 50px 0 0;
+    font-size: 18px;
+    width: 100%;
+    text-align: center;
+}
+
+.taskbar p {
+    margin: 0;
+    width: 100%;
+}
+
+.taskbar a {
+    display: block;
+    padding: 20px;
+    color: #000;
+    text-decoration: none;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.taskbar a.selected {
+    background-color: #000;
+    color: #fff;
+}
+
+.taskbar a:hover {
+    background-color: #000;
+    color: #ffffff;
+    width: 100%;
+}
+
+.content {
+    grid-column: span 10;
+    padding: 20px;
+}
+
+h2 {
+    font-size: 40px;
+    font-weight: bold;
+    margin-bottom: 50px;
+}
+
+.client-search {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 20px;
+    padding: 0 0 50px 0;
+}
+
+.client-search input[type="text"] {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 300px;
+}
+
+.client-search button {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #000;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+}
+
+.client-search button:hover {
+    background-color: #444;
+}
+
+.client-list {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-height: 400px;
+    overflow-y: scroll;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+table th, table td {
+    padding: 12px;
+    border-bottom: 1px solid #ddd;
+    text-align: left;
+}
+
+table th {
+    font-weight: bold;
+    color: var(--text-color);
+}
+
+table td {
+    color: #333;
+}
+
+.info-btn, .edit-btn, .delete-btn {
+    border: none;
+    background: none;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.delete-btn {
+    color: red;
+}
+
+.edit-btn {
+    color: black;
+}
+
+.info-btn {
+    color: gray;
+}

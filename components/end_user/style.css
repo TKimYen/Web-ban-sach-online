@@ -826,6 +826,154 @@ footer {
     transform: translateX(200%);
 }
 
+.forgot-password {
+    left: 0;
+    width: 50%;
+    opacity: 0;
+    z-index: 1;
+}
+
+.container.active .forgot-password {
+    transform: translateX(100%);
+    opacity: 1;
+    z-index: 5;
+}
+
+
+/* Xuân Mai search */
+.list{
+    /* background-color: blue; */
+}
+
+.search-container{
+    /* justify-content: center;
+    align-items: center;
+    text-align: center; */
+    width:calc(80% - 0px);
+    position: relative;
+    
+}
+
+.search-filter{
+    grid-column: span 3;
+    background-color: 
+    #ffffff;
+    border-radius:20px ;
+    height: 500px;
+    padding-top: 25px;
+    font-size: 15px;
+    font-weight: 100;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.search-filter hr{
+    margin: 8px;
+}
+
+.search-filter input{
+    width: 70px;
+}
+
+.search-goal{
+    grid-column: span 9;
+    /* padding-left: 40px; */
+    background-color: #ffffff;
+    border-radius: 20px;
+    padding: 50px 20px 0 20px;
+}
+
+.search-title{
+    display: flex;
+    justify-content: space-between;
+}
+
+.search-title .right{
+    font-size: 15px;
+    gap: 8px;
+}
+
+.search-title .right select{
+    border: 1px solid #000;
+    padding: 2px;
+    border-radius: 5px;
+}
+
+.search-title .left span:nth-child(1){
+    font-size: 25px;
+}
+
+.search-title .left span:nth-child(2){
+    font-size: 15px;
+    padding: 10px 0 0 5px;
+}
+
+.search-content{
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-gap: 50px;
+}
+
+.book_category{
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+
+.book_category span{
+    font-size: 20px;
+    font-weight: 600;
+    font-style: bold;
+}
+
+.book_category a{
+    color:#000;
+    margin: 10px 0 8px 15px;
+}
+
+.book_category a:hover{
+    font-size: 20px;
+}
+
+.product-list{
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+.product-items{
+    text-align: center;
+    transition: background-color 0.3s ease; 
+    border: 1px solid #fff;
+    padding: 20px;
+}
+.product-items:hover{
+    background-color: var(--bg-color);
+    cursor: pointer;
+    border: solid #000 2px;
+    border-radius: 10px;
+}
+    
+.product-items img {
+    max-width: 200px;
+    height: 200px;
+    border-radius: 0px;
+    margin: 10px;
+}
+    
+.product-items p {
+    margin: 10px 0;
+    font-weight: bold;
+    font-size: 14px;
+}
+    
+.product-items .price {
+    color: red;
+    font-size: 12px;
+}
+
+/*  */
 
 /*Hoang Anh*/
 

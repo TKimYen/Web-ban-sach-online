@@ -11,6 +11,12 @@ loginBtn.addEventListener('click', () => {
     container.classList.remove("active");
 });
 
+const forgotPasswordLink = document.querySelector('.form-container.sign-in a');
+
+forgotPasswordLink.addEventListener('click', () => {
+    container.classList.add("active");
+});
+
 /* Start: Yen*/
 
 /* Start: modal show address*/

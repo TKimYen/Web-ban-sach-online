@@ -29,6 +29,10 @@ main {
     grid-template-columns: repeat(12, 1fr);
 }
 
+.hidden{
+    display: none;
+}
+
 .sidebar {
     height: 100vh;
     grid-column: span 2;

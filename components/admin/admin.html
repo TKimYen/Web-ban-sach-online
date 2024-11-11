@@ -11,11 +11,12 @@
         <div class="sidebar">
             <img src="/assets/img/AMYTH.svg">
             <div class="taskbar">  
-                <p><a href="#">Quản lý sản phẩm</a></p>
-                <p><a href="#">Quản lý nhân viên</a></p>
-                <p><a href="#">Quản lý khách hàng</a></p>
-                <p><a href="#">Quản lý hóa đơn</a></p>
-                <p><a href="#">Thống kê</a></p>
+                <p><a href="#" data-page="products">Quản lý sản phẩm</a></p>
+                <p><a href="#" data-page="employees">Quản lý nhân viên</a></p>
+                <p><a href="#" data-page="customers">Quản lý khách hàng</a></p>
+                <p><a href="#" data-page="invoices">Quản lý hóa đơn</a></p>
+                <p><a href="#" data-page="phieunhap">Quản lý phiếu nhập</a></p>
+                <p><a href="#" data-page="stats">Thống kê</a></p>
             </div>
 
             <div class="account">
@@ -23,8 +24,15 @@
                 <img src="" id="logout">
             </div>
         </div>
-        
-        <!-- <div class="content">
+        <div class="content" id="products">
+            <h2>Sản phẩm</h2>
+        </div>
+
+        <div class="content hidden" id="employees">
+            <h2>Nhân Viên</h2>
+        </div>
+
+        <div class="content hidden" id="customers">
             <h2>Khách hàng</h2>
             <div class="client-search">
                 <input type="text" placeholder="Nhập số điện thoại">
@@ -166,9 +174,9 @@
                     </tbody>
                 </table>
             </div>
-        </div> -->
+        </div>
 
-        <div class="content">
+        <div class="content hidden" id="invoices">
             <h2>Hóa đơn</h2>
             <div class="client-search">
                 <input type="text" placeholder="Nhập số điện thoại">
@@ -287,6 +295,15 @@
             </div>
         </div>
 
+        <div class="content hidden" id="phieunhap">
+            <h2>Phiếu nhập</h2>
+        </div>
+
+        <div class="content hidden" id="stats">
+            <h2>Thống kê</h2>
+        </div>
+
     </main>
+    <script src="admin.js"></script>
 </body>
 </html>

@@ -28,8 +28,187 @@
             <h2>Sản phẩm</h2>
         </div>
 
+
+    <!--Form thêm nhân viên-->
+    <div id="formThemNhanVien" class="modal">
+        <form id="themNhanVien" class="modal-content">
+            <h1>Thêm nhân viên</h1>
+            <button type="button" class="close" onclick="closeThemForm()">+</button>
+
+            <label for="themName">Tên nhân viên:</label>
+            <input type="text" id="themName" placeholder="Nhập họ và tên">
+
+            <br>
+            <label for="themPhone">Số điện thoại:</label>
+            <input type="text" id="themPhone" placeholder="Nhập số điện thoại">
+
+            <br>
+            <label for="themChucVu">Chức vụ:</label>
+            <input type="text" id="themChucVu" placeholder="Nhập chức vụ">
+
+            <div>
+                <button type="submit" name="them">Thêm</button>
+            </div>
+        </form>
+    </div>
+
+    <!--Form sửa nhân viên-->
+    <div id="formSuaNhanVien" class="modal">
+        <form id="suaNhanVien" class="modal-content">
+            <h1>Sửa chi tiết nhân viên</h1>
+            <button type="button" class="close" onclick="closeSuaForm()">+</button>
+
+            <label for="suaName">Tên nhân viên:</label>
+            <input type="text" id="suaName" placeholder="Nhập họ và tên">
+
+            <br>
+            <label for="suaPhone">Số điện thoại:</label>
+            <input type="text" id="suaPhone" placeholder="Nhập số điện thoại">
+
+            <br>
+            <label for="suaChucVu">Chức vụ:</label>
+            <input type="text" id="suaChucVu" placeholder="Nhập chức vụ">
+
+            <br>
+            <label for="editTrangThai">Trạng thái: </label>
+            <input type="checkbox" id="suaTrangThai" class="toggle-switch">
+            <span id="suaTrangThaiLabel">Đang hoạt động</span>
+            
+            <div>
+                <button type="button" onclick="updateNhanVien()">Cập nhật</button>
+            </div>
+        </form>
+    </div>
+
+    <div class="modal" id="formDetailNhanVien">
+        <form id="detailNhanVien" class="modal-content">
+            <h2>Thông tin chi tiết nhân viên</h2>
+            <div class="info">
+                <label>Tên khách hàng:</label> <span id="detailName"></span>
+            </div>
+            <div class="info">
+                <label>Số điện thoại:</label> <span id="detailPhone"></span>
+            </div>
+            <div class="info">
+                <label>Chức vụ:</label> <span id="detailChucVu"></span>
+            </div>
+            <div class="info">
+                <label>Trạng thái:</label> <span id="detailTrangThai"></span>
+            </div>
+            <button type="button" class="close" onclick="closeDetailForm()">+</button>
+        </form>
+    </div>
+    
         <div class="content hidden" id="employees">
             <h2>Nhân Viên</h2>
+            <div class="client-search">
+                <input type="text" placeholder="Nhập tên">
+                <button type="button" id="tim">Tìm</button>
+                <button type="button" id="them" onclick="showThemForm();">Thêm+</button>
+                <p>Tổng số lượng: 50</p>
+            </div>
+
+            <div class="client-list">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Tên nhân viên</th>
+                            <th>Số điện thoại</th>
+                            <th>Chức vụ</th>
+                            <th>Trạng thái</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>01</td>
+                            <td>Võ Xuân Mai</td>
+                            <td>0100203045</td>
+                            <td>Quản lý</td>
+                            <td><span class="status bian">Bị ẩn</span></td>
+                            <td>
+                                <button class="info-btn" onclick="showDetailForm()">i</button>
+                                <button class="edit-btn" onclick="showSuaForm();">✎</button>
+                                <button class="delete-btn">🗑️</button>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>02</td>
+                            <td>Trần Kim Yến</td>
+                            <td>0100203045</td>
+                            <td>Quản lý</td>
+                            <td><span class="status active">Hoạt động</span></td>
+                            <td>
+                                <button class="info-btn" onclick="showDetailForm()">i</button>
+                                <button class="edit-btn" onclick="showSuaForm();">✎</button>
+                                <button class="delete-btn">🗑️</button>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>03</td>
+                            <td>Trương Phúc Hoàng Anh</td>
+                            <td>0100203045</td>
+                            <td>Quản lý</td>
+                            <td><span class="status active">Hoạt động</span></td>
+                            <td>
+                                <button class="info-btn" onclick="showDetailForm()">i</button>
+                                <button class="edit-btn" onclick="showSuaForm();">✎</button>
+                                <button class="delete-btn">🗑️</button>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>04</td>
+                            <td>Trần Quỳnh Hương</td>
+                            <td>0100203045</td>
+                            <td>Quản lý</td>
+                            <td><span class="status active">Hoạt động</span></td>
+                            <td>
+                                <button class="info-btn" onclick="showDetailForm()">i</button>
+                                <button class="edit-btn" onclick="showSuaForm();">✎</button>
+                                <button class="delete-btn">🗑️</button>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>05</td>
+                            <td>Trần Minh Nhật</td>
+                            <td>0100203045</td>
+                            <td>Quản lý</td>
+                            <td><span class="status active">Hoạt động</span></td>
+                            <td>
+                                <button class="info-btn" onclick="showDetailForm()">i</button>
+                                <button class="edit-btn" onclick="showSuaForm();">✎</button>
+                                <button class="delete-btn">🗑️</button>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>06</td>
+                            <td>Võ Hoàng Yến</td>
+                            <td>0100203045</td>
+                            <td>Quản lý</td>
+                            <td><span class="status active">Hoạt động</span></td>
+                            <td>
+                                <button class="info-btn" onclick="showDetailForm()">i</button>
+                                <button class="edit-btn" onclick="showSuaForm();">✎</button>
+                                <button class="delete-btn">🗑️</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="pagination">
+                    <button><</button>
+                    <button>1</button>
+                    <button>2</button>
+                    <button>3</button>
+                    <button>4</button>
+                    <button>></button>
+                </div>
+            </div>
         </div>
 
         <div class="content hidden" id="customers">

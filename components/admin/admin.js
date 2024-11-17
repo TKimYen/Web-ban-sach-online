@@ -27,3 +27,40 @@ document.addEventListener('DOMContentLoaded', function () {
 
     showSection('products');
 });
+
+function showDetailForm() {
+    document.getElementById("formDetailNhanVien").style.display = "flex";
+}
+
+function closeDetailForm() {
+    document.getElementById("formDetailNhanVien").style.display = "none";
+}
+
+function showThemForm() {
+    document.getElementById("formThemNhanVien").style.display = "flex";
+}
+
+function closeThemForm() {
+    document.getElementById("formThemNhanVien").style.display = "none";
+}
+
+function showSuaForm() {
+    document.getElementById("formSuaNhanVien").style.display = "flex";
+}
+
+function closeSuaForm() {
+    document.getElementById("formSuaNhanVien").style.display = "none";
+}
+
+function updateNhanVien(){
+    closeSuaForm();
+}
+
+document.getElementById("suaTrangThai").addEventListener("change", function() {
+    const statusText = document.getElementById("suaTrangThaiLabel");
+    if (this.checked) {
+        statusText.textContent = "Đang hoạt động";
+    } else {
+        statusText.textContent = "Bị ẩn";
+    }
+});

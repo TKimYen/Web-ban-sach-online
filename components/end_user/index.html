@@ -14,53 +14,49 @@
 <body>
     <div class="wrapper">
         <!--Đăng kí/ Đăng nhập-->
-    <div class="sign_up-sign_in">
-    <div class="container" id="container">
-        <div class="form-container sign-up">
-            <form>
-                <h1>Tạo tài khoản</h1>
-                <span>Sử dụng email</span>
-                <input type="text" placeholder="Name">
-                <input type="email" placeholder="Email">
-                <input type="password" placeholder="Password">
-                <button>Sign Up</button>
-            </form>
-        </div>
-        <div class="form-container sign-in">
-            <form>
-                <h1>Đăng nhập</h1>
-                <span>Vui lòng nhập email và mật khẩu</span>
-                <input type="email" placeholder="Email">
-                <input type="password" placeholder="Password">
-                <a href="#">Quên mật khẩu?</a>
-                <button>Sign In</button>
-            </form>
-        </div>
-        <!-- <div class="form-container forgot-password">
-            <form>
-                <h1>Quên mật khẩu</h1>
-                <input type="email" placeholder="Email">
-                <input type="text" placeholder="OTP 6 chữ số">
-                <input type="password" placeholder="New Password">
-                <button>Xác Nhận</button>
-            </form>
-        </div> -->
-        <div class="toggle-container">
-            <div class="toggle">
-                <div class="toggle-panel toggle-left">
-                    <h1>Chào mừng bạn trở lại!</h1>
-                    <p>Đăng nhập để có thể đặt hàng và nhiều tính năng khác</p>
-                    <button class="hidden" id="login">Sign In</button>
-                </div>
-                <div class="toggle-panel toggle-right">
-                    <h1>Xin Chào!</h1>
-                    <p>Cùng đăng kí tài khoản mới nhé</p>
-                    <button class="hidden" id="register">Sign Up</button>
-                </div>
+        <div class="register_login">
+        <div class="form-wrapper">
+            <div class="form-header">
+              <button id="login-tab" class="active">Đăng nhập</button>
+              <button id="register-tab">Đăng kí</button>
             </div>
+            <form id="login-form" class="form-content">
+              <label for="email">Email</label>
+              <input type="email" id="email" placeholder="Nhập email">
+              
+              <label for="password">Mật khẩu</label>
+              <input type="password" id="password" placeholder="Nhập mật khẩu">
+              
+              <div class="form-options">
+                <div>
+                  <label for="remember-me">Ghi nhớ mật khẩu</label><input type="checkbox" id="remember-me">
+                </div>
+                <a href="#" class="forgot-password">Quên mật khẩu?</a>
+              </div>
+              
+              <button type="submit" class="form-button">Đăng nhập</button>
+            </form>
+          </div>
+
+          <div class="forgot-password-container hidden">
+            <a href="#" class="back-link">← Quay lại</a>
+            <h1>Quên mật khẩu</h1>
+            <form>
+                <label for="email">Địa chỉ email</label>
+                <div class="email-otp">
+                    <input type="email" id="email" placeholder="Nhập email bạn đã đăng kí" required>
+                    <button type="button" class="send-otp">Gửi OTP</button>
+                </div>
+                <label for="otp">Mã xác nhận OTP</label>
+                <input type="text" id="otp" placeholder="6 kí tự" required>
+                <label for="new-password">Nhập mật khẩu mới</label>
+                <input type="password" id="new-password" placeholder="************" required>
+                <button type="submit" class="submit-btn">Xác nhận</button>
+            </form>
         </div>
-    </div>
-</div> 
+        
+
+        </div>
 
 <!--Xuân Mai - tìm kiếm-->
 <div class="search-container">
@@ -102,53 +98,7 @@
             </div>
             
             <div class="search-goal list">
-                <div class="product-list">
-                    <div class="product-items">
-                        <img src="/assets/img/book/mangacomic/frieren_phap_su_tien_tang_ban_thuong_bia_tap_12.webp">
-                        <p>Frieren - Pháp sư tiễn táng</p>
-                        <span class="price">119.000 đ</span>
-                    </div>
-                    <div class="product-items">
-                        <img src="/assets/img/book/kinhte/nenkinhtetudo.webp" alt="Product 3">
-                        <p>Nền kinh tế tự do</p>
-                        <span class="price">119.000 đ</span>
-                    </div>
-                    <div class="product-items">
-                        <img src="/assets/img/book/mangacomic/spyxfamily_bia_tap_10.webp" alt="Product 3">
-                        <p>Spy x Family </p>
-                        <span class="price">119.000 đ</span>
-                    </div>
-                    <div class="product-items">
-                        <img src="/assets/img/book/mangacomic/haikyutap41.webp" alt="Product 4">
-                        <p>Haikyuu</p>
-                        <span class="price">119.000 đ</span>
-                    </div>
-                    <div class="product-items">
-                        <img src="/assets/img/book/mangacomic/frieren_phap_su_tien_tang_ban_thuong_bia_tap_12.webp">
-                        <p>Frieren - Pháp sư tiễn táng</p>
-                        <span class="price">119.000 đ</span>
-                    </div>
-                    <div class="product-items">
-                        <img src="/assets/img/book/kinhte/nenkinhtetudo.webp" alt="Product 3">
-                        <p>Nền kinh tế tự do</p>
-                        <span class="price">119.000 đ</span>
-                    </div>
-                    <div class="product-items">
-                        <img src="/assets/img/book/mangacomic/spyxfamily_bia_tap_10.webp" alt="Product 3">
-                        <p>Spy x Family </p>
-                        <span class="price">119.000 đ</span>
-                    </div>
-                    <div class="product-items">
-                        <img src="/assets/img/book/mangacomic/haikyutap41.webp" alt="Product 4">
-                        <p>Haikyuu</p>
-                        <span class="price">119.000 đ</span>
-                    </div>
-                    <div class="product-items">
-                        <img src="/assets/img/book/mangacomic/haikyutap41.webp" alt="Product 4">
-                        <p>Haikyuu</p>
-                        <span class="price">119.000 đ</span>
-                    </div>
-                </div>
+                <div class="product_list"></div>
             </div>
         </div>
     </div>
@@ -195,26 +145,6 @@
                 </div>
             </div>
         </header>
-        <!-- <header>
-            <nav class="header__navbar">   
-                <div class="header__navbar-logo">
-                    <img class="header__navbar-logo-img" src="../../assets/img/AMYTH.svg">
-                </div>
-                <div class="header__navbar-search">
-                    <input type="text" class="header__navbar-search-input" placeholder="Tìm kiếm sản phẩm...">
-                    <button class="header__navbar-search-btn">
-                        <i class="header__navbar-search-btn-icon fa-solid fa-magnifying-glass"></i>
-                    </button>
-                </div>
-                <div class="header__navbar-cart">
-                    <i class="header__navbar-cart-icon fa-solid fa-cart-shopping"></i>
-                </div>
-                <ul class="header__navbar-list">
-                    <li class="header__navbar-item"><button class="header__navbar-item-signup-btn">Đăng Nhập</button></li>
-                    <li class="header__navbar-item"><button class="header__navbar-item-login-btn">Đăng Ký</button></li>
-                </ul>
-            </nav>
-        </header> -->
         <!-- content containter -->
         
              <!--Homepage-->
@@ -461,33 +391,6 @@
         <script src="/components/end_user/index.js"></script>
         </div>
 
-
-    <!-- Footer -->
-    <!-- <footer class="footer__homepage">
-        <div class="container__homepage footer-container">
-            <div class="footer-logo">
-                <img src="/assets/img/AMYTH.svg">
-            </div>
-
-            <div class="footer-services">
-                <p>Dịch vụ</p>
-                <ul>
-                    <li><a href="#">Điều khoản sử dụng</a></li>
-                    <li><a href="#">Giới thiệu về chúng tôi</a></li>
-                    <li><a href="#">Hệ thống trung tâm nhà sách</a></li>
-                </ul>
-            </div>
-
-            <div class="footer-contact">
-                <p>Thông tin liên hệ</p>
-                <ul>
-                    <li><i class="fas fa-phone"></i> 1234567890</li>
-                    <li><i class="fas fa-envelope"></i> amyth123@gmail.com</li>
-                    <li><i class="fas fa-map-marker-alt"></i> 273 Đ. An Dương Vương, Phường 3, Quận 5, Hồ Chí Minh</li>
-                </ul>
-            </div>
-        </div>
-    </footer> -->
 </body>
 
         <!--Best seller page-->

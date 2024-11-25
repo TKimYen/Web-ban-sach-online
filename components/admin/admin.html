@@ -810,7 +810,67 @@
                     </tbody>
                 </table>
             </div>
+
+
+        <!--test chi tiết hóa đơn-->
+
+<!-- Popup Detail Form -->
+
+<div class="overlay hidden" id="overlay"></div>
+
+<div class="detail-popup hidden" id="detailPopup">
+    <div class="popup-container">
+        <h2>Chi tiết hóa đơn</h2>
+        <div class="detail-content">
+            <p><strong>ID:</strong> <span id="detailID">01</span></p>
+            <p><strong>Tên khách hàng:</strong> <span id="detailName">Võ Xuân Mai</span></p>
+            <p><strong>Số điện thoại:</strong> <span id="detailPhone">0100203045</span></p>
+            <p><strong>Ngày tạo:</strong> <span id="detailDate">11/11/2024</span></p>
+            <p><strong>Tổng tiền:</strong> <span id="detailTotal">Tổng tiền</span></p>
+            <p><strong>Trạng thái:</strong> <span id="detailStatus">Hủy</span></p>
         </div>
+        <div class="popup-buttons">
+            <button type="button" id="closeDetailBtn">Đóng</button>
+        </div>
+    </div>
+</div>
+
+<div class="overlay hidden" id="overlay"></div>
+        <!-- Popup Edit Form -->
+<div class="edit-form hidden" id="editForm">
+    <div class="form-container">
+        <h2>Chỉnh sửa thông tin hóa đơn</h2>
+        <form>
+            <label for="clientID">ID:</label>
+            <input type="text" id="clientID" value="01" readonly>
+
+            <label for="clientName">Tên khách hàng:</label>
+            <input type="text" id="clientName" value="Võ Xuân Mai">
+
+            <label for="clientPhone">Số điện thoại:</label>
+            <input type="text" id="clientPhone" value="0100203045">
+
+            <label for="createDate">Ngày tạo:</label>
+            <input type="date" id="createDate" value="2024-11-11">
+
+            <label for="totalAmount">Tổng tiền:</label>
+            <input type="text" id="totalAmount" value="Tổng tiền">
+
+            <label for="status">Trạng thái:</label>
+            <select id="status">
+                <option value="Đã thanh toán">Đã thanh toán</option>
+                <option value="Hủy" selected>Hủy</option>
+                <option value="Đang xử lý">Đang xử lý</option>
+            </select>
+
+            <div class="form-buttons">
+                <button type="button" id="saveBtn">Lưu</button>
+                <button type="button" id="cancelBtn">Hủy</button>
+            </div>
+        </form>
+    </div>
+</div>
+
 
         <div class="content hidden" id="stats">
             <h2>Thống kê</h2>

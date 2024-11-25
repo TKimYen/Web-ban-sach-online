@@ -1,31 +1,67 @@
-//button thao tác
-const signUpBtn = document.getElementById("sign-up");
-const signInBtn = document.getElementById("sign-in");
-signUpBtn.addEventListener("click", () => {
-  container.classList.add("active");
+const loginTab = document.getElementById('login-tab');
+const registerTab = document.getElementById('register-tab');
+const loginForm = document.getElementById('login-form');
+const forgotPasswordLink = document.querySelector('.forgot-password');
+const forgotPasswordContainer = document.querySelector('.forgot-password-container');
+const formWrapper = document.querySelector('.form-wrapper');
+const backLink = document.querySelector('.back-link');
+
+//xử lý quên mật khẩu
+forgotPasswordLink.addEventListener('click', (e) => {
+    e.preventDefault(); //chặn load lại trang
+    formWrapper.classList.add('hidden'); //ẩn đăng kí. đăng nhập
+    forgotPasswordContainer.classList.remove('hidden'); //hiển thị qmk
 });
 
-signUpBtn.addEventListener("click", () => {
-  container.classList.remove("active");
+//xử lý quay lại
+backLink.addEventListener('click', (e) => {
+    e.preventDefault(); 
+    forgotPasswordContainer.classList.add('hidden'); //ẩn qmk
+    formWrapper.classList.remove('hidden'); //hiện đkđn
 });
 
-const container = document.getElementById("container");
-const registerBtn = document.getElementById("register");
-const loginBtn = document.getElementById("login");
-
-registerBtn.addEventListener("click", () => {
-  container.classList.add("active");
+//xl chuyển đkđn
+registerTab.addEventListener('click', () => {
+    loginTab.classList.remove('active');
+    registerTab.classList.add('active');
+    loginForm.innerHTML = `
+        <label for="name">Họ và tên</label>
+        <input type="text" id="name" placeholder="Nhập họ và tên">
+        
+        <label for="email">Email</label>
+        <input type="email" id="email" placeholder="Nhập email">
+        
+        <label for="password">Mật khẩu</label>
+        <input type="password" id="password" placeholder="Nhập mật khẩu">
+        
+        <button type="submit" class="form-button">Đăng ký</button>
+    `;
 });
 
-loginBtn.addEventListener("click", () => {
-  container.classList.remove("active");
+loginTab.addEventListener('click', () => {
+    registerTab.classList.remove('active');
+    loginTab.classList.add('active');
+    loginForm.innerHTML = `
+        <label for="email">Email</label>
+        <input type="email" id="email" placeholder="Nhập email">
+        
+        <label for="password">Mật khẩu</label>
+        <input type="password" id="password" placeholder="Nhập mật khẩu">
+        
+        <div class="form-options">
+            <div>
+                <label for="remember-me">Ghi nhớ mật khẩu</label><input type="checkbox" id="remember-me">
+            </div>
+            <a href="#" class="forgot-password">Quên mật khẩu?</a>
+        </div>
+        
+        <button type="submit" class="form-button">Đăng nhập</button>
+    `;
 });
 
-const forgotPasswordLink = document.querySelector(".form-container.sign-in a");
 
-forgotPasswordLink.addEventListener("click", () => {
-  container.classList.add("active");
-});
+
+/* Start: Yen*/
 
 /* Start: modal show address*/
 let addresses = [
@@ -242,3 +278,47 @@ checkboxes.forEach((checkbox) => {
 // Lần đầu gọi để cập nhật thông tin giỏ hàng
 updateOrderSummary();
 //hương end
+// Dynamic Data Rendering - Xuân Mai
+
+const products = [
+  {
+    img : '/assets/img/book/mangacomic/frieren_phap_su_tien_tang_ban_thuong_bia_tap_12.webp',
+    name : 'Frieren - Pháp sư tiễn táng',
+    price : '119.000đ'
+  },
+  {
+    img : '/assets/img/book/mangacomic/frieren_phap_su_tien_tang_ban_thuong_bia_tap_12.webp',
+    name : 'Frieren - Pháp sư tiễn táng',
+    price : '119.000đ'
+  },
+  {
+    img : '/assets/img/book/mangacomic/frieren_phap_su_tien_tang_ban_thuong_bia_tap_12.webp',
+    name : 'Frieren - Pháp sư tiễn táng',
+    price : '119.000đ'
+  },
+  {
+    img : '/assets/img/book/mangacomic/frieren_phap_su_tien_tang_ban_thuong_bia_tap_12.webp',
+    name : 'Frieren - Pháp sư tiễn táng',
+    price : '119.000đ'
+  }
+
+];
+
+document.addEventListener('DOMContentLoaded', () => {
+  const productList = document.querySelector('.product_list');
+  const html = products.map(product => {
+    return `
+      <div class="product-items">
+        <img src="${product.img}">
+        <p>${product.name}</p>
+        <span class="price">${product.price}</span>
+      </div>
+    `;
+  }).join('');
+  productList.innerHTML = html;
+  
+});
+
+
+
+// Xuân Mai

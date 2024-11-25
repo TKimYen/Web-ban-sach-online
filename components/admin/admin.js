@@ -68,12 +68,12 @@ document.getElementById("suaTrangThai").addEventListener("change", function() {
  // Mảng chứa thông tin các sách
  let books = [
     { id: "01", name: "Nếu Biết Trăm Năm Là Hữu Hạn", stock: 200, price: "159.000 đ", status: "locked", image: "../../assets/img/book/vanhoctrongnuoc/laohac.webp" },
-    { id: "02", name: "Nhà Giả Kim", stock: 150, price: "180.000 đ", status: "selling", image: "giaoduccongdan9.webp" },
-    { id: "03", name: "Dế Mèn Phiêu Lưu Ký", stock: 100, price: "120.000 đ", status: "selling", image: "giaoduccongdan9.webp" },
+    { id: "02", name: "Nhà Giả Kim", stock: 150, price: "180.000 đ", status: "selling", image: "../../giaoduccongdan9.webp" },
+    { id: "03", name: "Dế Mèn Phiêu Lưu Ký", stock: 100, price: "120.000 đ", status: "selling", image: "../../giaoduccongdan9.webp" },
     { id: "04", name: "Lão Hạc", stock: 250, price: "100.000 đ", status: "selling", image: "../../assets/img/book/vanhoctrongnuoc/laohac.webp" },
-    { id: "05", name: "Chiến Tranh và Hòa Bình", stock: 80, price: "220.000 đ", status: "locked", image: "giaoduccongdan9.webp" }
+    { id: "05", name: "Chiến Tranh và Hòa Bình", stock: 80, price: "220.000 đ", status: "locked", image: "../../giaoduccongdan9.webp" }
   ];
-  
+
   // Hàm lưu mảng books vào localStorage
   function saveBooksToLocalStorage() {
     localStorage.setItem("books", JSON.stringify(books));

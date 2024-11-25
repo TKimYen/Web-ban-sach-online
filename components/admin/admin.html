@@ -1,882 +1,941 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+    />
     <!-- <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet"> -->
-    <script src="https://kit.fontawesome.com/264e375a82.js" crossorigin="anonymous"></script>
+    <script
+      src="https://kit.fontawesome.com/264e375a82.js"
+      crossorigin="anonymous"
+    ></script>
     <title>Admin</title>
-</head>
-<body>
+  </head>
+  <body>
     <main>
-        <div class="sidebar">
-            <img src="../../assets/img/AMYTH.svg">
-            <div class="taskbar">  
-                <p><a href="#" data-page="products">Quản lý sản phẩm</a></p>
-                <p><a href="#" data-page="employees">Quản lý nhân viên</a></p>
-                <p><a href="#" data-page="customers">Quản lý khách hàng</a></p>
-                <p><a href="#" data-page="invoices">Quản lý hóa đơn</a></p>
-                <p><a href="#" data-page="goodsReceiveNote">Quản lý phiếu nhập</a></p>
-                <p><a href="#" data-page="stats">Thống kê</a></p>
-            </div>
-
-            <div class="account">
-                <img src=""> <span>admin</span>
-                <img src="" id="logout">
-            </div>
-        </div>
-        <div class="content" id="products">
-            <h2>Sản Phẩm</h2>
-            <div class="product-search">
-                <div class="product-search-name-price">
-                    <div class="search-name">
-                        <input type="text" placeholder="Nhập tên sản phẩm">
-                    </div>          
-                    <div class="search-price">
-                        <input type="number" placeholder="Khoảng giá">
-                        <span>-</span>
-                        <input type="number" placeholder="Khoảng giá">
-                    </div>                              
-                </div>               
-                <button type="button" id="tim">Tìm</button>
-                <button type="button" id="them">Thêm</button>            
-                <p>Tổng số lượng: 50</p>
-            </div>
-            <!-- Book list section -->
-            <div class="product-list">
-                <table>
-                    <thead>
-                        <tr>
-                            <th>ID</th>
-                            <th>Tên sách</th>
-                            <th>Tồn kho</th>
-                            <th>Giá bán</th>
-                            <th>Trạng thái</th>
-                            <th>Thao tác</th>
-                        </tr>
-                    </thead>
-                    <tbody id="book-table-body">
-                        <!-- Nội dung sẽ được tạo bởi JavaScript -->                        
-                    </tbody>
-                </table>
-                    <!-- Pagination -->
-                <div class="pagination">
-                    <button>❮</button>
-                    <button class="active">1</button>
-                    <button>2</button>
-                    <button>3</button>
-                    <button>4</button>
-                    <button>❯</button>
-                </div>
-            </div>
+      <div class="sidebar">
+        <img src="../../assets/img/AMYTH.svg" />
+        <div class="taskbar">
+          <p><a href="#" data-page="products">Quản lý sản phẩm</a></p>
+          <p><a href="#" data-page="employees">Quản lý nhân viên</a></p>
+          <p><a href="#" data-page="customers">Quản lý khách hàng</a></p>
+          <p><a href="#" data-page="invoices">Quản lý hóa đơn</a></p>
+          <p><a href="#" data-page="goodsReceiveNote">Quản lý phiếu nhập</a></p>
+          <p><a href="#" data-page="stats">Thống kê</a></p>
         </div>
 
-    <!--Form thêm nhân viên-->
-    <div id="formThemNhanVien" class="modal">
+        <div class="account">
+          <img src="" /> <span>admin</span>
+          <img src="" id="logout" />
+        </div>
+      </div>
+      <div class="content" id="products">
+        <h2>Sản Phẩm</h2>
+        <div class="product-search">
+          <div class="product-search-name-price">
+            <div class="search-name">
+              <input type="text" placeholder="Nhập tên sản phẩm" />
+            </div>
+            <div class="search-price">
+              <input type="number" placeholder="Khoảng giá" />
+              <span>-</span>
+              <input type="number" placeholder="Khoảng giá" />
+            </div>
+          </div>
+          <button type="button" id="tim">Tìm</button>
+          <button type="button" id="them">Thêm</button>
+          <p>Tổng số lượng: 50</p>
+        </div>
+        <!-- Book list section -->
+        <div class="product-list">
+          <table>
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Tên sách</th>
+                <th>Tồn kho</th>
+                <th>Giá bán</th>
+                <th>Trạng thái</th>
+                <th>Thao tác</th>
+              </tr>
+            </thead>
+            <tbody id="book-table-body">
+              <!-- Nội dung sẽ được tạo bởi JavaScript -->
+            </tbody>
+          </table>
+          <!-- Pagination -->
+          <div class="pagination">
+            <button>❮</button>
+            <button class="active">1</button>
+            <button>2</button>
+            <button>3</button>
+            <button>4</button>
+            <button>❯</button>
+          </div>
+        </div>
+      </div>
+
+      <!--Form thêm nhân viên-->
+      <div id="formThemNhanVien" class="modal">
         <form id="themNhanVien" class="modal-content">
-            <h1>Thêm nhân viên</h1>
-            <button type="button" class="close" onclick="closeThemForm()">+</button>
+          <h1>Thêm nhân viên</h1>
+          <button type="button" class="close" onclick="closeThemForm()">
+            +
+          </button>
 
-            <label for="themName">Tên nhân viên:</label>
-            <input type="text" id="themName" placeholder="Nhập họ và tên">
+          <label for="themName">Tên nhân viên:</label>
+          <input type="text" id="themName" placeholder="Nhập họ và tên" />
 
-            <br>
-            <label for="themPhone">Số điện thoại:</label>
-            <input type="text" id="themPhone" placeholder="Nhập số điện thoại">
+          <br />
+          <label for="themPhone">Số điện thoại:</label>
+          <input type="text" id="themPhone" placeholder="Nhập số điện thoại" />
 
-            <br>
-            <label for="themChucVu">Chức vụ:</label>
-            <input type="text" id="themChucVu" placeholder="Nhập chức vụ">
+          <br />
+          <label for="themChucVu">Chức vụ:</label>
+          <input type="text" id="themChucVu" placeholder="Nhập chức vụ" />
 
-            <div>
-                <button type="submit" name="them">Thêm</button>
-            </div>
+          <div>
+            <button type="submit" name="them">Thêm</button>
+          </div>
         </form>
-    </div>
+      </div>
 
-    <!--Form sửa nhân viên-->
-    <div id="formSuaNhanVien" class="modal">
+      <!--Form sửa nhân viên-->
+      <div id="formSuaNhanVien" class="modal">
         <form id="suaNhanVien" class="modal-content">
-            <h1>Sửa chi tiết nhân viên</h1>
-            <button type="button" class="close" onclick="closeSuaForm()">+</button>
+          <h1>Sửa chi tiết nhân viên</h1>
+          <button type="button" class="close" onclick="closeSuaForm()">
+            +
+          </button>
 
-            <label for="suaName">Tên nhân viên:</label>
-            <input type="text" id="suaName" placeholder="Nhập họ và tên">
+          <label for="suaName">Tên nhân viên:</label>
+          <input type="text" id="suaName" placeholder="Nhập họ và tên" />
 
-            <br>
-            <label for="suaPhone">Số điện thoại:</label>
-            <input type="text" id="suaPhone" placeholder="Nhập số điện thoại">
+          <br />
+          <label for="suaPhone">Số điện thoại:</label>
+          <input type="text" id="suaPhone" placeholder="Nhập số điện thoại" />
 
-            <br>
-            <label for="suaChucVu">Chức vụ:</label>
-            <input type="text" id="suaChucVu" placeholder="Nhập chức vụ">
+          <br />
+          <label for="suaChucVu">Chức vụ:</label>
+          <input type="text" id="suaChucVu" placeholder="Nhập chức vụ" />
 
-            <br>
-            <label for="suaTrangThai">Trạng thái: </label>
-            <input type="checkbox" id="suaTrangThai" class="toggle-switch">
-            <span id="suaTrangThaiLabel">Đang hoạt động</span>
-            
-            <div>
-                <button type="button" onclick="updateNhanVien()">Cập nhật</button>
-            </div>
+          <br />
+          <label for="suaTrangThai">Trạng thái: </label>
+          <input type="checkbox" id="suaTrangThai" class="toggle-switch" />
+          <span id="suaTrangThaiLabel">Đang hoạt động</span>
+
+          <div>
+            <button type="button" onclick="updateNhanVien()">Cập nhật</button>
+          </div>
         </form>
-    </div>
+      </div>
 
-    <div class="modal" id="formDetailNhanVien">
+      <div class="modal" id="formDetailNhanVien">
         <form id="detailNhanVien" class="modal-content">
-            <h2>Thông tin chi tiết nhân viên</h2>
-            <div class="info">
-                <label>Tên khách hàng:</label> <span id="detailName"></span>
-            </div>
-            <div class="info">
-                <label>Số điện thoại:</label> <span id="detailPhone"></span>
-            </div>
-            <div class="info">
-                <label>Chức vụ:</label> <span id="detailChucVu"></span>
-            </div>
-            <div class="info">
-                <label>Trạng thái:</label> <span id="detailTrangThai"></span>
-            </div>
-            <button type="button" class="close" onclick="closeDetailForm()">+</button>
+          <h2>Thông tin chi tiết nhân viên</h2>
+          <div class="info">
+            <label>Tên khách hàng:</label> <span id="detailName"></span>
+          </div>
+          <div class="info">
+            <label>Số điện thoại:</label> <span id="detailPhone"></span>
+          </div>
+          <div class="info">
+            <label>Chức vụ:</label> <span id="detailChucVu"></span>
+          </div>
+          <div class="info">
+            <label>Trạng thái:</label> <span id="detailTrangThai"></span>
+          </div>
+          <button type="button" class="close" onclick="closeDetailForm()">
+            +
+          </button>
         </form>
-    </div>
-    
-        <div class="content hidden" id="employees">
-            <h2>Nhân Viên</h2>
-            <div class="client-search">
-                <input type="text" placeholder="Nhập tên nhân viên">
-                <button type="button" id="tim">Tìm</button>
-                <button type="button" id="them" onclick="showThemForm();">Thêm</button>
-                <p>Tổng số lượng: 50</p>
-            </div>
+      </div>
 
-            <div class="client-list">
-                <table>
-                    <thead>
-                        <tr>
-                            <th>ID</th>
-                            <th>Tên nhân viên</th>
-                            <th>Số điện thoại</th>
-                            <th>Chức vụ</th>
-                            <th>Trạng thái</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>01</td>
-                            <td>Võ Xuân Mai</td>
-                            <td>0100203045</td>
-                            <td>Quản lý</td>
-                            <td><span class="status bian">Bị ẩn</span></td>
-                            <td class="btn-action-group">
-                                <button class="btn-status btn-info" onclick="showDetailForm()">
-                                    <i class="fa-solid fa-info"></i>
-                                </button>     
-                                <button class="btn-status btn-primary" onclick="showSuaForm()">
-                                    <i class="fas fa-edit"></i>
-                                </button>                           
-                                <button class="btn-status btn-danger">
-                                    <i class="fas fa-trash-alt"></i>
-                                </button>                                
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td>02</td>
-                            <td>Trần Kim Yến</td>
-                            <td>0100203045</td>
-                            <td>Quản lý</td>
-                            <td><span class="status active">Hoạt động</span></td>
-                            <td class="btn-action-group">
-                                <button class="btn-status btn-info" onclick="showDetailForm()">
-                                    <i class="fa-solid fa-info"></i>
-                                </button>     
-                                <button class="btn-status btn-primary" onclick="showSuaForm()">
-                                    <i class="fas fa-edit"></i>
-                                </button>                           
-                                <button class="btn-status btn-danger">
-                                    <i class="fas fa-trash-alt"></i>
-                                </button>                                
-                            </td>
-                        </tr>
-                        </tr>
-
-                        <tr>
-                            <td>03</td>
-                            <td>Trương Phúc Hoàng Anh</td>
-                            <td>0100203045</td>
-                            <td>Quản lý</td>
-                            <td><span class="status active">Hoạt động</span></td>
-                            <td class="btn-action-group">
-                                <button class="btn-status btn-info" onclick="showDetailForm()">
-                                    <i class="fa-solid fa-info"></i>
-                                </button>     
-                                <button class="btn-status btn-primary" onclick="showSuaForm()">
-                                    <i class="fas fa-edit"></i>
-                                </button>                           
-                                <button class="btn-status btn-danger">
-                                    <i class="fas fa-trash-alt"></i>
-                                </button>                                
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td>04</td>
-                            <td>Trần Quỳnh Hương</td>
-                            <td>0100203045</td>
-                            <td>Quản lý</td>
-                            <td><span class="status active">Hoạt động</span></td>
-                            <td class="btn-action-group">
-                                <button class="btn-status btn-info" onclick="showDetailForm()">
-                                    <i class="fa-solid fa-info"></i>
-                                </button>     
-                                <button class="btn-status btn-primary" onclick="showSuaForm()">
-                                    <i class="fas fa-edit"></i>
-                                </button>                           
-                                <button class="btn-status btn-danger">
-                                    <i class="fas fa-trash-alt"></i>
-                                </button>                                
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td>05</td>
-                            <td>Trần Minh Nhật</td>
-                            <td>0100203045</td>
-                            <td>Quản lý</td>
-                            <td><span class="status active">Hoạt động</span></td>
-                            <td class="btn-action-group">
-                                <button class="btn-status btn-info" onclick="showDetailForm()">
-                                    <i class="fa-solid fa-info"></i>
-                                </button>     
-                                <button class="btn-status btn-primary" onclick="showSuaForm()">
-                                    <i class="fas fa-edit"></i>
-                                </button>                           
-                                <button class="btn-status btn-danger">
-                                    <i class="fas fa-trash-alt"></i>
-                                </button>                                
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td>06</td>
-                            <td>Võ Hoàng Yến</td>
-                            <td>0100203045</td>
-                            <td>Quản lý</td>
-                            <td><span class="status active">Hoạt động</span></td>
-                            <td class="btn-action-group">
-                                <button class="btn-status btn-info" onclick="showDetailForm()">
-                                    <i class="fa-solid fa-info"></i>
-                                </button>     
-                                <button class="btn-status btn-primary" onclick="showSuaForm()">
-                                    <i class="fas fa-edit"></i>
-                                </button>                           
-                                <button class="btn-status btn-danger">
-                                    <i class="fas fa-trash-alt"></i>
-                                </button>                                
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-
-                <div class="pagination">
-                    <button>❮</button>
-                    <button class="active">1</button>
-                    <button>2</button>
-                    <button>3</button>
-                    <button>4</button>
-                    <button>❯</button>
-                </div>
-            </div>
+      <div class="content hidden" id="employees">
+        <h2>Nhân Viên</h2>
+        <div class="client-search">
+          <input type="text" placeholder="Nhập tên nhân viên" />
+          <button type="button" id="tim">Tìm</button>
+          <button type="button" id="them" onclick="showThemForm();">
+            Thêm
+          </button>
+          <p>Tổng số lượng: 50</p>
         </div>
 
-        <div class="content hidden" id="customers">
-            <h2>Khách hàng</h2>
-            <div class="client-search">
-                <input type="text" placeholder="Nhập tên khách hàng, số điện thoại">
-                <button type="button">Tìm</button>
-                <p>Tổng số lượng: 50</p>
-            </div>
+        <div class="client-list">
+          <table>
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Tên nhân viên</th>
+                <th>Số điện thoại</th>
+                <th>Chức vụ</th>
+                <th>Trạng thái</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>01</td>
+                <td>Võ Xuân Mai</td>
+                <td>0100203045</td>
+                <td>Quản lý</td>
+                <td><span class="status bian">Bị ẩn</span></td>
+                <td class="btn-action-group">
+                  <button
+                    class="btn-status btn-info"
+                    onclick="showDetailForm()"
+                  >
+                    <i class="fa-solid fa-info"></i>
+                  </button>
+                  <button
+                    class="btn-status btn-primary"
+                    onclick="showSuaForm()"
+                  >
+                    <i class="fas fa-edit"></i>
+                  </button>
+                  <button class="btn-status btn-danger">
+                    <i class="fas fa-trash-alt"></i>
+                  </button>
+                </td>
+              </tr>
 
-            <div class="client-list">
-                <table>
-                    <thead>
-                        <tr>
-                            <th>ID</th>
-                            <th>Tên khách hàng</th>
-                            <th>Số điện thoại</th>
-                            <th>Email</th>
-                            <th>Hành động</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>01</td>
-                            <td>Võ Xuân Mai</td>
-                            <td>0100203045</td>
-                            <td>abc123@gmail.com</td>
-                            <td class="btn-action-group">
-                                <button class="btn-status btn-info">
-                                    <i class="fa-solid fa-info"></i>
-                                </button>
-                                <button class="btn-status btn-primary">
-                                    <i class="fas fa-edit"></i>
-                                </button>                                
-                                <button class="btn-status btn-danger">
-                                    <i class="fas fa-trash-alt"></i>
-                                </button>
-                            </td>
-                        </tr>
+              <tr>
+                <td>02</td>
+                <td>Trần Kim Yến</td>
+                <td>0100203045</td>
+                <td>Quản lý</td>
+                <td><span class="status active">Hoạt động</span></td>
+                <td class="btn-action-group">
+                  <button
+                    class="btn-status btn-info"
+                    onclick="showDetailForm()"
+                  >
+                    <i class="fa-solid fa-info"></i>
+                  </button>
+                  <button
+                    class="btn-status btn-primary"
+                    onclick="showSuaForm()"
+                  >
+                    <i class="fas fa-edit"></i>
+                  </button>
+                  <button class="btn-status btn-danger">
+                    <i class="fas fa-trash-alt"></i>
+                  </button>
+                </td>
+              </tr>
 
-                        <tr>
-                            <td>02</td>
-                            <td>Võ Xuân Mai</td>
-                            <td>0100203045</td>
-                            <td>abc123@gmail.com</td>
-                            <td class="btn-action-group">
-                                <button class="btn-status btn-info">
-                                    <i class="fa-solid fa-info"></i>
-                                </button>
-                                <button class="btn-status btn-primary">
-                                    <i class="fas fa-edit"></i>
-                                </button>                                
-                                <button class="btn-status btn-danger">
-                                    <i class="fas fa-trash-alt"></i>
-                                </button>
-                            </td>
-                        </tr>
+              <tr>
+                <td>03</td>
+                <td>Trương Phúc Hoàng Anh</td>
+                <td>0100203045</td>
+                <td>Quản lý</td>
+                <td><span class="status active">Hoạt động</span></td>
+                <td class="btn-action-group">
+                  <button
+                    class="btn-status btn-info"
+                    onclick="showDetailForm()"
+                  >
+                    <i class="fa-solid fa-info"></i>
+                  </button>
+                  <button
+                    class="btn-status btn-primary"
+                    onclick="showSuaForm()"
+                  >
+                    <i class="fas fa-edit"></i>
+                  </button>
+                  <button class="btn-status btn-danger">
+                    <i class="fas fa-trash-alt"></i>
+                  </button>
+                </td>
+              </tr>
 
-                        <tr>
-                            <td>01</td>
-                            <td>Võ Xuân Mai</td>
-                            <td>0100203045</td>
-                            <td>abc123@gmail.com</td>
-                            <td class="btn-action-group">
-                                <button class="btn-status btn-info">
-                                    <i class="fa-solid fa-info"></i>
-                                </button>
-                                <button class="btn-status btn-primary">
-                                    <i class="fas fa-edit"></i>
-                                </button>                                
-                                <button class="btn-status btn-danger">
-                                    <i class="fas fa-trash-alt"></i>
-                                </button>
-                            </td>
-                        </tr>
+              <tr>
+                <td>04</td>
+                <td>Trần Quỳnh Hương</td>
+                <td>0100203045</td>
+                <td>Quản lý</td>
+                <td><span class="status active">Hoạt động</span></td>
+                <td class="btn-action-group">
+                  <button
+                    class="btn-status btn-info"
+                    onclick="showDetailForm()"
+                  >
+                    <i class="fa-solid fa-info"></i>
+                  </button>
+                  <button
+                    class="btn-status btn-primary"
+                    onclick="showSuaForm()"
+                  >
+                    <i class="fas fa-edit"></i>
+                  </button>
+                  <button class="btn-status btn-danger">
+                    <i class="fas fa-trash-alt"></i>
+                  </button>
+                </td>
+              </tr>
 
-                        <tr>
-                            <td>01</td>
-                            <td>Võ Xuân Mai</td>
-                            <td>0100203045</td>
-                            <td>abc123@gmail.com</td>
-                            <td class="btn-action-group">
-                                <button class="btn-status btn-info">
-                                    <i class="fa-solid fa-info"></i>
-                                </button>
-                                <button class="btn-status btn-primary">
-                                    <i class="fas fa-edit"></i>
-                                </button>                                
-                                <button class="btn-status btn-danger">
-                                    <i class="fas fa-trash-alt"></i>
-                                </button>
-                            </td>
-                        </tr>
+              <tr>
+                <td>05</td>
+                <td>Trần Minh Nhật</td>
+                <td>0100203045</td>
+                <td>Quản lý</td>
+                <td><span class="status active">Hoạt động</span></td>
+                <td class="btn-action-group">
+                  <button
+                    class="btn-status btn-info"
+                    onclick="showDetailForm()"
+                  >
+                    <i class="fa-solid fa-info"></i>
+                  </button>
+                  <button
+                    class="btn-status btn-primary"
+                    onclick="showSuaForm()"
+                  >
+                    <i class="fas fa-edit"></i>
+                  </button>
+                  <button class="btn-status btn-danger">
+                    <i class="fas fa-trash-alt"></i>
+                  </button>
+                </td>
+              </tr>
 
-                        <tr>
-                            <td>01</td>
-                            <td>Võ Xuân Mai</td>
-                            <td>0100203045</td>
-                            <td>abc123@gmail.com</td>
-                            <td class="btn-action-group">
-                                <button class="btn-status btn-info">
-                                    <i class="fa-solid fa-info"></i>
-                                </button>
-                                <button class="btn-status btn-primary">
-                                    <i class="fas fa-edit"></i>
-                                </button>                                
-                                <button class="btn-status btn-danger">
-                                    <i class="fas fa-trash-alt"></i>
-                                </button>
-                            </td>
-                        </tr>
+              <tr>
+                <td>06</td>
+                <td>Võ Hoàng Yến</td>
+                <td>0100203045</td>
+                <td>Quản lý</td>
+                <td><span class="status active">Hoạt động</span></td>
+                <td class="btn-action-group">
+                  <button
+                    class="btn-status btn-info"
+                    onclick="showDetailForm()"
+                  >
+                    <i class="fa-solid fa-info"></i>
+                  </button>
+                  <button
+                    class="btn-status btn-primary"
+                    onclick="showSuaForm()"
+                  >
+                    <i class="fas fa-edit"></i>
+                  </button>
+                  <button class="btn-status btn-danger">
+                    <i class="fas fa-trash-alt"></i>
+                  </button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
 
-                        <tr>
-                            <td>01</td>
-                            <td>Võ Xuân Mai</td>
-                            <td>0100203045</td>
-                            <td>abc123@gmail.com</td>
-                            <td class="btn-action-group">
-                                <button class="btn-status btn-info">
-                                    <i class="fa-solid fa-info"></i>
-                                </button>
-                                <button class="btn-status btn-primary">
-                                    <i class="fas fa-edit"></i>
-                                </button>                                
-                                <button class="btn-status btn-danger">
-                                    <i class="fas fa-trash-alt"></i>
-                                </button>
-                            </td>
-                        </tr>
+          <div class="pagination">
+            <button>❮</button>
+            <button class="active">1</button>
+            <button>2</button>
+            <button>3</button>
+            <button>4</button>
+            <button>❯</button>
+          </div>
+        </div>
+      </div>
 
-                        <tr>
-                            <td>01</td>
-                            <td>Võ Xuân Mai</td>
-                            <td>0100203045</td>
-                            <td>abc123@gmail.com</td>
-                            <td class="btn-action-group">
-                                <button class="btn-status btn-info">
-                                    <i class="fa-solid fa-info"></i>
-                                </button>
-                                <button class="btn-status btn-primary">
-                                    <i class="fas fa-edit"></i>
-                                </button>                                
-                                <button class="btn-status btn-danger">
-                                    <i class="fas fa-trash-alt"></i>
-                                </button>
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td>01</td>
-                            <td>Võ Xuân Mai</td>
-                            <td>0100203045</td>
-                            <td>abc123@gmail.com</td>
-                            <td class="btn-action-group">
-                                <button class="btn-status btn-info">
-                                    <i class="fa-solid fa-info"></i>
-                                </button>
-                                <button class="btn-status btn-primary">
-                                    <i class="fas fa-edit"></i>
-                                </button>                                
-                                <button class="btn-status btn-danger">
-                                    <i class="fas fa-trash-alt"></i>
-                                </button>
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td>01</td>
-                            <td>Võ Xuân Mai</td>
-                            <td>0100203045</td>
-                            <td>abc123@gmail.com</td>
-                            <td class="btn-action-group">
-                                <button class="btn-status btn-info">
-                                    <i class="fa-solid fa-info"></i>
-                                </button>
-                                <button class="btn-status btn-primary">
-                                    <i class="fas fa-edit"></i>
-                                </button>                                
-                                <button class="btn-status btn-danger">
-                                    <i class="fas fa-trash-alt"></i>
-                                </button>
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td>01</td>
-                            <td>Võ Xuân Mai</td>
-                            <td>0100203045</td>
-                            <td>abc123@gmail.com</td>
-                            <td class="btn-action-group">
-                                <button class="btn-status btn-info">
-                                    <i class="fa-solid fa-info"></i>
-                                </button>
-                                <button class="btn-status btn-primary">
-                                    <i class="fas fa-edit"></i>
-                                </button>                                
-                                <button class="btn-status btn-danger">
-                                    <i class="fas fa-trash-alt"></i>
-                                </button>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
+      <div class="content hidden" id="customers">
+        <h2>Khách hàng</h2>
+        <div class="client-search">
+          <input type="text" placeholder="Nhập tên khách hàng, số điện thoại" />
+          <button type="button">Tìm</button>
+          <p>Tổng số lượng: 50</p>
         </div>
 
-        <div class="content hidden" id="invoices">
-            <h2>Hóa đơn</h2>
-            <div class="client-search">
-                <input type="text" placeholder="Nhập tên khách hàng, số điện thoại">
-                <button type="button">Tìm</button>
-                <button class="thd">Thêm</button>
-            </div>
+        <div class="client-list">
+          <table>
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Tên khách hàng</th>
+                <th>Số điện thoại</th>
+                <th>Email</th>
+                <th>Hành động</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>01</td>
+                <td>Võ Xuân Mai</td>
+                <td>0100203045</td>
+                <td>abc123@gmail.com</td>
+                <td class="btn-action-group">
+                  <button class="btn-status btn-info">
+                    <i class="fa-solid fa-info"></i>
+                  </button>
+                  <button class="btn-status btn-primary">
+                    <i class="fas fa-edit"></i>
+                  </button>
+                  <button class="btn-status btn-danger">
+                    <i class="fas fa-trash-alt"></i>
+                  </button>
+                </td>
+              </tr>
 
-            <div class="client-list">
-                <table>
-                    <thead>
-                        <tr>
-                            <th>ID</th>
-                            <th>Tên khách hàng</th>
-                            <th>Số điện thoại</th>
-                            <th>Ngày tạo</th>
-                            <th>Tổng tiền</th>
-                            <th>Trạng thái</th>
-                            <th></th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>01</td>
-                            <td>Võ Xuân Mai</td>
-                            <td>0100203045</td>
-                            <td>11/11/2024</td>
-                            <td>Tổng tiền</td>
-                            <td><span class="status huy">Hủy</span></td>
-                            <td class="btn-action-group">
-                                <button class="btn-status btn-info">
-                                    <i class="fa-solid fa-info"></i>
-                                </button>
-                                <button class="btn-status btn-primary">
-                                    <i class="fas fa-edit"></i>
-                                </button>                                
-                                <button class="btn-status btn-danger">
-                                    <i class="fas fa-trash-alt"></i>
-                                </button>
-                            </td>
-                        </tr>
+              <tr>
+                <td>02</td>
+                <td>Võ Xuân Mai</td>
+                <td>0100203045</td>
+                <td>abc123@gmail.com</td>
+                <td class="btn-action-group">
+                  <button class="btn-status btn-info">
+                    <i class="fa-solid fa-info"></i>
+                  </button>
+                  <button class="btn-status btn-primary">
+                    <i class="fas fa-edit"></i>
+                  </button>
+                  <button class="btn-status btn-danger">
+                    <i class="fas fa-trash-alt"></i>
+                  </button>
+                </td>
+              </tr>
 
-                        <tr>
-                            <td>01</td>
-                            <td>Võ Xuân Mai</td>
-                            <td>0100203045</td>
-                            <td>11/11/2024</td>
-                            <td>Tổng tiền</td>
-                            <td><span class="status huy">Hủy</span></td>
-                            <td class="btn-action-group">
-                                <button class="btn-status btn-info">
-                                    <i class="fa-solid fa-info"></i>
-                                </button>
-                                <button class="btn-status btn-primary">
-                                    <i class="fas fa-edit"></i>
-                                </button>                                
-                                <button class="btn-status btn-danger">
-                                    <i class="fas fa-trash-alt"></i>
-                                </button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>01</td>
-                            <td>Võ Xuân Mai</td>
-                            <td>0100203045</td>
-                            <td>11/11/2024</td>
-                            <td>Tổng tiền</td>
-                            <td><span class="status active">Hoạt động</span></td>
-                            <td class="btn-action-group">
-                                <button class="btn-status btn-info">
-                                    <i class="fa-solid fa-info"></i>
-                                </button>
-                                <button class="btn-status btn-primary">
-                                    <i class="fas fa-edit"></i>
-                                </button>                                
-                                <button class="btn-status btn-danger">
-                                    <i class="fas fa-trash-alt"></i>
-                                </button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>01</td>
-                            <td>Võ Xuân Mai</td>
-                            <td>0100203045</td>
-                            <td>11/11/2024</td>
-                            <td>Tổng tiền</td>
-                            <td><span class="status active">Hoạt động</span></td>
-                            <td class="btn-action-group">
-                                <button class="btn-status btn-info">
-                                    <i class="fa-solid fa-info"></i>
-                                </button>
-                                <button class="btn-status btn-primary">
-                                    <i class="fas fa-edit"></i>
-                                </button>                                
-                                <button class="btn-status btn-danger">
-                                    <i class="fas fa-trash-alt"></i>
-                                </button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>01</td>
-                            <td>Võ Xuân Mai</td>
-                            <td>0100203045</td>
-                            <td>11/11/2024</td>
-                            <td>Tổng tiền</td>
-                            <td><span class="status active">Hoạt động</span></td>
-                            <td class="btn-action-group">
-                                <button class="btn-status btn-info">
-                                    <i class="fa-solid fa-info"></i>
-                                </button>
-                                <button class="btn-status btn-primary">
-                                    <i class="fas fa-edit"></i>
-                                </button>                                
-                                <button class="btn-status btn-danger">
-                                    <i class="fas fa-trash-alt"></i>
-                                </button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>01</td>
-                            <td>Võ Xuân Mai</td>
-                            <td>0100203045</td>
-                            <td>11/11/2024</td>
-                            <td>Tổng tiền</td>
-                            <td><span class="status active">Hoạt động</span></td>
-                            <td class="btn-action-group">
-                                <button class="btn-status btn-info">
-                                    <i class="fa-solid fa-info"></i>
-                                </button>
-                                <button class="btn-status btn-primary">
-                                    <i class="fas fa-edit"></i>
-                                </button>                                
-                                <button class="btn-status btn-danger">
-                                    <i class="fas fa-trash-alt"></i>
-                                </button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>01</td>
-                            <td>Võ Xuân Mai</td>
-                            <td>0100203045</td>
-                            <td>11/11/2024</td>
-                            <td>Tổng tiền</td>
-                            <td><span class="status active">Hoạt động</span></td>
-                            <td class="btn-action-group">
-                                <button class="btn-status btn-info">
-                                    <i class="fa-solid fa-info"></i>
-                                </button>
-                                <button class="btn-status btn-primary">
-                                    <i class="fas fa-edit"></i>
-                                </button>                                
-                                <button class="btn-status btn-danger">
-                                    <i class="fas fa-trash-alt"></i>
-                                </button>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
+              <tr>
+                <td>01</td>
+                <td>Võ Xuân Mai</td>
+                <td>0100203045</td>
+                <td>abc123@gmail.com</td>
+                <td class="btn-action-group">
+                  <button class="btn-status btn-info">
+                    <i class="fa-solid fa-info"></i>
+                  </button>
+                  <button class="btn-status btn-primary">
+                    <i class="fas fa-edit"></i>
+                  </button>
+                  <button class="btn-status btn-danger">
+                    <i class="fas fa-trash-alt"></i>
+                  </button>
+                </td>
+              </tr>
+
+              <tr>
+                <td>01</td>
+                <td>Võ Xuân Mai</td>
+                <td>0100203045</td>
+                <td>abc123@gmail.com</td>
+                <td class="btn-action-group">
+                  <button class="btn-status btn-info">
+                    <i class="fa-solid fa-info"></i>
+                  </button>
+                  <button class="btn-status btn-primary">
+                    <i class="fas fa-edit"></i>
+                  </button>
+                  <button class="btn-status btn-danger">
+                    <i class="fas fa-trash-alt"></i>
+                  </button>
+                </td>
+              </tr>
+
+              <tr>
+                <td>01</td>
+                <td>Võ Xuân Mai</td>
+                <td>0100203045</td>
+                <td>abc123@gmail.com</td>
+                <td class="btn-action-group">
+                  <button class="btn-status btn-info">
+                    <i class="fa-solid fa-info"></i>
+                  </button>
+                  <button class="btn-status btn-primary">
+                    <i class="fas fa-edit"></i>
+                  </button>
+                  <button class="btn-status btn-danger">
+                    <i class="fas fa-trash-alt"></i>
+                  </button>
+                </td>
+              </tr>
+
+              <tr>
+                <td>01</td>
+                <td>Võ Xuân Mai</td>
+                <td>0100203045</td>
+                <td>abc123@gmail.com</td>
+                <td class="btn-action-group">
+                  <button class="btn-status btn-info">
+                    <i class="fa-solid fa-info"></i>
+                  </button>
+                  <button class="btn-status btn-primary">
+                    <i class="fas fa-edit"></i>
+                  </button>
+                  <button class="btn-status btn-danger">
+                    <i class="fas fa-trash-alt"></i>
+                  </button>
+                </td>
+              </tr>
+
+              <tr>
+                <td>01</td>
+                <td>Võ Xuân Mai</td>
+                <td>0100203045</td>
+                <td>abc123@gmail.com</td>
+                <td class="btn-action-group">
+                  <button class="btn-status btn-info">
+                    <i class="fa-solid fa-info"></i>
+                  </button>
+                  <button class="btn-status btn-primary">
+                    <i class="fas fa-edit"></i>
+                  </button>
+                  <button class="btn-status btn-danger">
+                    <i class="fas fa-trash-alt"></i>
+                  </button>
+                </td>
+              </tr>
+
+              <tr>
+                <td>01</td>
+                <td>Võ Xuân Mai</td>
+                <td>0100203045</td>
+                <td>abc123@gmail.com</td>
+                <td class="btn-action-group">
+                  <button class="btn-status btn-info">
+                    <i class="fa-solid fa-info"></i>
+                  </button>
+                  <button class="btn-status btn-primary">
+                    <i class="fas fa-edit"></i>
+                  </button>
+                  <button class="btn-status btn-danger">
+                    <i class="fas fa-trash-alt"></i>
+                  </button>
+                </td>
+              </tr>
+
+              <tr>
+                <td>01</td>
+                <td>Võ Xuân Mai</td>
+                <td>0100203045</td>
+                <td>abc123@gmail.com</td>
+                <td class="btn-action-group">
+                  <button class="btn-status btn-info">
+                    <i class="fa-solid fa-info"></i>
+                  </button>
+                  <button class="btn-status btn-primary">
+                    <i class="fas fa-edit"></i>
+                  </button>
+                  <button class="btn-status btn-danger">
+                    <i class="fas fa-trash-alt"></i>
+                  </button>
+                </td>
+              </tr>
+
+              <tr>
+                <td>01</td>
+                <td>Võ Xuân Mai</td>
+                <td>0100203045</td>
+                <td>abc123@gmail.com</td>
+                <td class="btn-action-group">
+                  <button class="btn-status btn-info">
+                    <i class="fa-solid fa-info"></i>
+                  </button>
+                  <button class="btn-status btn-primary">
+                    <i class="fas fa-edit"></i>
+                  </button>
+                  <button class="btn-status btn-danger">
+                    <i class="fas fa-trash-alt"></i>
+                  </button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="content hidden" id="invoices">
+        <h2>Hóa đơn</h2>
+        <div class="client-search">
+          <input type="text" placeholder="Nhập tên khách hàng, số điện thoại" />
+          <button type="button">Tìm</button>
+          <button class="thd">Thêm</button>
         </div>
 
-        <div class="content hidden" id="goodsReceiveNote">
-            <h2>Phiếu Nhập</h2>
-            <div class="client-search">
-                <input type="text" placeholder="Nhập tên nhà cung cấp">
-                <button type="button">Tìm</button>
-                <button class="thd">Thêm</button>
-            </div>
+        <div class="client-list">
+          <table>
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Tên khách hàng</th>
+                <th>Số điện thoại</th>
+                <th>Ngày tạo</th>
+                <th>Tổng tiền</th>
+                <th>Trạng thái</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>01</td>
+                <td>Võ Xuân Mai</td>
+                <td>0100203045</td>
+                <td>11/11/2024</td>
+                <td>Tổng tiền</td>
+                <td><span class="status huy">Hủy</span></td>
+                <td class="btn-action-group">
+                  <button class="btn-status btn-info">
+                    <i class="fa-solid fa-info"></i>
+                  </button>
+                  <button class="btn-status btn-primary">
+                    <i class="fas fa-edit"></i>
+                  </button>
+                  <button class="btn-status btn-danger">
+                    <i class="fas fa-trash-alt"></i>
+                  </button>
+                </td>
+              </tr>
 
-            <div class="client-list">
-                <table>
-                    <thead>
-                        <tr>
-                            <th>ID</th>
-                            <th>Nhà cung cấp</th>
-                            <th>Ngày tạo</th>
-                            <th>Tổng tiền</th>
-                            <th>Trạng thái</th>
-                            <th></th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>01</td>
-                            <td>Võ Xuân Mai</td>
-                            <td>11/11/2024</td>
-                            <td>Tổng tiền</td>
-                            <td><span class="status huy">Hủy</span></td>
-                            <td class="btn-action-group">
-                                <button class="btn-status btn-info">
-                                    <i class="fa-solid fa-info"></i>
-                                </button>
-                                <button class="btn-status btn-primary">
-                                    <i class="fas fa-edit"></i>
-                                </button>                                
-                                <button class="btn-status btn-danger">
-                                    <i class="fas fa-trash-alt"></i>
-                                </button>
-                            </td>
-                        </tr>
+              <tr>
+                <td>01</td>
+                <td>Võ Xuân Mai</td>
+                <td>0100203045</td>
+                <td>11/11/2024</td>
+                <td>Tổng tiền</td>
+                <td><span class="status huy">Hủy</span></td>
+                <td class="btn-action-group">
+                  <button class="btn-status btn-info">
+                    <i class="fa-solid fa-info"></i>
+                  </button>
+                  <button class="btn-status btn-primary">
+                    <i class="fas fa-edit"></i>
+                  </button>
+                  <button class="btn-status btn-danger">
+                    <i class="fas fa-trash-alt"></i>
+                  </button>
+                </td>
+              </tr>
+              <tr>
+                <td>01</td>
+                <td>Võ Xuân Mai</td>
+                <td>0100203045</td>
+                <td>11/11/2024</td>
+                <td>Tổng tiền</td>
+                <td><span class="status active">Hoạt động</span></td>
+                <td class="btn-action-group">
+                  <button class="btn-status btn-info">
+                    <i class="fa-solid fa-info"></i>
+                  </button>
+                  <button class="btn-status btn-primary">
+                    <i class="fas fa-edit"></i>
+                  </button>
+                  <button class="btn-status btn-danger">
+                    <i class="fas fa-trash-alt"></i>
+                  </button>
+                </td>
+              </tr>
+              <tr>
+                <td>01</td>
+                <td>Võ Xuân Mai</td>
+                <td>0100203045</td>
+                <td>11/11/2024</td>
+                <td>Tổng tiền</td>
+                <td><span class="status active">Hoạt động</span></td>
+                <td class="btn-action-group">
+                  <button class="btn-status btn-info">
+                    <i class="fa-solid fa-info"></i>
+                  </button>
+                  <button class="btn-status btn-primary">
+                    <i class="fas fa-edit"></i>
+                  </button>
+                  <button class="btn-status btn-danger">
+                    <i class="fas fa-trash-alt"></i>
+                  </button>
+                </td>
+              </tr>
+              <tr>
+                <td>01</td>
+                <td>Võ Xuân Mai</td>
+                <td>0100203045</td>
+                <td>11/11/2024</td>
+                <td>Tổng tiền</td>
+                <td><span class="status active">Hoạt động</span></td>
+                <td class="btn-action-group">
+                  <button class="btn-status btn-info">
+                    <i class="fa-solid fa-info"></i>
+                  </button>
+                  <button class="btn-status btn-primary">
+                    <i class="fas fa-edit"></i>
+                  </button>
+                  <button class="btn-status btn-danger">
+                    <i class="fas fa-trash-alt"></i>
+                  </button>
+                </td>
+              </tr>
+              <tr>
+                <td>01</td>
+                <td>Võ Xuân Mai</td>
+                <td>0100203045</td>
+                <td>11/11/2024</td>
+                <td>Tổng tiền</td>
+                <td><span class="status active">Hoạt động</span></td>
+                <td class="btn-action-group">
+                  <button class="btn-status btn-info">
+                    <i class="fa-solid fa-info"></i>
+                  </button>
+                  <button class="btn-status btn-primary">
+                    <i class="fas fa-edit"></i>
+                  </button>
+                  <button class="btn-status btn-danger">
+                    <i class="fas fa-trash-alt"></i>
+                  </button>
+                </td>
+              </tr>
+              <tr>
+                <td>01</td>
+                <td>Võ Xuân Mai</td>
+                <td>0100203045</td>
+                <td>11/11/2024</td>
+                <td>Tổng tiền</td>
+                <td><span class="status active">Hoạt động</span></td>
+                <td class="btn-action-group">
+                  <button class="btn-status btn-info">
+                    <i class="fa-solid fa-info"></i>
+                  </button>
+                  <button class="btn-status btn-primary">
+                    <i class="fas fa-edit"></i>
+                  </button>
+                  <button class="btn-status btn-danger">
+                    <i class="fas fa-trash-alt"></i>
+                  </button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
 
-                        <tr>
-                            <td>01</td>
-                            <td>Võ Xuân Mai</td>
-                            <td>11/11/2024</td>
-                            <td>Tổng tiền</td>
-                            <td><span class="status huy">Hủy</span></td>
-                            <td class="btn-action-group">
-                                <button class="btn-status btn-info">
-                                    <i class="fa-solid fa-info"></i>
-                                </button>
-                                <button class="btn-status btn-primary">
-                                    <i class="fas fa-edit"></i>
-                                </button>                                
-                                <button class="btn-status btn-danger">
-                                    <i class="fas fa-trash-alt"></i>
-                                </button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>01</td>
-                            <td>Võ Xuân Mai</td>
-                            <td>11/11/2024</td>
-                            <td>Tổng tiền</td>
-                            <td><span class="status active">Hoạt động</span></td>
-                            <td class="btn-action-group">
-                                <button class="btn-status btn-info">
-                                    <i class="fa-solid fa-info"></i>
-                                </button>
-                                <button class="btn-status btn-primary">
-                                    <i class="fas fa-edit"></i>
-                                </button>                                
-                                <button class="btn-status btn-danger">
-                                    <i class="fas fa-trash-alt"></i>
-                                </button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>01</td>
-                            <td>Võ Xuân Mai</td>
-                            <td>11/11/2024</td>
-                            <td>Tổng tiền</td>
-                            <td><span class="status active">Hoạt động</span></td>
-                            <td class="btn-action-group">
-                                <button class="btn-status btn-info">
-                                    <i class="fa-solid fa-info"></i>
-                                </button>
-                                <button class="btn-status btn-primary">
-                                    <i class="fas fa-edit"></i>
-                                </button>                                
-                                <button class="btn-status btn-danger">
-                                    <i class="fas fa-trash-alt"></i>
-                                </button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>01</td>
-                            <td>Võ Xuân Mai</td>
-                            <td>11/11/2024</td>
-                            <td>Tổng tiền</td>
-                            <td><span class="status active">Hoạt động</span></td>
-                            <td class="btn-action-group">
-                                <button class="btn-status btn-info">
-                                    <i class="fa-solid fa-info"></i>
-                                </button>
-                                <button class="btn-status btn-primary">
-                                    <i class="fas fa-edit"></i>
-                                </button>                                
-                                <button class="btn-status btn-danger">
-                                    <i class="fas fa-trash-alt"></i>
-                                </button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>01</td>
-                            <td>Võ Xuân Mai</td>
-                            <td>11/11/2024</td>
-                            <td>Tổng tiền</td>
-                            <td><span class="status active">Hoạt động</span></td>
-                            <td class="btn-action-group">
-                                <button class="btn-status btn-info">
-                                    <i class="fa-solid fa-info"></i>
-                                </button>
-                                <button class="btn-status btn-primary">
-                                    <i class="fas fa-edit"></i>
-                                </button>                                
-                                <button class="btn-status btn-danger">
-                                    <i class="fas fa-trash-alt"></i>
-                                </button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>01</td>
-                            <td>Võ Xuân Mai</td>
-                            <td>11/11/2024</td>
-                            <td>Tổng tiền</td>
-                            <td><span class="status active">Hoạt động</span></td>
-                            <td class="btn-action-group">
-                                <button class="btn-status btn-info">
-                                    <i class="fa-solid fa-info"></i>
-                                </button>
-                                <button class="btn-status btn-primary">
-                                    <i class="fas fa-edit"></i>
-                                </button>                                
-                                <button class="btn-status btn-danger">
-                                    <i class="fas fa-trash-alt"></i>
-                                </button>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
+      <div class="content hidden" id="goodsReceiveNote">
+        <h2>Phiếu Nhập</h2>
+        <div class="client-search">
+          <input type="text" placeholder="Nhập tên nhà cung cấp" />
+          <button type="button">Tìm</button>
+          <button class="thd">Thêm</button>
+        </div>
 
+        <div class="client-list">
+          <table>
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Nhà cung cấp</th>
+                <th>Ngày tạo</th>
+                <th>Tổng tiền</th>
+                <th>Trạng thái</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>01</td>
+                <td>Võ Xuân Mai</td>
+                <td>11/11/2024</td>
+                <td>Tổng tiền</td>
+                <td><span class="status huy">Hủy</span></td>
+                <td class="btn-action-group">
+                  <button class="btn-status btn-info">
+                    <i class="fa-solid fa-info"></i>
+                  </button>
+                  <button class="btn-status btn-primary">
+                    <i class="fas fa-edit"></i>
+                  </button>
+                  <button class="btn-status btn-danger">
+                    <i class="fas fa-trash-alt"></i>
+                  </button>
+                </td>
+              </tr>
 
-        <!--test chi tiết hóa đơn-->
+              <tr>
+                <td>01</td>
+                <td>Võ Xuân Mai</td>
+                <td>11/11/2024</td>
+                <td>Tổng tiền</td>
+                <td><span class="status huy">Hủy</span></td>
+                <td class="btn-action-group">
+                  <button class="btn-status btn-info">
+                    <i class="fa-solid fa-info"></i>
+                  </button>
+                  <button class="btn-status btn-primary">
+                    <i class="fas fa-edit"></i>
+                  </button>
+                  <button class="btn-status btn-danger">
+                    <i class="fas fa-trash-alt"></i>
+                  </button>
+                </td>
+              </tr>
+              <tr>
+                <td>01</td>
+                <td>Võ Xuân Mai</td>
+                <td>11/11/2024</td>
+                <td>Tổng tiền</td>
+                <td><span class="status active">Hoạt động</span></td>
+                <td class="btn-action-group">
+                  <button class="btn-status btn-info">
+                    <i class="fa-solid fa-info"></i>
+                  </button>
+                  <button class="btn-status btn-primary">
+                    <i class="fas fa-edit"></i>
+                  </button>
+                  <button class="btn-status btn-danger">
+                    <i class="fas fa-trash-alt"></i>
+                  </button>
+                </td>
+              </tr>
+              <tr>
+                <td>01</td>
+                <td>Võ Xuân Mai</td>
+                <td>11/11/2024</td>
+                <td>Tổng tiền</td>
+                <td><span class="status active">Hoạt động</span></td>
+                <td class="btn-action-group">
+                  <button class="btn-status btn-info">
+                    <i class="fa-solid fa-info"></i>
+                  </button>
+                  <button class="btn-status btn-primary">
+                    <i class="fas fa-edit"></i>
+                  </button>
+                  <button class="btn-status btn-danger">
+                    <i class="fas fa-trash-alt"></i>
+                  </button>
+                </td>
+              </tr>
+              <tr>
+                <td>01</td>
+                <td>Võ Xuân Mai</td>
+                <td>11/11/2024</td>
+                <td>Tổng tiền</td>
+                <td><span class="status active">Hoạt động</span></td>
+                <td class="btn-action-group">
+                  <button class="btn-status btn-info">
+                    <i class="fa-solid fa-info"></i>
+                  </button>
+                  <button class="btn-status btn-primary">
+                    <i class="fas fa-edit"></i>
+                  </button>
+                  <button class="btn-status btn-danger">
+                    <i class="fas fa-trash-alt"></i>
+                  </button>
+                </td>
+              </tr>
+              <tr>
+                <td>01</td>
+                <td>Võ Xuân Mai</td>
+                <td>11/11/2024</td>
+                <td>Tổng tiền</td>
+                <td><span class="status active">Hoạt động</span></td>
+                <td class="btn-action-group">
+                  <button class="btn-status btn-info">
+                    <i class="fa-solid fa-info"></i>
+                  </button>
+                  <button class="btn-status btn-primary">
+                    <i class="fas fa-edit"></i>
+                  </button>
+                  <button class="btn-status btn-danger">
+                    <i class="fas fa-trash-alt"></i>
+                  </button>
+                </td>
+              </tr>
+              <tr>
+                <td>01</td>
+                <td>Võ Xuân Mai</td>
+                <td>11/11/2024</td>
+                <td>Tổng tiền</td>
+                <td><span class="status active">Hoạt động</span></td>
+                <td class="btn-action-group">
+                  <button class="btn-status btn-info">
+                    <i class="fa-solid fa-info"></i>
+                  </button>
+                  <button class="btn-status btn-primary">
+                    <i class="fas fa-edit"></i>
+                  </button>
+                  <button class="btn-status btn-danger">
+                    <i class="fas fa-trash-alt"></i>
+                  </button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <!--test chi tiết hóa đơn-->
 
-<!-- Popup Detail Form -->
+      <!-- Popup Detail Form -->
 
-<div class="overlay hidden" id="overlay"></div>
+      <div class="overlay hidden" id="overlay"></div>
 
-<div class="detail-popup hidden" id="detailPopup">
-    <div class="popup-container">
-        <h2>Chi tiết hóa đơn</h2>
-        <div class="detail-content">
+      <div class="detail-popup hidden" id="detailPopup">
+        <div class="popup-container">
+          <h2>Chi tiết hóa đơn</h2>
+          <div class="detail-content">
             <p><strong>ID:</strong> <span id="detailID">01</span></p>
-            <p><strong>Tên khách hàng:</strong> <span id="detailName">Võ Xuân Mai</span></p>
-            <p><strong>Số điện thoại:</strong> <span id="detailPhone">0100203045</span></p>
-            <p><strong>Ngày tạo:</strong> <span id="detailDate">11/11/2024</span></p>
-            <p><strong>Tổng tiền:</strong> <span id="detailTotal">Tổng tiền</span></p>
-            <p><strong>Trạng thái:</strong> <span id="detailStatus">Hủy</span></p>
-        </div>
-        <div class="popup-buttons">
+            <p>
+              <strong>Tên khách hàng:</strong>
+              <span id="detailName">Võ Xuân Mai</span>
+            </p>
+            <p>
+              <strong>Số điện thoại:</strong>
+              <span id="detailPhone">0100203045</span>
+            </p>
+            <p>
+              <strong>Ngày tạo:</strong> <span id="detailDate">11/11/2024</span>
+            </p>
+            <p>
+              <strong>Tổng tiền:</strong>
+              <span id="detailTotal">Tổng tiền</span>
+            </p>
+            <p>
+              <strong>Trạng thái:</strong> <span id="detailStatus">Hủy</span>
+            </p>
+          </div>
+          <div class="popup-buttons">
             <button type="button" id="closeDetailBtn">Đóng</button>
+          </div>
         </div>
-    </div>
-</div>
+      </div>
 
-<div class="overlay hidden" id="overlay"></div>
-        <!-- Popup Edit Form -->
-<div class="edit-form hidden" id="editForm">
-    <div class="form-container">
-        <h2>Chỉnh sửa thông tin hóa đơn</h2>
-        <form>
+      <div class="overlay hidden" id="overlay"></div>
+      <!-- Popup Edit Form -->
+      <div class="edit-form hidden" id="editForm">
+        <div class="form-container">
+          <h2>Chỉnh sửa thông tin hóa đơn</h2>
+          <form>
             <label for="clientID">ID:</label>
-            <input type="text" id="clientID" value="01" readonly>
+            <input type="text" id="clientID" value="01" readonly />
 
             <label for="clientName">Tên khách hàng:</label>
-            <input type="text" id="clientName" value="Võ Xuân Mai">
+            <input type="text" id="clientName" value="Võ Xuân Mai" />
 
             <label for="clientPhone">Số điện thoại:</label>
-            <input type="text" id="clientPhone" value="0100203045">
+            <input type="text" id="clientPhone" value="0100203045" />
 
             <label for="createDate">Ngày tạo:</label>
-            <input type="date" id="createDate" value="2024-11-11">
+            <input type="date" id="createDate" value="2024-11-11" />
 
             <label for="totalAmount">Tổng tiền:</label>
-            <input type="text" id="totalAmount" value="Tổng tiền">
+            <input type="text" id="totalAmount" value="Tổng tiền" />
 
             <label for="status">Trạng thái:</label>
             <select id="status">
-                <option value="Đã thanh toán">Đã thanh toán</option>
-                <option value="Hủy" selected>Hủy</option>
-                <option value="Đang xử lý">Đang xử lý</option>
+              <option value="Đã thanh toán">Đã thanh toán</option>
+              <option value="Hủy" selected>Hủy</option>
+              <option value="Đang xử lý">Đang xử lý</option>
             </select>
 
             <div class="form-buttons">
-                <button type="button" id="saveBtn">Lưu</button>
-                <button type="button" id="cancelBtn">Hủy</button>
+              <button type="button" id="saveBtn">Lưu</button>
+              <button type="button" id="cancelBtn">Hủy</button>
             </div>
-        </form>
-    </div>
-</div>
-
-
-        <div class="content hidden" id="stats">
-            <h2>Thống kê</h2>
+          </form>
         </div>
+      </div>
 
+      <div class="content hidden" id="stats">
+        <h2>Thống kê</h2>
+      </div>
     </main>
     <script src="./admin.js"></script>
-</body>
+  </body>
 </html>

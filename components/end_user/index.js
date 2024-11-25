@@ -1,61 +1,73 @@
-
-const container = document.getElementById('container');
-const registerBtn = document.getElementById('register');
-const loginBtn = document.getElementById('login');
-
-registerBtn.addEventListener('click', () => {
-    container.classList.add("active");
+//button thao tác
+const signUpBtn = document.getElementById("sign-up");
+const signInBtn = document.getElementById("sign-in");
+signUpBtn.addEventListener("click", () => {
+  container.classList.add("active");
 });
 
-loginBtn.addEventListener('click', () => {
-    container.classList.remove("active");
+signUpBtn.addEventListener("click", () => {
+  container.classList.remove("active");
 });
 
-const forgotPasswordLink = document.querySelector('.form-container.sign-in a');
+const container = document.getElementById("container");
+const registerBtn = document.getElementById("register");
+const loginBtn = document.getElementById("login");
 
-forgotPasswordLink.addEventListener('click', () => {
-    container.classList.add("active");
+registerBtn.addEventListener("click", () => {
+  container.classList.add("active");
 });
 
-/* Start: Yen*/
+loginBtn.addEventListener("click", () => {
+  container.classList.remove("active");
+});
+
+const forgotPasswordLink = document.querySelector(".form-container.sign-in a");
+
+forgotPasswordLink.addEventListener("click", () => {
+  container.classList.add("active");
+});
 
 /* Start: modal show address*/
-
-let addresses = [ 
-    {
-        idAddress: 1,
-        userName: "Vân Anh",
-        userAddress: "04 Đ. Tôn Đức Thắng, Phường Bến Nghé , Quận 1, Thành phố Hồ Chí Minh",
-        phoneNumber: "0102030405"
-    },
-    {
-        idAddress: 2,
-        userName: "Vân Anh",
-        userAddress: "105 Đ. Bà Huyện Thanh Quan, Phường Võ Thị Sáu, Quận 3, Thành phố Hồ Chí Minh",
-        phoneNumber: "0102030405"
-    },
-    {
-        idAddress: 3,
-        userName: "Vân Anh",
-        userAddress: "273 Đ. An Dương Vương, Phường 3, Quận 5, Thành phố Hồ Chí Minh",
-        phoneNumber: "0102030405"
-    }
-  ];
-const changeAddress = document.getElementById('change-address');
-const confirmAddress = document.getElementById('confirm-address');
-const overlayShippingAddress = document.getElementById('shipping-address-overlay');
-changeAddress.addEventListener('click', function(){
-  overlayShippingAddress.style.display = 'flex';
+let addresses = [
+  {
+    idAddress: 1,
+    userName: "Vân Anh",
+    userAddress:
+      "04 Đ. Tôn Đức Thắng, Phường Bến Nghé , Quận 1, Thành phố Hồ Chí Minh",
+    phoneNumber: "0102030405",
+  },
+  {
+    idAddress: 2,
+    userName: "Vân Anh",
+    userAddress:
+      "105 Đ. Bà Huyện Thanh Quan, Phường Võ Thị Sáu, Quận 3, Thành phố Hồ Chí Minh",
+    phoneNumber: "0102030405",
+  },
+  {
+    idAddress: 3,
+    userName: "Vân Anh",
+    userAddress:
+      "273 Đ. An Dương Vương, Phường 3, Quận 5, Thành phố Hồ Chí Minh",
+    phoneNumber: "0102030405",
+  },
+];
+const changeAddress = document.getElementById("change-address");
+const confirmAddress = document.getElementById("confirm-address");
+const overlayShippingAddress = document.getElementById(
+  "shipping-address-overlay"
+);
+changeAddress.addEventListener("click", function () {
+  overlayShippingAddress.style.display = "flex";
 });
 
-confirmAddress.addEventListener('click', function(){
-  overlayShippingAddress.style.display = 'none';
+confirmAddress.addEventListener("click", function () {
+  overlayShippingAddress.style.display = "none";
 });
 
 /// Hàm tạo một phần tử địa chỉ
 function createAddressItem(address) {
-  const li = document.createElement('li');
-  li.classList.add('address-item');
+  const li = document.createElement("li");
+  li.classList.add("address-item");
   li.innerHTML = `
       <input type="radio" name="address-option" value="${address.userAddress}">
       <div class="address-item-choice">
@@ -74,10 +86,10 @@ function createAddressItem(address) {
 
 // Hàm hiển thị danh sách địa chỉ
 function displayAddresses() {
-  const addressList = document.getElementById('address-list');
-  const ul = addressList.querySelector('ul');
-  ul.innerHTML = ''; // Xóa danh sách cũ trước khi hiển thị mới
-  addresses.forEach(address => {
+  const addressList = document.getElementById("address-list");
+  const ul = addressList.querySelector("ul");
+  ul.innerHTML = ""; // Xóa danh sách cũ trước khi hiển thị mới
+  addresses.forEach((address) => {
     const li = createAddressItem(address);
     ul.appendChild(li);
   });
@@ -88,46 +100,145 @@ displayAddresses();
 /* End: modal show address*/
 
 /* Start: modal add address*/
-const addAddress = document.getElementById('add-address');
-const confirmAddAddress = document.getElementById('confirm-add-address');
-const cancelAddAddress = document.getElementById('cancel-add-address');
-const overlayAddAddress = document.getElementById('add-address-overlay');
-addAddress.addEventListener('click', function(){
-  overlayAddAddress.style.display = 'flex';
-  overlayShippingAddress.style.display = 'none';
+const addAddress = document.getElementById("add-address");
+const confirmAddAddress = document.getElementById("confirm-add-address");
+const cancelAddAddress = document.getElementById("cancel-add-address");
+const overlayAddAddress = document.getElementById("add-address-overlay");
+addAddress.addEventListener("click", function () {
+  overlayAddAddress.style.display = "flex";
+  overlayShippingAddress.style.display = "none";
 });
 
-confirmAddAddress.addEventListener('click', function(){
-  overlayAddAddress.style.display = 'none';
-  overlayShippingAddress.style.display = 'flex';
+confirmAddAddress.addEventListener("click", function () {
+  overlayAddAddress.style.display = "none";
+  overlayShippingAddress.style.display = "flex";
 });
 
-  cancelAddAddress.addEventListener('click', function(){
-  overlayAddAddress.style.display = 'none';
-  overlayShippingAddress.style.display = 'flex';
+cancelAddAddress.addEventListener("click", function () {
+  overlayAddAddress.style.display = "none";
+  overlayShippingAddress.style.display = "flex";
 });
 /* End: modal add address*/
 /* Start: modal edit address*/
-const editAddress = document.querySelector('.edit-address-btn');
-const saveEditAddress = document.getElementById('save-edit-address');
-const cancelEditAddress = document.getElementById('cancel-edit-address');
-const overlayEditAddress = document.getElementById('edit-address-overlay');
+const editAddress = document.querySelector(".edit-address-btn");
+const saveEditAddress = document.getElementById("save-edit-address");
+const cancelEditAddress = document.getElementById("cancel-edit-address");
+const overlayEditAddress = document.getElementById("edit-address-overlay");
 
-editAddress.addEventListener('click', function(){
-  overlayEditAddress.style.display = 'flex';
-  overlayShippingAddress.style.display = 'none';
+editAddress.addEventListener("click", function () {
+  overlayEditAddress.style.display = "flex";
+  overlayShippingAddress.style.display = "none";
 });
 
-saveEditAddress.addEventListener('click', function(){
-  overlayEditAddress.style.display = 'none';
-  overlayShippingAddress.style.display = 'flex';
+saveEditAddress.addEventListener("click", function () {
+  overlayEditAddress.style.display = "none";
+  overlayShippingAddress.style.display = "flex";
 });
 
-cancelEditAddress.addEventListener('click', function(){
-  overlayEditAddress.style.display = 'none';
-  overlayShippingAddress.style.display = 'flex';
+cancelEditAddress.addEventListener("click", function () {
+  overlayEditAddress.style.display = "none";
+  overlayShippingAddress.style.display = "flex";
 });
 /* End: modal edit address*/
 /* End: Yen*/
 
+// });
 
+//hương start
+//cart
+const totalQuantityEl = document.querySelector(".total-quantity");
+const totalPriceEl = document.querySelector(".total-price");
+const deleteButtons = document.querySelectorAll(".delete .fa-trash");
+const cartItemsContainer = document.querySelector(".cart-items");
+const emptyCartMessage = document.querySelector(".empty-cart-message");
+const checkboxes = document.querySelectorAll(".cart-item-checkbox");
+
+// Hàm cập nhật thông tin giỏ hàng
+function updateOrderSummary() {
+  let totalQuantity = 0;
+  let totalPrice = 0;
+  let hasItems = false; // Biến kiểm tra nếu giỏ hàng có ít nhất 1 sản phẩm
+
+  // Lặp qua tất cả các sản phẩm trong giỏ
+  document.querySelectorAll(".cart-item").forEach((item) => {
+    const quantity = parseInt(item.querySelector(".amount").value) || 0;
+    const price =
+      parseInt(
+        item.querySelector(".item-price").textContent.replace(/\D/g, "")
+      ) || 0;
+    const checkbox = item.querySelector(".cart-item-checkbox");
+
+    // Kiểm tra nếu có sản phẩm và số lượng > 0
+    if (quantity > 0) {
+      hasItems = true;
+    }
+
+    // Chỉ tính những sản phẩm được chọn
+    if (checkbox.checked) {
+      totalQuantity += quantity;
+      totalPrice += quantity * price;
+    }
+  });
+
+  // Cập nhật hiển thị tổng số lượng và tổng tiền
+  totalQuantityEl.textContent = totalQuantity;
+  totalPriceEl.textContent = totalPrice.toLocaleString("vi-VN") + " đ";
+
+  // Kiểm tra và hiển thị thông báo giỏ hàng trống
+  if (!hasItems) {
+    emptyCartMessage.style.display = "block"; // Giỏ hàng trống
+  } else {
+    emptyCartMessage.style.display = "none"; // Giỏ hàng không trống
+  }
+}
+
+// Cập nhật số lượng sản phẩm
+function handleQuantityChange() {
+  updateOrderSummary();
+}
+
+// Xử lý xóa sản phẩm
+function deleteItem(event) {
+  const cartItem = event.target.closest(".cart-item");
+  cartItem.remove(); // Xóa sản phẩm khỏi giỏ
+  updateOrderSummary(); // Cập nhật lại thông tin giỏ hàng sau khi xóa
+}
+
+// Thêm sự kiện vào các nút tăng giảm số lượng
+document.querySelectorAll(".minus-btn").forEach((button) => {
+  button.addEventListener("click", (event) => {
+    const input = event.target
+      .closest(".cart-item-quantity")
+      .querySelector(".amount");
+    let amount = parseInt(input.value);
+    if (amount > 1) {
+      input.value = --amount;
+      handleQuantityChange();
+    }
+  });
+});
+
+document.querySelectorAll(".plus-btn").forEach((button) => {
+  button.addEventListener("click", (event) => {
+    const input = event.target
+      .closest(".cart-item-quantity")
+      .querySelector(".amount");
+    let amount = parseInt(input.value);
+    input.value = ++amount;
+    handleQuantityChange();
+  });
+});
+
+// Thêm sự kiện cho nút xóa sản phẩm
+deleteButtons.forEach((button) => {
+  button.addEventListener("click", deleteItem);
+});
+
+// Thêm sự kiện cho các checkbox trong giỏ hàng
+checkboxes.forEach((checkbox) => {
+  checkbox.addEventListener("change", updateOrderSummary);
+});
+
+// Lần đầu gọi để cập nhật thông tin giỏ hàng
+updateOrderSummary();
+//hương end

@@ -12,30 +12,47 @@
     <script src="https://kit.fontawesome.com/264e375a82.js" crossorigin="anonymous"></script>
 </head>
 <body>
-    <header>
-        <nav class="header__navbar">   
-            <div class="header__navbar-logo">
-                <img class="header__navbar-logo-img" src="AMYTH.svg">
+<!--header-->
+<header>
+    <div class="container__homepage header-container">
+        <div class="logo__homepage">
+            <img src="../../../assets/img/AMYTH.svg" alt="">
+        </div>
+
+    <div class="logo-dropdown">
+        <div class="dropdown"> 
+            <button class="dropdown-btn"> 
+            <i class="fas fa-bars"></i>
+            </button>
+            <div class="dropdown-content">
+                <a href="#">Văn Học Trong Nước</a>
+                <a href="#">Văn Học Nước Ngoài</a>
+                <a href="#">Sách Kinh Tế</a>
+                <a href="#">Sách Thiếu Nhi</a>
+                <a href="#">Sách Phát Triển Bản Thân</a>
+                <a href="#">Sách Giáo Khoa - Giáo Trình</a>
+                <a href="#">Sách Học Ngoại Ngữ</a>
+                <a href="#">Manga, Comic</a>
             </div>
-            <div class="header__navbar-search">
-                <input type="text" class="header__navbar-search-input" placeholder="Tìm kiếm sản phẩm...">
-                <button class="header__navbar-search-btn">
-                    <i class="header__navbar-search-btn-icon fa-solid fa-magnifying-glass"></i>
-                </button>
-            </div>
-            <div class="header__navbar-cart">
-                <i class="header__navbar-cart-icon fa-solid fa-cart-shopping"></i>
-            </div>
-            <div class="header__navbar-user" >
-                <i class="header__navbar-cart-icon fa-solid fa-user "></i>
-            </div>
-            <ul class="header__navbar-list">
-                <li class="header__navbar-item"><button class="header__navbar-item-signup-btn">Đăng Xuất</button></li>
-                
-            </ul>
-           
-        </nav>
-    </header>
+        </div>
+    </div>
+
+        <div class="search-bar">
+            <input type="text" placeholder="Tìm kiếm...">
+            <button class="search-btn">
+                <i class="fas fa-search"></i>
+            </button>
+        </div>
+
+        <div class="header-icons">
+            <button class="cart-btn">
+                <i class="fas fa-shopping-cart"></i>
+            </button>
+            <button class="login-btn">Đăng nhập</button>
+            <button class="signup-btn">Đăng ký</button>
+        </div>
+    </div>
+</header>
     <!-- end header -->
     <!-- Body chính -->
     <div class="account-container">
@@ -48,7 +65,6 @@
                     <li><button class="btn">Thông tin cá nhân</button></li>
                     <li><button class="btn">Số địa chỉ</button></li>
                     <li><button class="btn">Đơn hàng</button></li>
-                    <li><button class="btn">Thông báo</button></li>
                 </ul>
             </div>
 
@@ -163,13 +179,62 @@
             </div>
             <div class="overlay"></div>
             <!-- end div them dia chi-->
+
+            <!-- div đơn hàng -->
+            <div class="donhang">                
+                <div class="donhang-info">
+                    <div class="cart-product">
+                        <div class="product-img-name">
+                            <img class ="cart-img-product" src="../../../assets/img/book/kinhte/bezonomics-kinhtehocbezos.webp">
+                        <h4>Bezonomics Kinh Tế Học Bezos</h4>
+                        </div>
+                        <p>x1</p>
+                        <p>200.000 đ</p>
+                    </div>
+                    <div class="btn-donhang-group">
+                        <button class="btn-dh btn-donhang-chitiet"> Xem chi tiết </button>
+                        <br>      
+                        <button class="btn-dh btn-donhang-huy"> Hủy đơn hàng </button>
+                    </div> 
+                </div>
+                <div class="donhang-info">
+                    <div class="cart-product">
+                        <div class="product-img-name">
+                            <img class ="cart-img-product" src="../../../assets/img/book/kinhte/bezonomics-kinhtehocbezos.webp">
+                        <h4>Bezonomics Kinh Tế Học Bezos</h4>
+                        </div>
+                        <p>x1</p>
+                        <p>200.000 đ</p>
+                    </div>
+                    <div class="btn-donhang-group">
+                        <button class="btn-dh btn-donhang-chitiet"> Xem chi tiết </button>
+                        <br>      
+                        <button class="btn-dh btn-donhang-huy"> Hủy đơn hàng </button>
+                    </div> 
+                </div>
+                <div class="donhang-info">
+                    <div class="cart-product">
+                        <div class="product-img-name">
+                            <img class ="cart-img-product" src="../../../assets/img/book/kinhte/bezonomics-kinhtehocbezos.webp">
+                        <h4>Bezonomics Kinh Tế Học Bezos</h4>
+                        </div>
+                        <p>x1</p>
+                        <p>200.000 đ</p>
+                    </div>
+                    <div class="btn-donhang-group">
+                        <button class="btn-dh btn-donhang-chitiet"> Xem chi tiết </button>
+                        <br>      
+                        <button class="btn-dh btn-donhang-huy"> Hủy đơn hàng </button>
+                    </div>                    
+                </div>
+            </div>
         </div>
     </div>
   
     <!-- footer -->
     <footer>
         <div class="footer-logo">
-            <img src="AMYTH.svg">
+            <img src="../../../assets/img/AMYTH.svg">
         </div>
 
         <div class="footer__column">
@@ -190,5 +255,5 @@
         </div>    
     </footer> 
     <!-- end footer -->
-    <script src="taikhoan.js"></script>
+    <script src="tien.js"></script>
 </body>

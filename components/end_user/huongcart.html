@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hiệu Sách Online</title>
+    <link rel="stylesheet" href="./huongcart.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <script src=".\assets\cart.js"></script>
+</head>
+
+<body>
+    <div class="wrapper">
+        <!-- header -->
+        <header>
+            <nav class="header__navbar">
+                <div class="header__navbar-logo">
+                    <img class="header__navbar-logo-img" src="../../assets/img/AMYTH.svg">
+                </div>
+                <div class="header__navbar-search">
+                    <input type="text" class="header__navbar-search-input" placeholder="Tìm kiếm sản phẩm...">
+                    <button class="header__navbar-search-btn">
+                        <i class="header__navbar-search-btn-icon fa-solid fa-magnifying-glass"></i>
+                    </button>
+                </div>
+                <div class="header__navbar-cart">
+                    <i class="header__navbar-cart-icon fa-solid fa-cart-shopping"></i>
+                </div>
+                <ul class="header__navbar-list">
+                    <li class="header__navbar-item"><button class="header__navbar-item-signup-btn">Đăng Xuất</button>
+                    </li>
+                </ul>
+            </nav>
+        </header>
+
+        <!-- content container -->
+        <div class="main">
+            <!-- Cart Section -->
+            <div class="container-cart">
+                <div class="cart-items">
+                    <h1>Giỏ hàng</h1>
+                    <div class="empty-cart-message">
+                        Giỏ hàng trống
+                    </div>
+
+                    <div class="chi-tiet">
+                        <p>Tên sản phẩm</p>
+                        <p>Số lượng</p>
+                        <p>Thành tiền</p>
+                    </div>
+
+                    <!-- Cart Item 1 -->
+                    <div class="cart-item" data-id="1">
+                        <div>
+                            <div class="cart-checkbox">
+                                <input type="checkbox" value="None" class="cart-item-checkbox">
+                            </div>
+                            <div class="cart-item-image">
+                                <img class="cart-img-product"
+                                    src="../../assets/img/book/kinhte/bezonomics-kinhtehocbezos.webp">
+                            </div>
+                            <div class="info-product-cart">
+                                <p>Bezonomics Kinh Tế Học Bezos</p>
+                                <div class="price-original">
+                                    <span class="price">159.100 đ</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="cart-item-quantity">
+                            <button class="minus-btn"><i class="fa-solid fa-minus"></i></button>
+                            <input type="text" class="amount" name="amount" value="1">
+                            <button class="plus-btn"><i class="fa-solid fa-plus"></i></button>
+                        </div>
+                        <div>
+                            <div class="cart-item-price">
+                                <p class="item-price">159.000đ</p>
+                            </div>
+                            <div class="delete">
+                                <i class="fa-solid fa-trash"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Cart Item 2 -->
+                    <div class="cart-item" data-id="2">
+                        <div>
+                            <div class="cart-checkbox">
+                                <input type="checkbox" value="None" class="cart-item-checkbox" />
+                            </div>
+                            <div class="cart-item-image">
+                                <img class="cart-img-product"
+                                    src="../../assets/img/book/kinhte/bezonomics-kinhtehocbezos.webp">
+                            </div>
+                            <div class="info-product-cart">
+                                <p>Bezonomics Kinh Tế Học Bezos</p>
+                                <div class="price-original">
+                                    <span class="price">159.100 đ</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="cart-item-quantity">
+                            <button class="minus-btn"><i class="fa-solid fa-minus"></i></button>
+                            <input type="text" class="amount" name="amount" value="1">
+                            <button class="plus-btn"><i class="fa-solid fa-plus"></i></button>
+                        </div>
+                        <div>
+                            <div class="cart-item-price">
+                                <p class="item-price">159.000đ</p>
+                            </div>
+                            <div class="delete">
+                                <i class="fa-solid fa-trash"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="cart">
+                    <h1>Thông Tin Đơn Hàng</h1>
+                    <div class="total">
+                        <span>Số sản phẩm:</span><span class="total-quantity">0</span>
+                    </div>
+                    <div class="cost">
+                        <span>Tổng tiền: </span><span class="total-price">0 đ</span>
+                    </div>
+                    <button class="pay">Thanh toán</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- footer -->
+        <footer>
+            <div class="footer-logo">
+                <img src="AMYTH.svg">
+            </div>
+
+            <div class="footer__column">
+                <h3 class="footer__heading">Dịch vụ</h3>
+                <ul class="footer-list">
+                    <li class="footer-item"><a href="" class="footer-item-link">Điều khoản sử dụng</a></li>
+                    <li class="footer-item"><a href="" class="footer-item-link">Giới thiệu về chúng tôi</a></li>
+                    <li class="footer-item"><a href="" class="footer-item-link">Hệ thống trung tâm nhà sách</a></li>
+                </ul>
+            </div>
+            <div class="footer__column">
+                <h3 class="footer__heading">Thông tin liên hệ</h3>
+                <ul class="footer-list">
+                    <li class="footer-item"><i class="fa-solid fa-phone"></i>1234567890</li>
+                    <li class="footer-item"><i class="fa-solid fa-envelope"></i>amyth123@gmail.com</li>
+                    <li class="footer-item"><i class="fa-solid fa-location-dot"></i>273 Đ. An Dương Vương, Phường 3,
+                        Quận 5, Hồ Chí Minh</li>
+                </ul>
+            </div>
+        </footer>
+
+        <!-- JS
+        <script>
+            const totalQuantityEl = document.querySelector('.total-quantity');
+            const totalPriceEl = document.querySelector('.total-price');
+            const deleteButtons = document.querySelectorAll('.delete .fa-trash');
+            const cartItemsContainer = document.querySelector('.cart-items');
+            const emptyCartMessage = document.querySelector('.empty-cart-message');
+            const checkboxes = document.querySelectorAll('.cart-item-checkbox');
+
+            // Hàm cập nhật thông tin giỏ hàng
+            function updateOrderSummary() {
+                let totalQuantity = 0;
+                let totalPrice = 0;
+                let hasItems = false;  // Biến kiểm tra nếu giỏ hàng có ít nhất 1 sản phẩm
+
+                // Lặp qua tất cả các sản phẩm trong giỏ
+                document.querySelectorAll('.cart-item').forEach(item => {
+                    const quantity = parseInt(item.querySelector('.amount').value) || 0;
+                    const price = parseInt(item.querySelector('.item-price').textContent.replace(/\D/g, '')) || 0;
+                    const checkbox = item.querySelector('.cart-item-checkbox');
+
+                    // Kiểm tra nếu có sản phẩm và số lượng > 0
+                    if (quantity > 0) {
+                        hasItems = true;
+                    }
+
+                    // Chỉ tính những sản phẩm được chọn
+                    if (checkbox.checked) {
+                        totalQuantity += quantity;
+                        totalPrice += quantity * price;
+                    }
+                });
+
+                // Cập nhật hiển thị tổng số lượng và tổng tiền
+                totalQuantityEl.textContent = totalQuantity;
+                totalPriceEl.textContent = totalPrice.toLocaleString('vi-VN') + ' đ';
+
+                // Kiểm tra và hiển thị thông báo giỏ hàng trống
+                if (!hasItems) {
+                    emptyCartMessage.style.display = 'block';  // Giỏ hàng trống
+                } else {
+                    emptyCartMessage.style.display = 'none';   // Giỏ hàng không trống
+                }
+            }
+
+            // Cập nhật số lượng sản phẩm
+            function handleQuantityChange() {
+                updateOrderSummary();
+            }
+
+            // Xử lý xóa sản phẩm
+            function deleteItem(event) {
+                const cartItem = event.target.closest('.cart-item');
+                cartItem.remove();  // Xóa sản phẩm khỏi giỏ
+                updateOrderSummary(); // Cập nhật lại thông tin giỏ hàng sau khi xóa
+            }
+
+            // Thêm sự kiện vào các nút tăng giảm số lượng
+            document.querySelectorAll('.minus-btn').forEach(button => {
+                button.addEventListener('click', event => {
+                    const input = event.target.closest('.cart-item-quantity').querySelector('.amount');
+                    let amount = parseInt(input.value);
+                    if (amount > 1) {
+                        input.value = --amount;
+                        handleQuantityChange();
+                    }
+                });
+            });
+
+            document.querySelectorAll('.plus-btn').forEach(button => {
+                button.addEventListener('click', event => {
+                    const input = event.target.closest('.cart-item-quantity').querySelector('.amount');
+                    let amount = parseInt(input.value);
+                    input.value = ++amount;
+                    handleQuantityChange();
+                });
+            });
+
+            // Thêm sự kiện cho nút xóa sản phẩm
+            deleteButtons.forEach(button => {
+                button.addEventListener('click', deleteItem);
+            });
+
+            // Thêm sự kiện cho các checkbox trong giỏ hàng
+            checkboxes.forEach(checkbox => {
+                checkbox.addEventListener('change', updateOrderSummary);
+            });
+
+            // Lần đầu gọi để cập nhật thông tin giỏ hàng
+            updateOrderSummary();
+
+
+        </script>-->
+</body>
+
+</html>

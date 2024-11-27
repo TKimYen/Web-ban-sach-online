@@ -18,6 +18,7 @@
     <title>Admin</title>
   </head>
   <body>
+    
     <main>
       <div class="sidebar">
         <img src="../../assets/img/AMYTH.svg" />
@@ -81,6 +82,8 @@
         </div>
       </div>
 
+
+      <div id="overlay" class="overlay hidden"></div>
       <!--Form thêm nhân viên-->
       <div id="formThemNhanVien" class="modal">
         <form id="themNhanVien" class="modal-content">
@@ -101,8 +104,9 @@
           <input type="text" id="themChucVu" placeholder="Nhập chức vụ" />
 
           <div>
-            <button type="submit" name="them">Thêm</button>
+            <button type="button" name="them" id = "addNV">Thêm</button>
           </div>
+          
         </form>
       </div>
 
@@ -136,11 +140,13 @@
         </form>
       </div>
 
+
+      <!-- Form  chi tiết nhân viên -->
       <div class="modal" id="formDetailNhanVien">
         <form id="detailNhanVien" class="modal-content">
           <h2>Thông tin chi tiết nhân viên</h2>
           <div class="info">
-            <label>Tên khách hàng:</label> <span id="detailName"></span>
+            <label>Tên nhân viên:</label> <span id="detailName"></span>
           </div>
           <div class="info">
             <label>Số điện thoại:</label> <span id="detailPhone"></span>
@@ -157,15 +163,15 @@
         </form>
       </div>
 
+<!-- nhan vien -->
       <div class="content hidden" id="employees">
         <h2>Nhân Viên</h2>
         <div class="client-search">
-          <input type="text" placeholder="Nhập tên nhân viên" />
-          <button type="button" id="tim">Tìm</button>
-          <button type="button" id="them" onclick="showThemForm();">
-            Thêm
-          </button>
-          <p>Tổng số lượng: 50</p>
+          <input type="text" id = "timTen" placeholder="Nhập tên nhân viên " />
+          <button type="button" id="timNV">Tìm</button>
+          
+          <button type="button" id="themNV" onclick="showThemForm();"> Thêm </button>
+          
         </div>
 
         <div class="client-list">
@@ -180,169 +186,22 @@
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <td>01</td>
-                <td>Võ Xuân Mai</td>
-                <td>0100203045</td>
-                <td>Quản lý</td>
-                <td><span class="status bian">Bị ẩn</span></td>
-                <td class="btn-action-group">
-                  <button
-                    class="btn-status btn-info"
-                    onclick="showDetailForm()"
-                  >
-                    <i class="fa-solid fa-info"></i>
-                  </button>
-                  <button
-                    class="btn-status btn-primary"
-                    onclick="showSuaForm()"
-                  >
-                    <i class="fas fa-edit"></i>
-                  </button>
-                  <button class="btn-status btn-danger">
-                    <i class="fas fa-trash-alt"></i>
-                  </button>
-                </td>
-              </tr>
-
-              <tr>
-                <td>02</td>
-                <td>Trần Kim Yến</td>
-                <td>0100203045</td>
-                <td>Quản lý</td>
-                <td><span class="status active">Hoạt động</span></td>
-                <td class="btn-action-group">
-                  <button
-                    class="btn-status btn-info"
-                    onclick="showDetailForm()"
-                  >
-                    <i class="fa-solid fa-info"></i>
-                  </button>
-                  <button
-                    class="btn-status btn-primary"
-                    onclick="showSuaForm()"
-                  >
-                    <i class="fas fa-edit"></i>
-                  </button>
-                  <button class="btn-status btn-danger">
-                    <i class="fas fa-trash-alt"></i>
-                  </button>
-                </td>
-              </tr>
-
-              <tr>
-                <td>03</td>
-                <td>Trương Phúc Hoàng Anh</td>
-                <td>0100203045</td>
-                <td>Quản lý</td>
-                <td><span class="status active">Hoạt động</span></td>
-                <td class="btn-action-group">
-                  <button
-                    class="btn-status btn-info"
-                    onclick="showDetailForm()"
-                  >
-                    <i class="fa-solid fa-info"></i>
-                  </button>
-                  <button
-                    class="btn-status btn-primary"
-                    onclick="showSuaForm()"
-                  >
-                    <i class="fas fa-edit"></i>
-                  </button>
-                  <button class="btn-status btn-danger">
-                    <i class="fas fa-trash-alt"></i>
-                  </button>
-                </td>
-              </tr>
-
-              <tr>
-                <td>04</td>
-                <td>Trần Quỳnh Hương</td>
-                <td>0100203045</td>
-                <td>Quản lý</td>
-                <td><span class="status active">Hoạt động</span></td>
-                <td class="btn-action-group">
-                  <button
-                    class="btn-status btn-info"
-                    onclick="showDetailForm()"
-                  >
-                    <i class="fa-solid fa-info"></i>
-                  </button>
-                  <button
-                    class="btn-status btn-primary"
-                    onclick="showSuaForm()"
-                  >
-                    <i class="fas fa-edit"></i>
-                  </button>
-                  <button class="btn-status btn-danger">
-                    <i class="fas fa-trash-alt"></i>
-                  </button>
-                </td>
-              </tr>
-
-              <tr>
-                <td>05</td>
-                <td>Trần Minh Nhật</td>
-                <td>0100203045</td>
-                <td>Quản lý</td>
-                <td><span class="status active">Hoạt động</span></td>
-                <td class="btn-action-group">
-                  <button
-                    class="btn-status btn-info"
-                    onclick="showDetailForm()"
-                  >
-                    <i class="fa-solid fa-info"></i>
-                  </button>
-                  <button
-                    class="btn-status btn-primary"
-                    onclick="showSuaForm()"
-                  >
-                    <i class="fas fa-edit"></i>
-                  </button>
-                  <button class="btn-status btn-danger">
-                    <i class="fas fa-trash-alt"></i>
-                  </button>
-                </td>
-              </tr>
-
-              <tr>
-                <td>06</td>
-                <td>Võ Hoàng Yến</td>
-                <td>0100203045</td>
-                <td>Quản lý</td>
-                <td><span class="status active">Hoạt động</span></td>
-                <td class="btn-action-group">
-                  <button
-                    class="btn-status btn-info"
-                    onclick="showDetailForm()"
-                  >
-                    <i class="fa-solid fa-info"></i>
-                  </button>
-                  <button
-                    class="btn-status btn-primary"
-                    onclick="showSuaForm()"
-                  >
-                    <i class="fas fa-edit"></i>
-                  </button>
-                  <button class="btn-status btn-danger">
-                    <i class="fas fa-trash-alt"></i>
-                  </button>
-                </td>
-              </tr>
+              
             </tbody>
           </table>
 
-          <div class="pagination">
+          <!-- <div class="pagination">
             <button>❮</button>
             <button class="active">1</button>
             <button>2</button>
             <button>3</button>
             <button>4</button>
             <button>❯</button>
-          </div>
+          </div> -->
         </div>
       </div>
 
+      <!--   end nhân viên  -->
       <div class="content hidden" id="customers">
         <h2>Khách hàng</h2>
         <div class="client-search">

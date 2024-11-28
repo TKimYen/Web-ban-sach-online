@@ -31,7 +31,7 @@
 
         <div class="account">
           <img src="" /> <span>admin</span>
-          <img src="" id="logout"/>
+          <img src="" id="logout" />
         </div>
       </div>
       <div class="content" id="products">
@@ -39,17 +39,17 @@
         <div class="product-search">
           <div class="product-search-name-price">
             <div class="search-name">
-              <input type="text" placeholder="Nhập tên sản phẩm" />
+              <input id="tenSPTim" type="text" placeholder="Nhập tên sản phẩm" />
             </div>
             <div class="search-price">
-              <input type="number" placeholder="Khoảng giá" />
+              <input id="khoangGiaTimBD" type="number" placeholder="Khoảng giá" min="1"/>
               <span>-</span>
-              <input type="number" placeholder="Khoảng giá" />
+              <input id="khoangGiaTimKT" type="number" placeholder="Khoảng giá" min="1" />
             </div>
           </div>
-          <button type="button" id="tim">Tìm</button>
-          <button type="button" id="them">Thêm</button>
-          <p>Tổng số lượng: 50</p>
+          <button type="button" id="searchProductBtn" onclick="searchProduct()">Tìm</button>
+          <button type="button" id="themSP" onclick="showThemFormProduct()">Thêm</button>
+          <p id="TotalProduct"></p>
         </div>
         <!-- Book list section -->
         <div class="product-list">
@@ -57,11 +57,10 @@
             <thead>
               <tr>
                 <th>ID</th>
+                <th>Hình ảnh</th>
                 <th>Tên sách</th>
-                <th>Tồn kho</th>
                 <th>Giá bán</th>
                 <th>Trạng thái</th>
-                <th>Thao tác</th>
               </tr>
             </thead>
             <tbody id="book-table-body">
@@ -69,224 +68,201 @@
             </tbody>
           </table>
           <!-- Pagination -->
-          <div class="pagination">
-            <button>❮</button>
-            <button class="active">1</button>
-            <button>2</button>
-            <button>3</button>
-            <button>4</button>
-            <button>❯</button>
+          <div class="pagination" id="paginationProduct">
           </div>
         </div>
       </div>
 
+      <!-- <div id="overlay" class="overlay hidden"></div> -->
       <!-- Form thêm sản phẩm -->
-    <div id="formThemSanPham" class="modal">
-      <form id="themSanPham" class="modal-content">
-        <h1>Thêm sách</h1>
-        <button type="button" class="close">+</button>
-        <div class="content-SP">
-          <div class="ThongTinAnhSP">
-            <label for="themHinhAnh">Hình ảnh sản phẩm</label>
-            <input type="file" id="themHinhAnh" class="productImage" />
+      <div id="formThemSanPham" class="modalSP">
+        <form id="themSanPham" class="modal-contentSP">
+          <h1>Thêm sách</h1>
+          <button type="button" class="close" onclick="closeThemFormProduct()">+</button>
+          <div class="content-SP">
+            <div class="ThongTinAnhSP">
+              <label for="themHinhAnh">Hình ảnh sản phẩm</label>
+              <input type="file" id="themHinhAnh" class="productImage" accept="image/*" />
+            </div>
+            <div class="ThongTinSP">
+              <div class="form-group">
+                <label for="themTenSach">Tên sách</label>
+                <input
+                  type="text"
+                  class="themTenSach"
+                  id="themTenSach"
+                  placeholder="Nhập tên sách"
+                />
+              </div>
+
+              <div class="form-group">
+                <label for="themTenNXB">Nhà xuất bản</label>
+                <input id="themTenNXB" type="text" placeholder="Nhập nhà xuất bản">
+              </div>
+
+              <div class="form-group">
+                <label for="themTacGia" class="">Tên tác giả</label>
+                <input
+                  type="text"
+                  id="themTacGia"
+                  class="themTacgia" placeholder="Nhập tên tác giả"
+                />
+              </div>
+
+              <div class="form-group">
+                <label for="themTheLoai">Thể loại</label>
+                <input id="themTheLoai" type="text" class="themTheLoai" placeholder="Nhập thể loại">
+              </div>
+
+              <div class="form-group">
+                <label for="themNamXB" class="">Năm xuất bản</label>
+                <input type="text" class="themNamXB" id="themNamXB" placeholder="Nhập năm xuất bản"/>
+              </div>
+
+              <div class="form-group">
+                <label for="themGiaBia" class="">Giá bìa</label>
+                <input type="text" class="themGiaBia" id="themGiaBia" placeholder="Nhập giá bìa"/>
+              </div>
+
+              <div class="form-group">
+                <label for="themMoTa" class="">Mô tả</label>
+                <input type="text" class="themMoTa" id="themMoTa" placeholder="Nhập mô tả"/>
+              </div>
+              <button
+                type="submit"
+                id="submit-btn-themSanPham"
+                class="submitSP"
+              >
+                Thêm
+              </button>
+            </div>
           </div>
-          <div class="ThongTinSP">
-            <div class="form-group">
-              <label for="themTenSach">Tên sách</label>
-              <input
-                type="text"
-                class="themTenSach"
-                id="themTenSach"
-                placeholder="Nhập tên sách"
-              />
-            </div>
+        </form>
+      </div>
+      <!-- Form sửa sản phẩm -->
+      <div id="formSuaSanPham" class="modalSP formSuaSanPham">
+        <form action="" id="suaSanPham" class="suaSanPham modal-contentSP">
+          <h1>Sửa sản phẩm</h1>
+          <button type="button" class="close" onclick="closeSuaFormProduct()">+</button>
 
-            <div class="form-group">
-              <label for="themTenNCC">Nhà cung cấp</label>
-              <select name="themTenNCC" id="themTenNCC" class="themTenNCC">
-                <option value="0" class="themTenNCC" selected>
-                  Chọn nhà cung cấp
-                </option>
-                <option value="1" class="themTenNCC">Nhã Nam</option>
-                <option value="2" class="themTenNCC">Kim Đồng</option>
-              </select>
+          <div class="content-SP">
+            <div class="ThongTinAnhSP">
+              <label for="suaHinhAnh">Hình ảnh sản phẩm</label>
+              <img id="suaPreviewImage" src="" alt="Ảnh sản phẩm" class="previewImage">
+              <input type="file" id="suaHinhAnh" class="productImage" />
             </div>
+            <div class="ThongTinSP">
+              <div class="form-group">
+                <label for="suaTenSach">Tên sách</label>
+                <input
+                  type="text"
+                  class="suaTenSach"
+                  id="suaTenSach"
+                  placeholder="Nhập tên sách"
+                />
+              </div>
 
-            <div class="form-group">
-              <label for="themTacGia" class="">Tên tác giả</label>
-              <input
-                type="text"
-                id="themTacGia"
-                class="themTacgia"
-                id="themTacgia"
-              />
-            </div>
+              <div class="form-group">
+                <label for="suaTenNXB">Nhà xuất bản</label>
+                <input type="text" class="suaTenNXB" id="suaTenNXB">
+              </div>
 
-            <div class="form-group">
-              <label for="themTheLoai">Thể loại</label>
-              <select name="themTheLoai" id="themTheLoai" class="themTheLoai">
-                <option value="0" class="themTheLoai" selected>
-                  Chọn thể loại
-                </option>
-                <option value="1" class="themTheLoai">Văn học</option>
-                <option value="2" class="themTheLoai">Thiếu nhi</option>
-              </select>
-            </div>
+              <div class="form-group">
+                <label for="suaTacGia" class="">Tên tác giả</label>
+                <input
+                  type="text"
+                  id="suaTacGia"
+                  class="suaTacgia"
+                  id="suaTacgia"
+                />
+              </div>
 
-            <div class="form-group">
-              <label for="themNamXB" class="">Năm xuất bản</label>
-              <input type="text" class="themNamXB" id="themNamXB" />
-            </div>
+              <div class="form-group">
+                <label for="suaTheLoai">Thể loại</label>
+                <input type="text" class="suaTheLoai" id="suaTheLoai">
+              </div>
 
-            <div class="form-group">
-              <label for="themGiaBia" class="">Giá bìa</label>
-              <input type="text" class="themGiaBia" id="themGiaBia" />
-            </div>
+              <div class="form-group">
+                <label for="suaNamXB" class="">Năm xuất bản</label>
+                <input type="text" class="suaNamXB" id="suaNamXB" />
+              </div>
 
-            <div class="form-group">
-              <label for="themMoTa" class="">Mô tả</label>
-              <input type="text" class="themMoTa" id="themMoTa" />
+              <div class="form-group">
+                <label for="suaGiaBia" class="">Giá bìa</label>
+                <input type="text" class="suaGiaBia" id="suaGiaBia" />
+              </div>
+
+              <div class="form-group">
+                <label for="suaMoTa" class="">Mô tả</label>
+                <input type="text" class="suaMoTa" id="suaMoTa" />
+              </div>
+
+              <div class="status-switch">
+                <span class="suaTrangThai">Trạng thái</span>
+                <input type="checkbox" id="suaTrangThaiSanPham" class="toggle-switch" />
+                <span id="suaTrangThaiSanPhamLabel" class="xem suaTrangThai">Đang hoạt động</span>
+              </div>
+              <button type="submit" id="submit-btn-suaSanPham" class="submitSP" onclick="updateProduct()">
+                Cập nhật
+              </button>
             </div>
-            <button type="submit" id="submit-btn-themSanPham" class="submitSP">
-              Thêm
-            </button>
           </div>
-        </div>
-      </form>
-    </div>
-    <!-- Form sửa sản phẩm -->
-    <div id="formSuaSanPham" class="modal formSuaSanPham">
-      <form action="" id="suaNhanVien" class="suaSanPham modal-content">
-        <h1>Sửa sản phẩm</h1>
-        <button type="button" class="close">+</button>
+        </form>
+      </div>
+      <!-- Form xem sản phẩm -->
+      <div id="formxemSanPham" class="modalSP">
+        <form action="" id="xemNhanVien" class="xemSanPham modal-contentSP">
+          <h1>Xem chi tiết sản phẩm</h1>
+          <button type="button" class="close"onclick="closeDetailFormProduct()">+</button>
+          <div class="content-SP">
+            <div class="ThongTinAnhSP">
+              <label for="xemHinhAnh">Hình ảnh sản phẩm</label>
+              <img id="xemPreviewImage" src="" alt="Ảnh sản phẩm" class="previewImage">
+              <input type="file" id="xemHinhAnh" class="productImage hidden" />
+            </div>
+            <div class="ThongTinSP">
+              <div class="form-group">
+                <span>Tên sách</span>
+                <span id="xemTenSach" class="xem xemTenSach"
+                  >Có hai con mèo ngồi bên cửa sổ</span
+                >
+              </div>
 
-        <div class="content-SP">
-          <div class="ThongTinAnhSP">
-            <label for="themHinhAnh">Hình ảnh sản phẩm</label>
-            <input type="file" id="themHinhAnh" class="productImage" />
+              <div class="form-group">
+                <span for="xemTenNXB">Nhà xuất bản</span>
+                <span id="xemTenNXB" class="xem xemTenNXB"></span>
+              </div>
+
+              <div class="form-group">
+                <span for="xemTacGia" class="">Tên tác giả</span>
+                <span id="xemTacGia" class="xem xemTacGia">Nguyễn Nhật Ánh</span>
+              </div>
+
+              <div class="form-group">
+                <span for="xemTheLoai">Thể loại</span>
+                <span id="xemTheLoai" class="xem xemTheLoai">Văn học</span>
+              </div>
+
+              <div class="form-group">
+                <span for="xemNamXB" class="">Năm xuất bản</span>
+                <span id="xemNamXB" class="xem xemNamXB">2020</span>
+              </div>
+
+              <div class="form-group">
+                <span for="xemGiaBia" class="">Giá bìa</span>
+                <span id="xemGiaBia" class="xem xemGiaBia">110000 đ</span>
+              </div>
+
+              <div class="form-group">
+                <span for="xemMoTa" class="">Mô tả</span>
+                <span id="xemMoTa" class="xem xemMoTa">Đây là một cuốn sách hay</span>
+              </div>
+            </div>
           </div>
-          <div class="ThongTinSP">
-            <div class="form-group">
-              <label for="suaTenSach">Tên sách</label>
-              <input
-                type="text"
-                class="suaTenSach"
-                id="suaTenSach"
-                placeholder="Nhập tên sách"
-              />
-            </div>
+        </form>
+      </div>
 
-            <div class="form-group">
-              <label for="suaTenNCC">Nhà cung cấp</label>
-              <select name="suaTenNCC" id="suaTenNCC" class="suaTenNCC">
-                <option value="0" class="suaTenNCC" selected>
-                  Chọn nhà cung cấp
-                </option>
-                <option value="1" class="suaTenNCC">Nhã Nam</option>
-                <option value="2" class="suaTenNCC">Kim Đồng</option>
-              </select>
-            </div>
-
-            <div class="form-group">
-              <label for="suaTacGia" class="">Tên tác giả</label>
-              <input
-                type="text"
-                id="suaTacGia"
-                class="suaTacgia"
-                id="suaTacgia"
-              />
-            </div>
-
-            <div class="form-group">
-              <label for="suaTheLoai">Thể loại</label>
-              <select name="suaTheLoai" id="suaTheLoai" class="suaTheLoai">
-                <option value="0" class="suaTheLoai" selected>
-                  Chọn thể loại
-                </option>
-                <option value="1" class="suaTheLoai">Văn học</option>
-                <option value="2" class="suaTheLoai">Thiếu nhi</option>
-              </select>
-            </div>
-
-            <div class="form-group">
-              <label for="suaNamXB" class="">Năm xuất bản</label>
-              <input type="text" class="suaNamXB" id="suaNamXB" />
-            </div>
-
-            <div class="form-group">
-              <label for="suaGiaBia" class="">Giá bìa</label>
-              <input type="text" class="suaGiaBia" id="suaGiaBia" />
-            </div>
-
-            <div class="form-group">
-              <label for="suaMoTa" class="">Mô tả</label>
-              <input type="text" class="suaMoTa" id="suaMoTa" />
-            </div>
-
-            <div class="form-group status-switch">
-              <span class="suaTrangThai">Trạng thái</span>
-              <label class="switch">
-                <input type="checkbox" />
-                <span class="slider round"></span>
-              </label>
-              <span class="xem suaTrangThai">Đang hoạt động</span>
-            </div>
-            <button type="submit" id="submit-btn-suaSanPham" class="submitSP">
-              Cập nhật
-            </button>
-          </div>
-        </div>
-      </form>
-    </div>
-    <!-- Form xem sản phẩm -->
-    <div id="formxemSanPham" class="modal">
-      <form action="" id="xemNhanVien" class="xemSanPham modal-content">
-        <h1>Xem chi tiết sản phẩm</h1>
-        <button type="button" class="close">+</button>
-        <div class="content-SP">
-          <div class="ThongTinAnhSP">
-            <label for="themHinhAnh">Hình ảnh sản phẩm</label>
-            <input type="file" id="themHinhAnh" class="productImage" />
-          </div>
-          <div class="ThongTinSP">
-        <div class="form-group">
-          <span>Tên sách</span>
-          <span class="xem xemTenSach">Có hai con mèo ngồi bên cửa sổ</span>
-        </div>
-
-        <div class="form-group">
-          <span for="xemTenNCC">Nhà cung cấp</span>
-          <span class="xem xemTenNCC">Nhã Nam</span>
-        </div>
-
-        <div class="form-group">
-          <span for="xemTacGia" class="">Tên tác giả</span>
-          <span class="xem xemTacGia">Nguyễn Nhật Ánh</span>
-        </div>
-
-        <div class="form-group">
-          <span for="xemTheLoai">Thể loại</span>
-          <span class="xem xemTheLoai">Văn học</span>
-        </div>
-
-        <div class="form-group">
-          <span for="xemNamXB" class="">Năm xuất bản</span>
-          <span class="xem xemNamXB">2020</span>
-        </div>
-
-        <div class="form-group">
-          <span for="xemGiaBia" class="">Giá bìa</span>
-          <span class="xem xemGiaBia">110000 đ</span>
-        </div>
-
-        <div class="form-group">
-          <span for="xemMoTa" class="">Mô tả</span>
-          <span class="xem xemMoTa">Đây là một cuốn sách hay</span>
-          </div>
-          </div>
-        </div>
-      </form>
-    </div>
+      <div id="overlay" class="overlay hidden"></div>
       <!--Form thêm nhân viên-->
       <div id="formThemNhanVien" class="modal">
         <form id="themNhanVien" class="modal-content">
@@ -307,11 +283,10 @@
           <input type="text" id="themChucVu" placeholder="Nhập chức vụ" />
 
           <div>
-            <button type="submit" name="them">Thêm</button>
+            <button type="button" name="them" id="addNV">Thêm</button>
           </div>
         </form>
       </div>
-
       <!--Form sửa nhân viên-->
       <div id="formSuaNhanVien" class="modal">
         <form id="suaNhanVien" class="modal-content">
@@ -341,12 +316,12 @@
           </div>
         </form>
       </div>
-
+      <!-- Form  chi tiết nhân viên -->
       <div class="modal" id="formDetailNhanVien">
         <form id="detailNhanVien" class="modal-content">
           <h2>Thông tin chi tiết nhân viên</h2>
           <div class="info">
-            <label>Tên khách hàng:</label> <span id="detailName"></span>
+            <label>Tên nhân viên:</label> <span id="detailName"></span>
           </div>
           <div class="info">
             <label>Số điện thoại:</label> <span id="detailPhone"></span>
@@ -363,15 +338,16 @@
         </form>
       </div>
 
+      <!-- nhan vien -->
       <div class="content hidden" id="employees">
         <h2>Nhân Viên</h2>
         <div class="client-search">
-          <input type="text" placeholder="Nhập tên nhân viên" />
-          <button type="button" id="tim">Tìm</button>
-          <button type="button" id="them" onclick="showThemForm();">
+          <input type="text" id="timTen" placeholder="Nhập tên nhân viên " />
+          <button type="button" id="timNV">Tìm</button>
+
+          <button type="button" id="themNV" onclick="showThemForm();">
             Thêm
           </button>
-          <p>Tổng số lượng: 50</p>
         </div>
 
         <div class="client-list">
@@ -385,170 +361,14 @@
                 <th>Trạng thái</th>
               </tr>
             </thead>
-            <tbody>
-              <tr>
-                <td>01</td>
-                <td>Võ Xuân Mai</td>
-                <td>0100203045</td>
-                <td>Quản lý</td>
-                <td><span class="status bian">Bị ẩn</span></td>
-                <td class="btn-action-group">
-                  <button
-                    class="btn-status btn-info"
-                    onclick="showDetailForm()"
-                  >
-                    <i class="fa-solid fa-info"></i>
-                  </button>
-                  <button
-                    class="btn-status btn-primary"
-                    onclick="showSuaForm()"
-                  >
-                    <i class="fas fa-edit"></i>
-                  </button>
-                  <button class="btn-status btn-danger">
-                    <i class="fas fa-trash-alt"></i>
-                  </button>
-                </td>
-              </tr>
-
-              <tr>
-                <td>02</td>
-                <td>Trần Kim Yến</td>
-                <td>0100203045</td>
-                <td>Quản lý</td>
-                <td><span class="status active">Hoạt động</span></td>
-                <td class="btn-action-group">
-                  <button
-                    class="btn-status btn-info"
-                    onclick="showDetailForm()"
-                  >
-                    <i class="fa-solid fa-info"></i>
-                  </button>
-                  <button
-                    class="btn-status btn-primary"
-                    onclick="showSuaForm()"
-                  >
-                    <i class="fas fa-edit"></i>
-                  </button>
-                  <button class="btn-status btn-danger">
-                    <i class="fas fa-trash-alt"></i>
-                  </button>
-                </td>
-              </tr>
-
-              <tr>
-                <td>03</td>
-                <td>Trương Phúc Hoàng Anh</td>
-                <td>0100203045</td>
-                <td>Quản lý</td>
-                <td><span class="status active">Hoạt động</span></td>
-                <td class="btn-action-group">
-                  <button
-                    class="btn-status btn-info"
-                    onclick="showDetailForm()"
-                  >
-                    <i class="fa-solid fa-info"></i>
-                  </button>
-                  <button
-                    class="btn-status btn-primary"
-                    onclick="showSuaForm()"
-                  >
-                    <i class="fas fa-edit"></i>
-                  </button>
-                  <button class="btn-status btn-danger">
-                    <i class="fas fa-trash-alt"></i>
-                  </button>
-                </td>
-              </tr>
-
-              <tr>
-                <td>04</td>
-                <td>Trần Quỳnh Hương</td>
-                <td>0100203045</td>
-                <td>Quản lý</td>
-                <td><span class="status active">Hoạt động</span></td>
-                <td class="btn-action-group">
-                  <button
-                    class="btn-status btn-info"
-                    onclick="showDetailForm()"
-                  >
-                    <i class="fa-solid fa-info"></i>
-                  </button>
-                  <button
-                    class="btn-status btn-primary"
-                    onclick="showSuaForm()"
-                  >
-                    <i class="fas fa-edit"></i>
-                  </button>
-                  <button class="btn-status btn-danger">
-                    <i class="fas fa-trash-alt"></i>
-                  </button>
-                </td>
-              </tr>
-
-              <tr>
-                <td>05</td>
-                <td>Trần Minh Nhật</td>
-                <td>0100203045</td>
-                <td>Quản lý</td>
-                <td><span class="status active">Hoạt động</span></td>
-                <td class="btn-action-group">
-                  <button
-                    class="btn-status btn-info"
-                    onclick="showDetailForm()"
-                  >
-                    <i class="fa-solid fa-info"></i>
-                  </button>
-                  <button
-                    class="btn-status btn-primary"
-                    onclick="showSuaForm()"
-                  >
-                    <i class="fas fa-edit"></i>
-                  </button>
-                  <button class="btn-status btn-danger">
-                    <i class="fas fa-trash-alt"></i>
-                  </button>
-                </td>
-              </tr>
-
-              <tr>
-                <td>06</td>
-                <td>Võ Hoàng Yến</td>
-                <td>0100203045</td>
-                <td>Quản lý</td>
-                <td><span class="status active">Hoạt động</span></td>
-                <td class="btn-action-group">
-                  <button
-                    class="btn-status btn-info"
-                    onclick="showDetailForm()"
-                  >
-                    <i class="fa-solid fa-info"></i>
-                  </button>
-                  <button
-                    class="btn-status btn-primary"
-                    onclick="showSuaForm()"
-                  >
-                    <i class="fas fa-edit"></i>
-                  </button>
-                  <button class="btn-status btn-danger">
-                    <i class="fas fa-trash-alt"></i>
-                  </button>
-                </td>
-              </tr>
-            </tbody>
+            <tbody id="employeeTableBody"></tbody>
           </table>
 
-          <div class="pagination">
-            <button>❮</button>
-            <button class="active">1</button>
-            <button>2</button>
-            <button>3</button>
-            <button>4</button>
-            <button>❯</button>
-          </div>
+          <div class="pagination" id="paginationEmployee"></div>
         </div>
       </div>
 
+      <!--   end nhân viên  -->
       <div class="content hidden" id="customers">
         <h2>Khách hàng</h2>
         <div class="client-search">
@@ -1003,7 +823,7 @@
           </div>
           <button id="Data">Xem thống kê</button>
         </div>
-        <div class="client-list">
+        <div class="client-list stats-list">
           <table>
             <thead>
               <tr>

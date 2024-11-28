@@ -278,47 +278,5 @@ checkboxes.forEach((checkbox) => {
 // Lần đầu gọi để cập nhật thông tin giỏ hàng
 updateOrderSummary();
 //hương end
-// Dynamic Data Rendering - Xuân Mai
-
-const products = [
-  {
-    img : '/assets/img/book/mangacomic/frieren_phap_su_tien_tang_ban_thuong_bia_tap_12.webp',
-    name : 'Frieren - Pháp sư tiễn táng',
-    price : '119.000đ'
-  },
-  {
-    img : '/assets/img/book/mangacomic/frieren_phap_su_tien_tang_ban_thuong_bia_tap_12.webp',
-    name : 'Frieren - Pháp sư tiễn táng',
-    price : '119.000đ'
-  },
-  {
-    img : '/assets/img/book/mangacomic/frieren_phap_su_tien_tang_ban_thuong_bia_tap_12.webp',
-    name : 'Frieren - Pháp sư tiễn táng',
-    price : '119.000đ'
-  },
-  {
-    img : '/assets/img/book/mangacomic/frieren_phap_su_tien_tang_ban_thuong_bia_tap_12.webp',
-    name : 'Frieren - Pháp sư tiễn táng',
-    price : '119.000đ'
-  }
-
-];
-
-document.addEventListener('DOMContentLoaded', () => {
-  const productList = document.querySelector('.product_list');
-  const html = products.map(product => {
-    return `
-      <div class="product-items">
-        <img src="${product.img}">
-        <p>${product.name}</p>
-        <span class="price">${product.price}</span>
-      </div>
-    `;
-  }).join('');
-  productList.innerHTML = html;
-  
-});
-
-
 
 // Xuân Mai

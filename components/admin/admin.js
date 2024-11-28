@@ -1650,52 +1650,8 @@ document.addEventListener("DOMContentLoaded", function () {
   renderEmployees(employees);
 });
 
-
-
-// Load nhân viên và js cho nhân viên ( tiến )
-// Hiển thị danh sách nhân viên
-function renderEmployees(filteredEmployees = []) {
-  const employeeList = document.querySelector(".client-list tbody");
- // const employees = JSON.parse(localStorage.getItem("employees")) || [];
-  const employees = filteredEmployees.length ? filteredEmployees : JSON.parse(localStorage.getItem("employees")) || [];
-
-  employeeList.innerHTML = employees
-    .map(
-      (employee) => `
-      <tr>
-        <td>${employee.id}</td>
-        <td>${employee.name}</td>
-        <td>${employee.phone}</td>
-        <td>${employee.position}</td>
-        <td>
-          <span class="status ${employee.status === "Hoạt động" ? "active" : "bian"}">
-            ${employee.status}
-          </span>
-        </td>
-        <td class="btn-action-group">
-          <button class="btn-status btn-info" onclick="showDetail('${employee.id}')">
-            <i class="fa-solid fa-info"></i>
-          </button>
-          <button class="btn-status btn-primary" onclick="showSuaForm('${employee.id}')">
-            <i class="fas fa-edit"></i>
-          </button>
-          <button class="btn-status btn-danger" onclick="deleteEmployee('${employee.id}')">
-            <i class="fas fa-trash-alt"></i>
-          </button>
-        </td>
-      </tr>
-      `
-    )
-    .join("");
-}
-
 // Hàm thêm nhân viên
 function addEmployee() {
-  
-
-// Hàm thêm nhân viên
-function addEmployee() {
-
   const name = document.getElementById("themName").value;
   const phone = document.getElementById("themPhone").value;
   const position = document.getElementById("themChucVu").value;
@@ -1704,8 +1660,6 @@ function addEmployee() {
     alert("Vui lòng nhập đầy đủ thông tin.");
     return;
   }
-
-
 
   if (!validatePhoneNumber(phone)) {
     alert("Số điện thoại không đúng định dạng!");
@@ -1717,7 +1671,6 @@ function addEmployee() {
     alert("Chức vụ không đúng định dạng!");
     return;
   }
-
 
   const employees = JSON.parse(localStorage.getItem("employees")) || [];
   const id = String(employees.length + 1).padStart(2, "0"); // Tự động tạo ID
@@ -1768,12 +1721,8 @@ function showSuaForm(id) {
     document.getElementById("suaName").value = employee.name;
     document.getElementById("suaPhone").value = employee.phone;
     document.getElementById("suaChucVu").value = employee.position;
-
-    document.getElementById("suaTrangThai").checked = employee.status === "Hoạt động";
-
     document.getElementById("suaTrangThai").checked =
       employee.status === "Hoạt động";
-
 
     // Lưu ID vào dataset để cập nhật
     document.getElementById("suaNhanVien").dataset.id = id;
@@ -1800,21 +1749,6 @@ function updateNhanVien() {
   const employees = JSON.parse(localStorage.getItem("employees")) || [];
 
   const employee = employees.find((emp) => emp.id === id);
-
-
-  if (employee) {
-    employee.name = document.getElementById("suaName").value;
-    employee.phone = document.getElementById("suaPhone").value;
-    employee.position = document.getElementById("suaChucVu").value;
-    employee.status = document.getElementById("suaTrangThai").checked
-      ? "Hoạt động"
-      : "Bị ẩn";
-
-    localStorage.setItem("employees", JSON.stringify(employees));
-    renderEmployees();
-    closeSuaForm();
-    
-  }
 
   if (!employee) {
     return;
@@ -1846,41 +1780,11 @@ function updateNhanVien() {
   localStorage.setItem("employees", JSON.stringify(employees));
   renderEmployees();
   closeSuaForm();
-
 }
 
 // Xóa nhân viên
 function deleteEmployee(id) {
   let employees = JSON.parse(localStorage.getItem("employees")) || [];
-
-  employees = employees.filter((emp) => emp.id !== id);
-
-  localStorage.setItem("employees", JSON.stringify(employees));
-  renderEmployees();
-}
-  
-
-
-// Hàm tìm kiếm nhân viên theo tên
-function searchEmployee() { 
-  const searchTerm = document.getElementById("timTen").value.trim().toLowerCase();
-  // Nếu không có từ khóa tìm kiếm, trả lại toàn bộ danh sách nhân viên
-  if (searchTerm === "") {
-    renderEmployees(); 
-    return;
-  }
-  console.log("Tìm kiếm theo từ khóa:", searchTerm);  // Kiểm tra từ khóa tìm kiếm
-  const employees = JSON.parse(localStorage.getItem("employees")) || [];
-  // Lọc nhân viên theo tên, bỏ qua chữ hoa/chữ thường và khoảng trắng thừa
-  const filteredEmployees = employees.filter(employee => 
-    employee.name.toLowerCase().includes(searchTerm)
-  );
-  
-  // Nếu không có nhân viên nào phù hợp, hiển thị thông báo
-  if (filteredEmployees.length === 0) {
-    // Xóa các hàng trong bảng
-    document.querySelector(".client-list tbody").innerHTML = "<tr><td colspan='6'>Không tìm thấy nhân viên nào.</td></tr>";
-
 
   employees = employees.map((emp) => {
     if (emp.id === id) {
@@ -1915,7 +1819,6 @@ function searchEmployee() {
     // Xóa các hàng trong bảng
     document.querySelector(".client-list tbody").innerHTML =
       "<tr><td colspan='6'>Không tìm thấy nhân viên nào.</td></tr>";
-
   } else {
     // Render lại danh sách nhân viên sau khi lọc
     renderEmployees(filteredEmployees);
@@ -1926,14 +1829,6 @@ function searchEmployee() {
 function loadDefaultEmployees() {
   if (!localStorage.getItem("employees")) {
     const defaultEmployees = [
-
-      { id: "01", name: "Võ Xuân Mai", phone: "0100203045", position: "Quản lý", status: "Bị ẩn" },
-      { id: "02", name: "Trần Kim Yến", phone: "0100203045", position: "Quản lý", status: "Hoạt động" },
-      { id: "03", name: "Trương Phúc Hoàng Anh", phone: "0100203045", position: "Quản lý", status: "Hoạt động" },
-      { id: "04", name: "Trần Quỳnh Hương", phone: "0100203045", position: "Quản lý", status: "Bị ẩn" },
-      { id: "05", name: "Trần Minh Nhật", phone: "0100203045", position: "Quản lý", status: "Hoạt động" },
-      { id: "06", name: "Võ Hoàng Yến", phone: "0100203045", position: "Quản lý", status: "Hoạt động" },
-
       {
         id: "01",
         name: "Võ Xuân Mai",
@@ -1976,7 +1871,6 @@ function loadDefaultEmployees() {
         position: "Quản lý",
         status: "Hoạt động",
       },
-
     ];
 
     localStorage.setItem("employees", JSON.stringify(defaultEmployees));
@@ -1985,33 +1879,19 @@ function loadDefaultEmployees() {
 
 // Lắng nghe sự kiện click vào nút "Thêm"
 const formaddNV = document.getElementById("addNV");
-
-formaddNV.addEventListener("click", function(event) {
-
 formaddNV.addEventListener("click", function (event) {
-
   event.preventDefault(); // Ngừng hành động mặc định của form (nếu có)
   addEmployee();
 });
 
 // Khi tải trang
 document.addEventListener("DOMContentLoaded", () => {
-
-  loadDefaultEmployees();  // Chỉ gọi nếu localStorage chưa có dữ liệu
-
   loadDefaultEmployees(); // Chỉ gọi nếu localStorage chưa có dữ liệu
-
   renderEmployees();
 });
 
 // Sự kiện nút tìm nhân viên
 const formtimNV = document.getElementById("timNV");
-
-formtimNV.addEventListener("click", function(event) {
-  event.preventDefault(); // Ngừng hành động mặc định của form (nếu có)
-  searchEmployee();
-});
-
 formtimNV.addEventListener("click", function (event) {
   event.preventDefault(); // Ngừng hành động mặc định của form (nếu có)
   searchEmployee();
@@ -2041,4 +1921,3 @@ filter.addEventListener("change", function () {
     timeType.innerHTML += `<option value="2025">2025</option>`;
   }
 });
-

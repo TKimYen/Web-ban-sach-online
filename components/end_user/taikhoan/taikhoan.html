@@ -15,10 +15,12 @@
       href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap"
       rel="stylesheet"
     />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Toastify/1.11.2/Toastify.min.css">
     <script
       src="https://kit.fontawesome.com/264e375a82.js"
       crossorigin="anonymous"
     ></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Toastify/1.11.2/Toastify.min.js"></script>
   </head>
   <body>
     <!--header-->
@@ -79,158 +81,142 @@
 
         <!-- Div bên phải -->
         <div class="form-container">
-          <label for="ho">Họ</label>
-          <input type="text" id="ho" name="ho" placeholder="Nhập họ..." />
-          <label for="ten">Tên</label>
-          <input type="text" id="ten" name="ten" placeholder="Nhập tên..." />
-          <label for="email">Email</label>
-          <input
-            type="email"
-            id="email"
-            name="email"
-            placeholder="Nhập email..."
-          />
-          <label for="phone">Số điện thoại</label>
-          <input
-            type="tel"
-            id="phone"
-            name="phone"
-            placeholder="Nhập số điện thoại..."
-          />
-          <!-- <label>Giới tính</label> -->
-          <div class="radio-group">
-            <input type="radio" id="nam" name="gender" value="nam" />
-            <label for="nam">Nam</label>
-            <input type="radio" id="nu" name="gender" value="nu" />
-            <label for="nu">Nữ</label>
+          <div class="main-account-body-col">
+              <label for="infoname">Họ và tên</label>
+              <input type="text" id="infoname" name="infoname" placeholder="Nhập họ và tên..." />
+              <label for="infoemail">Email</label>
+              <input type="email" id="infoemail" name="infoemail" placeholder="Nhập email..."/>
+              <label for="infophone">Số điện thoại</label>
+              <input type="tel" id="infophone" name="infophone" placeholder="Nhập số điện thoại..."/>
+              <div class="save-button-container">
+                  <button id="save-info-user" onclick="changeInformation()" class="save-button">Lưu thay đổi</button>
+                  </div>
+                  <div id="message"></div>
           </div>
-          <div>
-            <label for="change-pass"
-              ><input type="checkbox" id="change-pass" name="change-pass" />Đổi
-              mật khẩu</label
-            >
-          </div>
-          <label for="current-password">Mật khẩu hiện tại</label>
-          <input
-            type="password"
-            id="current-password"
-            name="current-password"
-            placeholder="Nhập mật khẩu hiện tại..."
-          />
-          <label for="new-password">Mật khẩu mới</label>
-          <input
-            type="password"
-            id="new-password"
-            name="new-password"
-            placeholder="Nhập mật khẩu mới..."
-          />
-          <label for="confirm-password">Nhập lại mật khẩu</label>
-          <input
-            type="password"
-            id="confirm-password"
-            name="confirm-password"
-            placeholder="Nhập lại mật khẩu mới..."
-          />
-          <div class="save-button-container">
-            <button class="save-button">Lưu thay đổi</button>
+      
+          <div class="main-account-body-col">
+              <label for="current-password">Mật khẩu hiện tại</label>
+              <input
+              type="password"
+              id="current-password"
+              name="current-password"
+              placeholder="Nhập mật khẩu hiện tại..."
+              />
+              <label for="new-password">Mật khẩu mới</label>
+              <input
+              type="password"
+              id="new-password"
+              name="new-password"
+              placeholder="Nhập mật khẩu mới..."
+              />
+              <label for="confirm-password">Nhập lại mật khẩu</label>
+              <input
+              type="password"
+              id="confirm-password"
+              name="confirm-password"
+              placeholder="Nhập lại mật khẩu mới..."
+              />
+              <div class="save-button-container">
+              <button id="save-password" onclick="changePassword()" class="save-button">Đổi mật khẩu</button>
+              </div>
           </div>
         </div>
 
-        <!--  div sổ địa chỉ -->
+        <!-- div sổ địa chỉ -->
         <div class="sodiachi">
-          <div class="sodiachi-info">
-            <div class="sizechu">
-              <h3>Vân Anh</h3>
-              <p>273, Đ.An Dương Vương, Phường 3, Quận 5, Hồ Chí Minh</p>
-              <p>1234567890</p>
-            </div>
-            <div>
-              <button class="btn"><i class="fas fa-edit"></i> Edit</button>
-              <br />
-              <button class="btn"><i class="fas fa-trash"></i> Delete</button>
-            </div>
+          <div class="sodiachi-info" id="address-container-1">
+              <div class="sizechu">
+                  <h3>Vân Anh</h3>
+                  <p>273, Đ.An Dương Vương, Phường 3, Quận 5, Hồ Chí Minh</p>
+                  <p>1234567890</p>
+              </div>
+              <div>
+                  <button class="btn"><i class="fas fa-edit"></i> Edit </button>
+                  <br>      
+                  <button class="btn-delete" onclick="removeAddress('address-container-1')"><i class="fas fa-trash"></i> Delete</button>
+              </div>
           </div>
-          <div class="sodiachi-info">
-            <div class="sizechu">
-              <h3>Vân Anh</h3>
-              <p>4, Đ.Tôn Đức Thắng, Bến Nghé, Quận 1, Hồ Chí Minh</p>
-              <p>1234567890</p>
-            </div>
-            <div>
-              <button class="btn"><i class="fas fa-edit"></i> Edit</button>
-              <br />
-              <button class="btn"><i class="fas fa-trash"></i> Delete</button>
-            </div>
-          </div>
-          <div class="sodiachi-info">
-            <div class="sizechu">
-              <h3>Hoàng Anh</h3>
-              <p>273, Đ.An Dương Vương, Phường 3, Quận 5, Hồ Chí Minh</p>
-              <p>0234567890</p>
-            </div>
-            <div>
-              <button class="btn"><i class="fas fa-edit"></i> Edit</button>
-              <br />
-              <button class="btn"><i class="fas fa-trash"></i> Delete</button>
-            </div>
-          </div>
-          <div class="sodiachi-info">
-            <div class="sizechu">
-              <h3>Minh Anh</h3>
-              <p>273, Đ.An Dương Vương, Phường 3, Quận 5, Hồ Chí Minh</p>
-              <p>0234567890</p>
-            </div>
-            <div>
-              <button class="btn"><i class="fas fa-edit"></i> Edit</button>
-              <br />
-              <button class="btn"><i class="fas fa-trash"></i> Delete</button>
-            </div>
-          </div>
-          <div class="save-button-container">
-            <button id="addAD" class="save-button">Thêm địa chỉ</button>
-          </div>
-        </div>
-        <!-- end div sổ địa chỉ -->
 
-        <!-- div thêm địa chỉ -->
-        <div class="themdiachi">
-          <div class="form-container">
-            <h2>Thêm địa chỉ</h2>
-            <br />
-            <label for="ten">Tên người nhận</label>
-            <input type="text" id="ten" name="ten" placeholder="Nhập tên..." />
-            <label for="tel">Số điện thoại</label>
-            <input
-              type="text"
-              id="phone"
-              name="phone"
-              placeholder="Nhập số điện thoại..."
-            />
-            <label for="diachi">Địa chỉ nhận hàng</label>
-            <input
-              type="text"
-              id="diachi"
-              name="daichi"
-              placeholder="Nhập địa chỉ nhận hàng..."
-            />
-            <div>
-              <label for="change-pass"
-                ><input type="checkbox" id="dcmacdinh" name="dcmacdinh" />Đặt
-                làm địa chỉ mặt định</label
-              >
-            </div>
-            <div class="themdiachi-container">
-              <button id="luuAD" class="themdiachi-button">Xác nhận</button>
-              <button id="huyboAD" class="themdiachi-button">Hủy bỏ</button>
-            </div>
+          <div class="sodiachi-info" id="address-container-2">
+              <div class="sizechu">
+                  <h3>Vân Anh</h3>
+                  <p>4, Đ.Tôn Đức Thắng, Bến Nghé, Quận 1, Hồ Chí Minh</p>
+                  <p>1234567890</p>
+              </div>
+              <div>
+                  <button class="btn"><i class="fas fa-edit"></i> Edit</button>
+                  <br>      
+                  <button class="btn-delete" onclick="removeAddress('address-container-1')"><i class="fas fa-trash"></i> Delete</button>
+              </div>
           </div>
-        </div>
-        <div class="overlay"></div>
-        <!-- end div them dia chi-->
+
+          <div class="sodiachi-info" id="address-container-3">
+              <div class="sizechu">
+                  <h3>Hoàng Anh</h3>
+                  <p>273, Đ.An Dương Vương, Phường 3, Quận 5, Hồ Chí Minh</p>
+                  <p>0234567890</p>
+              </div>
+              <div>
+                  <button class="btn"><i class="fas fa-edit"></i> Edit </button>
+                  <br>      
+                  <button class="btn" onclick="removeAddress('address-container-3')"><i class="fas fa-trash"></i> Delete</button>
+              </div>
+          </div>
+
+      
+          <div class="sodiachi-info" id="address-container-4">
+              <div class="sizechu">
+                  <h3>Minh Anh</h3>
+                  <p>273, Đ.An Dương Vương, Phường 3, Quận 5, Hồ Chí Minh</p>
+                  <p>0234567890</p>
+              </div>
+              <div>
+                  <button class="btn"><i class="fas fa-edit"></i> Edit </button>
+                  <br>      
+                  <button class="btn-delete" onclick="removeAddress('address-container-4')"><i class="fas fa-trash"></i> Delete</button>
+              </div>
+          </div>
+
+          <div class="save-button-container">   
+              <button id="addAD" class="save-button">Thêm địa chỉ</button>
+          </div>
+      </div>
+
+      <!-- end div sổ địa chỉ -->
+
+         <!-- Nền tối khi hiển thị form -->
+         <!-- div thêm địa chỉ -->
+         <div class="themdiachi">
+             <div class="form-container">  
+                 <h2>Thêm địa chỉ</h2>  
+                 <br>  
+                 <div class="form-group">
+                     <label for="ten">Tên người nhận</label>
+                     <input type="text" id="ten" name="ten" placeholder="Nhập tên...">
+                 </div>
+                 <div class="form-group">
+                 <label for="tel">Số điện thoại</label>
+                 <input type="text" id="phone" name="phone" placeholder="Nhập số điện thoại...">
+                 </div>
+                 <div>
+                     <label for="diachi">Địa chỉ nhận hàng</label>
+                     <input type="text" id="diachi" name="daichi" placeholder="Nhập địa chỉ nhận hàng...">
+                 </div>
+                 <div>
+                     <label for="change-pass"><input type="checkbox" id="dcmacdinh" name="dcmacdinh">Đặt làm địa chỉ mặt định</label>
+                 </div>             
+                 <div class = "themdiachi-container">
+                     <button id ="luuAD" class="themdiachi-button">Xác nhận</button>
+                     <button id ="huyboAD" class="themdiachi-button">Hủy bỏ</button>
+                 </div>       
+             </div>
+         </div>
+         <div class="overlay"></div> 
+         <!-- end div them dia chi-->
 
         <!-- div đơn hàng -->
         <div class="donhang">
-          <div class="donhang-info">
+          <div class="donhang-info" id="item-container-1">
             <div class="cart-product">
               <div class="product-img-name">
                 <img
@@ -245,10 +231,10 @@
             <div class="btn-donhang-group">
               <button class="btn-dh btn-donhang-chitiet">Xem chi tiết</button>
               <br />
-              <button class="btn-dh btn-donhang-huy">Hủy đơn hàng</button>
+              <button class="btn-dh btn-donhang-huy" onclick="removeItem('item-container-1')">Hủy đơn hàng</button>
             </div>
           </div>
-          <div class="donhang-info">
+          <div class="donhang-info" id="item-container-2">
             <div class="cart-product">
               <div class="product-img-name">
                 <img
@@ -263,10 +249,10 @@
             <div class="btn-donhang-group">
               <button class="btn-dh btn-donhang-chitiet">Xem chi tiết</button>
               <br />
-              <button class="btn-dh btn-donhang-huy">Hủy đơn hàng</button>
+              <button class="btn-dh btn-donhang-huy" onclick="removeItem('item-container-2')">Hủy đơn hàng</button>
             </div>
           </div>
-          <div class="donhang-info">
+          <div class="donhang-info" id="item-container-3">
             <div class="cart-product">
               <div class="product-img-name">
                 <img
@@ -281,7 +267,7 @@
             <div class="btn-donhang-group">
               <button class="btn-dh btn-donhang-chitiet">Xem chi tiết</button>
               <br />
-              <button class="btn-dh btn-donhang-huy">Hủy đơn hàng</button>
+              <button class="btn-dh btn-donhang-huy" onclick="removeItem('item-container-3')">Hủy đơn hàng</button>
             </div>
           </div>
         </div>
@@ -325,6 +311,6 @@
       </div>
     </footer>
     <!-- end footer -->
-    <script src="tien.js"></script>
+    <script src="taikhoan.js"></script>
   </body>
 </html>

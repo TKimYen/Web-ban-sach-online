@@ -386,6 +386,7 @@ footer {
     margin-right: 8px;
 }
 /* Tổng quan layout */
+/* Tổng quan layout */
 body {
     font-family: 'Roboto', sans-serif;
     background-color: rgb(249, 241, 231); /* Màu da cho nền trang */
@@ -426,6 +427,8 @@ select {
     margin-top: 7px;
     margin-bottom: 7px;
 }
+
+
 /* Bố cục 2 div chính: Menu và Form */
 .account-content {
     display: flex;
@@ -475,13 +478,15 @@ select {
     padding: 20px;
     border-radius: 8px; 
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.05); /* Thêm bóng nhẹ */
-    display: block;
 }
 /* form {
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-gap: 20px;
 } */
+.form-group{
+    margin-bottom: 10px;
+}
 .form-container label {
     grid-column: 1 / 3;
     font-weight: normal;
@@ -520,11 +525,9 @@ input[type="checkbox"] {
     display: flex;
     justify-content: center;
     align-items: center; 
-    
+    cursor: pointer;
 }
-
 .save-button {
-    margin-top: 10px;
     padding: 15px;
     background-color: #000;
     color: #fff;
@@ -535,7 +538,6 @@ input[type="checkbox"] {
     cursor: pointer; /* Con trỏ chuột khi hover */
     width: 140px; 
 }
-
 .save-button:hover {
     background-color: #635e5e;
 }
@@ -548,6 +550,7 @@ input[type="checkbox"] {
     padding: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.05); /* Thêm bóng nhẹ */
     display: block;
+    flex-direction: column;  /* Các phần tử con sắp xếp theo chiều dọc */
 }
 
 .sodiachi label {
@@ -581,6 +584,11 @@ input[type="checkbox"] {
     font-size: 15px ;
 }
 
+#addAD{
+    display: block;
+    margin-top: 20px; /* Tạo khoảng cách giữa nút và danh sách địa chỉ */
+}
+
 /* Thêm địa chỉ */
 .themdiachi{
     border-radius: 10px;
@@ -604,7 +612,7 @@ input[type="checkbox"] {
     width: 100%;
     height: 100%;
     background-color: rgba(0, 0, 0, 0.5);
-    z-index: 500;
+    z-index: 999;
     display: none;
 }
 .themdiachi-container {
@@ -723,3 +731,50 @@ input[type="checkbox"] {
     border: 1px solid var(--hover-color);
     cursor: pointer;
 }
+
+.main-account-header{
+    padding-bottom: 15px;
+}
+
+.main-account-body-col {
+    padding-top: 10px;
+    width: 48%;
+}
+
+.main-account-body-row {
+    width: 100%;
+    display: flex;
+}
+
+.main-account-body-row>div {
+    width: 48%;
+}
+
+
+
+#save-password i, 
+#save-info-user i {
+    margin-right: 5px;
+}
+
+/* Styles for the popup modal */
+.popup {
+    display: none;  /* Hidden by default */
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+    z-index: 9999;  /* Ensure the popup is above other elements */
+  }
+  
+  .popup-content {
+    position: relative;
+    background-color: white;
+    margin: 15% auto;
+    padding: 20px;
+    width: 30%;
+    border-radius: 10px;
+    text-align: center;
+  }

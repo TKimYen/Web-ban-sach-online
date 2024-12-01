@@ -52,6 +52,30 @@ function closeSuaForm() {
     document.getElementById("formSuaNhanVien").style.display = "none";
 }
 
+function showOrderModal(){
+    document.getElementById("formOrderModal").style.display = "flex";
+}
+
+function closeOrderModal(){
+    document.getElementById("formOrderModal").style.display = "none";
+}
+
+function showEditOrderModal(){
+    document.getElementById("formEditOrderModal").style.display = "flex";
+}
+
+function closeEditOrderModal(){
+    document.getElementById("formEditOrderModal").style.display = "none";
+}
+
+function showAddOrderModal(){
+    document.getElementById("formAddOrderModal").style.display = "flex";
+}
+
+function closeAddOrderModal(){
+    document.getElementById("formAddOrderModal").style.display = "none";
+}
+
 function updateNhanVien(){
     closeSuaForm();
 }
@@ -64,3 +88,4 @@ document.getElementById("suaTrangThai").addEventListener("change", function() {
         statusText.textContent = "Bị ẩn";
     }
 });
+

@@ -228,6 +228,22 @@ table td {
     position: relative;
 }
 
+.order-modal-content{
+    background-color: #f9f1e7;
+    padding: 20px;
+    margin: 50px auto;
+    width: 50%;
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.order-modal-content p {
+    font-size: 16px;
+    margin-bottom: 10px;   
+}
+
 .modal-content label {
     display: inline-block;
     font-weight: bold;
@@ -257,13 +273,52 @@ table td {
     position: absolute;
     right: 15px;
     top: 0px;
-    font-size: 35pt;
+    font-size: 14px;
     transform: rotate(45deg);
     background-color: transparent;
     cursor: pointer;
     outline: none;
     border: none;
     color: rgba(0, 0, 0, 0.5);;
+}
+
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 24px;
+    cursor: pointer;
+}
+.left-section {
+    flex: 2;
+    min-width: 300px;
+}
+.right-section {
+    flex: 1;
+    min-width: 200px;
+}
+.form-group {
+    margin-bottom: 15px;
+}
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+.form-group input, .form-group select {
+    width: 100%;
+    padding: 8px;
+    box-sizing: border-box;
+}
+.update-btn {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+.update-btn:hover {
+    background-color: #0056b3;
 }
 
 .info {
@@ -277,3 +332,29 @@ table td {
 }
 
 
+    /*Trang thong tin tai khoan*/
+    .main-account-header{
+        padding-bottom: 15px;
+    }
+    
+    .main-account-body-col {
+        padding-top: 10px;
+        width: 48%;
+    }
+    
+    .main-account-body-row {
+        width: 100%;
+        display: flex;
+    }
+    
+    .main-account-body-row>div {
+        width: 48%;
+    }
+    
+    
+    
+    #save-password i, 
+    #save-info-user i {
+        margin-right: 5px;
+    }
+    

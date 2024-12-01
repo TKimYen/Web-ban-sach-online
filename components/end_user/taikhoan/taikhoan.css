@@ -9,13 +9,13 @@
     --white-hover-color: rgb(242, 242, 242);
 }
 
-/* * {
+* {
     margin: 0;
     padding: 0;
     list-style: none;
     text-decoration: none;
     box-sizing: border-box;
-} */
+}
 
 html {
     font-size: 62.5%;
@@ -31,141 +31,305 @@ html {
     min-height: 100vh;
 }
 
-    /*--------- header -------- */
+      /*--------- header -------- *//*Hoang Anh*/
+
 header {
     width: 100%;
     height: 80px;
     background-color: var(--white-color);
+    margin-bottom: 20px;
+}
+.container__homepage {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 10px;
 }
 
-.header__navbar {
-    width: 1250px;
-    height: 100%;
-    margin: auto;
-}
-
-.header__navbar {
+.header-container {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    width: 100%;
+    position: relative;
 }
 
-.header__navbar-logo {
-    display: block;
-    float: left;
-    color: var(--text-color);
-    width: 200px;
+.logo__homepage {
+    font-size: 24px;
+    font-weight: bold;
+    margin-right: 15px;
 }
 
-.header__navbar-logo-img {
-    width: 120px;
-}
-
-.header__navbar-search{
-    flex: 1;
-    display: flex;
-    height: 46px;
-    border: var(--button-color) 1px solid;
-    border-radius: 10px;
-    background-color: var(--white-color);
-}
-
-.header__navbar-search-input{
-    flex: 1;
-    height: 100%;
-    padding: 0 16px;
-    border: none;
-    outline:none;
-    border-radius: 10px;
-    font-size: 1.6rem;
-    color: var(--text-color);
-}
-
-.header__navbar-search-btn{
-    background-color: var(--button-color);
-    border:none;
-    height: 42px;
-    width: 42px;
-    border-radius: 10px;
-    margin: 2px 2px;
-}
-.header__navbar-search-btn:hover {
-    background-color: var(--hover-color);
-    cursor: pointer;
-}
-
-.header__navbar-search-btn-icon {
-    font-size: 1.6rem;
-    color: var(--white-color);
-}
-
-.header__navbar-cart {
-    width: 100px;
-}
-
-.header__navbar-user{
-    
-   
-}
-
-.header__navbar-cart-icon {
-    margin-left: 16px;
-    font-size: 2.5rem;
-    color: var(--button-color);
-}
-
-.header__navbar-cart-icon:hover {
-    color: var(--hover-color);
-    cursor: pointer;
-}
-
-.header__navbar-item {
-    width: 120px;
-    height: 40px;
-    font-size: 1.6rem;
+.dropdown{
+    position: relative;
     display: inline-block;
-    margin: 0 10px;
 }
 
-.header__navbar-item-signup-btn {
-    width: 100%;
-    height: 100%;
-    /* border: none; */
-    border: 2px var(--button-color) solid;
-    outline: none;
-    font-size: 1.6rem;
-    border-radius: 10px;
-    padding: 8px;
-    background-color: var(--white-color);
-    color: var(--button-color);
-}
-
-.header__navbar-item-signup-btn:hover {
-    color: var(--hover-color);
-    border: 2px var(--hover-color) solid;
+.dropdown-btn {
+    background-color: transparent;
+    border: none;
     cursor: pointer;
+    padding: 5px;
+    font-size: 16px;
+    color: #333;
 }
 
-.header__navbar-item-login-btn {
+.dropdown-btn img{
+    width: 40px;
+    height: 40px;
+    background-color: transparent; 
+    border: none; 
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    top: 100%; 
+    left: 0;
+    background-color: #fff;
+    box-shadow: 0px 8px 16px rgba(0,0,0,0.1);
+    min-width: 180px;
+    z-index: 1;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.dropdown-content a {
+    color: #333;
+    padding: 12px 15px;
+    text-decoration: none;
+    display: block;
+    border-bottom: 1px solid #ddd;
+}
+
+.dropdown-content a:hover {
+    background-color: #f1f1f1;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.search-bar {
+    flex-grow: 1;
+    margin: 0 20px;
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.search-bar input {
     width: 100%;
-    height: 100%;
-    /* border: none; */
-    border-color: transparent;
+    padding: 10px;
+    padding-right: 50px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
     outline: none;
-    font-size: 1.6rem;
-    border-radius: 10px;
-    padding: 8px 12px;
-    background-color: var(--button-color);
-    color: var(--white-color);
 }
 
-.header__navbar-item-login-btn:hover {
-    /* color: var(--white-color); */
-    /* border-color: transparent; */
-    background-color: var(--hover-color);
+.search-btn {
+    position: absolute;
+    right: 0px;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: #000;
+    color: #fff;
+    border: none;
+    padding: 10px;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
     cursor: pointer;
+    transition: background-color 0.3s ease; 
 }
 
+.search-btn:hover{
+    background-color: #333;
+}
+
+.header-icons button {
+    background-color: #000;
+    color: #fff;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    margin-left: 10px;
+    border-radius: 4px;
+    transition: background-color 0.3s ease; 
+}
+
+
+.cart-btn{
+    background-color: #000;
+    color: #fff;
+    border: none;
+    padding: 10px;
+    width: 40px;
+    height: 40px;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-left: 20px;
+}
+
+.cart-btn:hover{
+    background-color: #333;
+}
+
+.login-btn:hover{
+    background-color: #333;
+}
+
+.signup-btn:hover{
+    background-color: #333;
+}
+
+ .banner img {
+    width: 100%;
+    max-width: 600px;
+    display: block;
+    margin: 20px auto;
+    border-radius: 10px;
+}
+
+
+.product-section {
+    padding: 40px;
+    margin: 10px auto 20px;
+    background-color: #fff;
+    border-radius: 5px;
+    width:calc(80% - 0px);
+    position: relative;
+}
+
+.product-section h2 {
+    font-size: 28px;
+    margin-bottom: 40px;
+    text-align: left; 
+    font-weight: bold;
+}
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+.product-item {
+    text-align: center;
+    transition: box-shadow 0.3s ease; 
+    border: 1px solid #fff;
+}
+
+.product-item:hover{
+    box-shadow: 0 0 4px rgba(0,0,0,0.2);
+}
+
+.product-item img {
+    max-width: 200px;
+    height: 200px;
+    border-radius: 0px;
+    margin: 10px;
+}
+
+.product-item p {
+    margin: 10px 0;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.product-item .price {
+    color: red;
+    font-size: 12px;
+}
+
+.view-more {
+    display: block;
+    margin: 20px auto;
+    padding: 10px 20px;
+    background-color: #000;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease; 
+}
+
+.view-more:hover {
+    background-color: #333; 
+}
+
+.container-category {
+    display: grid;
+    width: 100%;
+}
+
+/* Breadcrumb container */
+.breadcrumb {
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    font-family: Arial, sans-serif;
+    margin-top: 10px;
+    padding: 0 140px;
+}
+
+/* Links */
+.breadcrumb a {
+    text-decoration: none;
+    color: #333; 
+    margin: 0 5px;
+    transition: color 0.3s ease;
+}
+
+/* Separator */
+.breadcrumb span {
+    color: #aaa; 
+    margin: 0 5px;
+}
+
+/* Active Page */
+.breadcrumb a.active {
+    color: #aaa; 
+    pointer-events: none; 
+}
+
+/* Hover effect */
+.breadcrumb a:hover {
+    color: #007bff; 
+}
+/* Pagination */
+.pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.pagination a{
+    color: black;
+    padding: 8px 16px;
+    text-decoration: none;
+    transition: background-color .3s;
+    border-radius: 10px;
+}
+
+.pagination a.active {
+    background-color: #333;
+    color: white;
+    border-radius: 10px;
+}
+
+.pagination a:hover{
+    background-color: #eee;
+    color: #333;
+    border-color: #ccc;
+  }
+
+/*Hoang Anh*/
     /*--------- container -------- */
 .main {
     flex: 1;
@@ -222,6 +386,7 @@ footer {
     margin-right: 8px;
 }
 /* Tổng quan layout */
+/* Tổng quan layout */
 body {
     font-family: 'Roboto', sans-serif;
     background-color: rgb(249, 241, 231); /* Màu da cho nền trang */
@@ -262,6 +427,8 @@ select {
     margin-top: 7px;
     margin-bottom: 7px;
 }
+
+
 /* Bố cục 2 div chính: Menu và Form */
 .account-content {
     display: flex;
@@ -311,13 +478,15 @@ select {
     padding: 20px;
     border-radius: 8px; 
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.05); /* Thêm bóng nhẹ */
-    display: block;
 }
 /* form {
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-gap: 20px;
 } */
+.form-group{
+    margin-bottom: 10px;
+}
 .form-container label {
     grid-column: 1 / 3;
     font-weight: normal;
@@ -356,7 +525,7 @@ input[type="checkbox"] {
     display: flex;
     justify-content: center;
     align-items: center; 
-    
+    cursor: pointer;
 }
 .save-button {
     padding: 15px;
@@ -381,6 +550,7 @@ input[type="checkbox"] {
     padding: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.05); /* Thêm bóng nhẹ */
     display: block;
+    flex-direction: column;  /* Các phần tử con sắp xếp theo chiều dọc */
 }
 
 .sodiachi label {
@@ -414,6 +584,11 @@ input[type="checkbox"] {
     font-size: 15px ;
 }
 
+#addAD{
+    display: block;
+    margin-top: 20px; /* Tạo khoảng cách giữa nút và danh sách địa chỉ */
+}
+
 /* Thêm địa chỉ */
 .themdiachi{
     border-radius: 10px;
@@ -437,7 +612,7 @@ input[type="checkbox"] {
     width: 100%;
     height: 100%;
     background-color: rgba(0, 0, 0, 0.5);
-    z-index: 500;
+    z-index: 999;
     display: none;
 }
 .themdiachi-container {
@@ -460,4 +635,195 @@ input[type="checkbox"] {
 }
 .themdiachi-button:hover {
     background-color: #635e5e;
+}
+
+/* Đơn hàng  */
+
+
+/* Đơn hàng */
+.donhang {
+    flex-grow: 1;
+    margin-left: 20px;
+    background-color: #fff; /* Màu trắng cho nền thẻ div */
+    padding: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.05); /* Thêm bóng nhẹ */
+    display: block;
+}
+
+.donhang-info {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    background-color: var(--white-color);
+    padding: 10px;
+    border-bottom: 1px solid rgb(123, 120, 120);
+}
+
+.cart-product {
+    padding: 8px 0;
+    display: flex;
+    justify-content: space-between;
+}
+
+.product-img-name {
+    display: flex;
+}
+
+.cart-product h4 {
+    font-size: 16px;
+    font-weight: 400;
+}
+
+.cart-product p {
+    font-size: 15px;
+    font-weight: 400;
+    display: flex;
+    align-items: center;
+}
+
+.cart-img-product {
+    width: 90px;
+    height: 100px;
+}
+
+.cart-product {
+    flex: 8;
+    padding-right: 50px;
+}
+
+.btn-donhang-group {
+    flex: 2;
+}
+
+.btn-dh {
+    height: 36px;
+    margin-top: 10px;
+    border-color: transparent;
+    outline: none;
+    font-size: 16px;
+    border-radius: 10px;
+    padding: 8px 10px;
+    cursor: pointer;
+}
+
+.btn-donhang-chitiet {
+    min-width: 140px;
+    height: 36px;
+    background-color: var(--button-color);
+    color: var(--white-color); 
+}
+
+.btn-donhang-huy {
+    min-width: 140px;
+    height: 36px;
+    border: 1px solid black;
+    background-color: var(--white-color);
+    color: var(--button-color); 
+}
+
+.btn-donhang-chitiet:hover {
+    background-color: var(--hover-color);
+    cursor: pointer;
+}
+
+.btn-donhang-huy:hover {
+    color: var(--hover-color);
+    border: 1px solid var(--hover-color);
+    cursor: pointer;
+}
+
+.main-account-header{
+    padding-bottom: 15px;
+}
+
+.main-account-body-col {
+    padding-top: 10px;
+    width: 48%;
+}
+
+.main-account-body-row {
+    width: 100%;
+    display: flex;
+}
+
+.main-account-body-row>div {
+    width: 48%;
+}
+
+
+
+#save-password i, 
+#save-info-user i {
+    margin-right: 5px;
+}
+
+/* Styles for the popup modal */
+.popup {
+    display: none;  /* Hidden by default */
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+    z-index: 9999;  /* Ensure the popup is above other elements */
+  }
+  
+  .popup-content {
+    position: relative;
+    background-color: white;
+    margin: 15% auto;
+    padding: 20px;
+    width: 30%;
+    border-radius: 10px;
+    text-align: center;
+  }
+
+  .edit-address-content {
+    display: flex;
+    flex-direction: column;
+    gap: 10px; /* Tăng khoảng cách giữa các thành phần để dễ nhìn hơn */
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: var(--white-color);
+    padding: 30px; /* Tăng padding để không gian bên trong rộng rãi hơn */
+    width: 40vw; /* Thay đổi để phù hợp hơn với các kích thước màn hình khác nhau */
+    max-width: 500px; /* Đặt max-width để tránh quá to ở màn hình lớn */
+    border-radius: 10px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); /* Tạo hiệu ứng chiều sâu cho form */
+    z-index: 10001;
+}
+
+.edit-address-btns {
+    display: flex;
+    justify-content: flex-end;
+    gap: 15px; /* Tăng khoảng cách giữa các nút để dễ bấm hơn */
+}
+
+.edit-address {
+    display: flex;
+    flex-direction: column;
+    gap: 8px; /* Tăng khoảng cách giữa label và input */
+    padding: 6px;
+}
+
+.edit-address-content label {
+    font-size: 16px;
+    font-weight: bold; /* Thêm độ đậm để nhấn mạnh phần tiêu đề */
+}
+
+.edit-address-content input {
+    font-size: 16px;
+    height: 40px;
+    padding: 8px; /* Thêm padding để input dễ thao tác hơn */
+    border: 1px solid #ccc; /* Tạo viền cho input để dễ nhìn thấy hơn */
+    border-radius: 5px;
+    outline: none;
+}
+
+.edit-address-content input:focus {
+    border-color: #007bff; /* Đổi màu viền khi input được chọn */
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); /* Tạo hiệu ứng khi focus */
 }

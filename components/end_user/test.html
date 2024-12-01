@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Product Display</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+</head>
+<body>
+    <div class="wrapper">
+        <!-- Best Seller Section -->
+        <section class="product-section">
+            <div class="container">
+                <h2>Best Seller</h2>
+                <div class="product-grid">
+                    <!-- Sản phẩm sẽ được render ở đây -->
+                </div>
+            </div>
+        </section>
+    </div>
+    <script src="/components/end_user/initialization.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const productGrid = document.querySelector('.product-grid');
+        let products = JSON.parse(localStorage.getItem('products')) || [];
+        
+        // Render Best Seller
+        let html = products.map(product => `
+            <div class="product-item">
+              <img src="${product.img}" alt="${product.title}">
+              <p>${product.title}</p>
+              <span class="price">${product.price} đ</span>
+            </div>
+        `).join('');
+
+        productGrid.innerHTML = html;
+    });
+</script>
+</body>
+</html>

@@ -467,7 +467,187 @@
 
         <div class="content hidden" id="phieunhap">
             <h2>Phiếu nhập</h2>
+            <div class="client-search">
+                <input type="text" placeholder="Nhập tên">
+                <button type="button" id="tim">Tìm</button>
+                <button type="button" id="them" class="add-btn" onclick="showAddOrderModal()">Thêm+</button>
+                <p>Tổng số lượng: 50</p>
+            </div>
+
+            <div class="client-list">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Nhà cung cấp</th>
+                            <th>Ngày tạo</th>
+                            <th>Tổng tiền</th>
+                            <th>Trạng thái</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>01</td>
+                            <td>Nhã Nam</td>
+                            <td>11/11/2024</td>
+                            <td>10000000</td>
+                            <td>Hủy</td>
+                            <td>
+                                <button class="info-btn" onclick="showOrderModal()">i</button>
+                                <button class="edit-btn" onclick="showEditOrderModal()">✎</button>
+                                <button class="delete-btn">🗑️</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
+        
+        <!-- Modal Chi Tiết Phiếu Nhập -->
+        <div class="modal" id="formOrderModal">
+            <form id="orderModal" class="order-modal-content">
+                <span class="close-btn" onclick="closeOrderModal()">&times;</span>
+                <div class="left-section">
+                    <h2>Chi Tiết Phiếu Nhập</h2>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Mã Sách</th>
+                                <th>Tên Sách</th>
+                                <th>Số Lượng</th>
+                                <th>Đơn Giá</th>
+                                <th>Thành Tiền</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>Nếu Biết Trắm Năm Là Hữu Hạn - Ấn Bản Ký Niệm 10 Năm Xuất Bản (Tái Bản 2024)</td>
+                                <td>100</td>
+                                <td>159.000 đ</td>
+                                <td>1.590.000 đ</td>
+                            </tr>
+                            <!-- Thêm các hàng khác ở đây nếu cần -->
+                        </tbody>
+                    </table>
+                </div>
+                <div class="right-section">
+                    <p><strong>Mã phiếu nhập:</strong> 1</p>
+                    <p><strong>Tên nhà cung cấp:</strong> Nhã Nam</p>
+                    <p><strong>Nhân viên:</strong> Trần Kim Yến</p>
+                    <p><strong>Ngày tạo:</strong> 1/1/2024</p>
+                    <p><strong>Tổng tiền:</strong> 500.000 đ</p>
+                    <p><strong>Trạng thái:</strong> hoàn tất</p>
+                </div>
+            </form>
+        </div>
+
+        <!-- Modal Sửa Phiếu Nhập -->
+        <div class="modal" id="formEditOrderModal">
+            <form class="order-modal-content">
+                <span class="close-btn" onclick="closeEditOrderModal()">&times;</span>
+                <div class="left-section">
+                    <h2>Sửa phiếu nhập</h2>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Mã Sách</th>
+                                <th>Tên Sách</th>
+                                <th>Số Lượng</th>
+                                <th>Đơn Giá</th>
+                                <th>Thành Tiền</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>Nếu Biết Trắm Năm Là Hữu Hạn - Ấn Bản Ký Niệm 10 Năm Xuất Bản (Tái Bản 2024)</td>
+                                <td>100</td>
+                                <td>159.000 đ</td>
+                                <td>1.590.000 đ</td>
+                            </tr>
+                            <!-- Thêm các hàng khác ở đây nếu cần -->
+                        </tbody>
+                    </table>
+                </div>
+                <div class="right-section">
+                    <p><strong>Mã phiếu nhập</strong> 1</p>
+                    <p><strong>Tên khách hàng</strong> Trần Kim Yến</p>
+                    <p><strong>Số điện thoại</strong> Trần Kim Yến</p>
+                    <div class="form-group">
+                        <label for="editAddress">Địa chỉ</label>
+                        <input type="text" id="editAddress" value="123 An Dương Vương">
+                    </div>
+                    <p><strong>Ngày mua</strong> 1/1/2024</p>
+                    <p><strong>Tổng tiền:</strong> 500.000 đ</p>
+                    <div class="form-group">
+                        <label for="editStatus">Trạng thái</label>
+                        <select id="editStatus">
+                            <option value="hoan_tat">Hoàn tất</option>
+                            <option value="chua_hoan_tat">Chưa hoàn thành</option>
+                            <option value="huy">Hủy</option>
+                        </select>
+                    </div>
+                    <p><strong>Nhân viên cập nhật</strong> Trần Kim Yến</p>
+                    <button class="update-btn">Cập nhật</button>
+                </div>
+            </form>
+        </div>
+
+        <!-- Modal Thêm Phiếu Nhập -->
+        <div class="modal" id="formAddOrderModal">
+            <form class="order-modal-content">
+                <span class="close-btn" onclick="closeAddOrderModal()">&times;</span>
+                <div class="left-section">
+                    <h2>Thêm Phiếu Nhập</h2>
+                    <div class="form-group">
+                        <label for="addBookId">Mã Sách</label>
+                        <input type="text" id="addBookId" placeholder="Nhập mã sách">
+                    </div>
+                    <div class="form-group">
+                        <label for="addBookName">Tên Sách</label>
+                        <input type="text" id="addBookName" placeholder="Nhập tên sách">
+                    </div>
+                    <div class="form-group">
+                        <label for="addQuantity">Số Lượng</label>
+                        <input type="number" id="addQuantity" placeholder="Nhập số lượng">
+                    </div>
+                    <div class="form-group">
+                        <label for="addPrice">Đơn Giá</label>
+                        <input type="number" id="addPrice" placeholder="Nhập đơn giá">
+                    </div>
+                    <div class="form-group">
+                        <label for="addTotal">Thành Tiền</label>
+                        <input type="text" id="addTotal" disabled>
+                    </div>
+                    <button class="add-order-btn">Thêm</button>
+                </div>
+                <div class="right-section">
+                    <p><strong>Mã phiếu nhập</strong> 1</p>
+                    <p><strong>Tên khách hàng</strong> Trần Kim Yến</p>
+                    <p><strong>Số điện thoại</strong> Trần Kim Yến</p>
+                    <div class="form-group">
+                        <label for="editAddress">Địa chỉ</label>
+                        <input type="text" id="editAddress" value="123 An Dương Vương">
+                    </div>
+                    <p><strong>Ngày mua</strong> 1/1/2024</p>
+                    <p><strong>Tổng tiền:</strong> 500.000 đ</p>
+                    <div class="form-group">
+                        <label for="editStatus">Trạng thái</label>
+                        <select id="editStatus">
+                            <option value="hoan_tat">Hoàn tất</option>
+                            <option value="chua_hoan_tat">Chưa hoàn thành</option>
+                            <option value="huy">Hủy</option>
+                        </select>
+                    </div>
+                    <p><strong>Nhân viên cập nhật</strong> Trần Kim Yến</p>
+                    <button class="update-btn">Thêm</button>
+                </div>
+            </form>
+        </div>
+
+
 
         <div class="content hidden" id="stats">
             <h2>Thống kê</h2>

@@ -1,21 +1,78 @@
+const formRegister = document.getElementById('register-form');
+const loginTab = document.getElementById('login-tab');
+const registerTab = document.getElementById('register-tab');
+const loginForm = document.getElementById('login-form');
+const forgotPasswordLink = document.querySelector('.forgot-password');
+const forgotPasswordContainer = document.querySelector('.forgot-password-container');
+const formWrapper = document.querySelector('.form-wrapper');
+const backLink = document.querySelector('.back-link');
 
-const container = document.getElementById('container');
-const registerBtn = document.getElementById('register');
-const loginBtn = document.getElementById('login');
+const nameElement = document.getElementById('name');
+const emailElement = document.getElementById('email');
+const passwordElement = document.getElementById('password');
 
-registerBtn.addEventListener('click', () => {
-    container.classList.add("active");
+
+const nameError = document.getElementById('nameError');
+const emailError = document.getElementById('emailError');
+const passwordError = document.getElementById('passwordError');
+
+
+//xử lý quên mật khẩu
+forgotPasswordLink.addEventListener('click', (e) => {
+    e.preventDefault(); //chặn load lại trang
+    formWrapper.classList.add('hidden'); //ẩn đăng kí. đăng nhập
+    forgotPasswordContainer.classList.remove('hidden'); //hiển thị qmk
 });
 
-loginBtn.addEventListener('click', () => {
-    container.classList.remove("active");
+//xử lý quay lại
+backLink.addEventListener('click', (e) => {
+    e.preventDefault(); 
+    forgotPasswordContainer.classList.add('hidden'); //ẩn qmk
+    formWrapper.classList.remove('hidden'); //hiện đkđn
 });
 
-const forgotPasswordLink = document.querySelector('.form-container.sign-in a');
-
-forgotPasswordLink.addEventListener('click', () => {
-    container.classList.add("active");
+//xl chuyển đkđn
+registerTab.addEventListener('click', () => {
+    loginTab.classList.remove('active');
+    registerTab.classList.add('active');
+    loginForm.innerHTML = `
+        <label for="name">Họ và tên</label>
+            <input type="text" id="name" placeholder="Nhập họ và tên">
+            <div style="color: red" id="nameError">Họ và tên không được để trống</div>
+            <label for="email">Email</label>
+            <input type="email" id="email" placeholder="Nhập email">
+            <div style="color: red" id="emailError">Email không được để trống</div>
+            <label for="password">Mật khẩu</label>
+            <input type="password" id="password" placeholder="Nhập mật khẩu">
+            <div style="color: red" id="passwordError">Mật khẩu không được để trống</div>
+            <button type="submit" class="form-button">Đăng ký</button>
+    `;
 });
+
+loginTab.addEventListener('click', () => {
+    registerTab.classList.remove('active');
+    loginTab.classList.add('active');
+    loginForm.innerHTML = `
+        <label for="email">Địa chỉ email</label>
+            <div class="email-otp">
+                <input type="email" id="email" placeholder="Nhập email bạn đã đăng kí" required>        
+                <button type="button" class="send-otp">Gửi OTP</button>
+            </div>
+            <label for="otp">Mã xác nhận OTP</label>
+            <input type="text" id="otp" placeholder="6 kí tự" required>
+            <label for="new-password">Nhập mật khẩu mới</label>
+            <input type="password" id="new-password" placeholder="******" required>
+            <button type="submit" class="submit-btn">Xác nhận</button>
+    `;
+});
+
+formRegister.addEventListener("submit", function(e){
+  e.preventDefault();
+
+  if(!nameElement.value){
+    alert("teen k de trong")
+  }
+})
 
 /* Start: Yen*/
 
@@ -131,3 +188,71 @@ cancelEditAddress.addEventListener('click', function(){
 /* End: Yen*/
 
 
+// Dynamic Data Rendering - Xuân Mai
+
+/*const products = [
+  {
+    img : '/assets/img/book/mangacomic/frieren_phap_su_tien_tang_ban_thuong_bia_tap_12.webp',
+    name : 'Frieren - Pháp sư tiễn táng',
+    price : '119.000đ'
+  },
+  {
+    img : '/assets/img/book',
+    name : 'Bài tập toán lớp 1',
+    price : '99.000đ'
+  },
+  {
+    img : '/assets/img/book/mangacomic/frieren_phap_su_tien_tang_ban_thuong_bia_tap_12.webp',
+    name : 'Frieren - Pháp sư tiễn táng',
+    price : '119.000đ'
+  },
+  {
+    img : '/assets/img/book/mangacomic/frieren_phap_su_tien_tang_ban_thuong_bia_tap_12.webp',
+    name : 'Frieren - Pháp sư tiễn táng',
+    price : '119.000đ'
+  }
+
+];
+
+document.addEventListener('DOMContentLoaded', () => {
+  const productList = document.querySelectorAll('.product_list, .product_grid');
+  const html = products.map(product => {
+    return `
+      <div class="product-items">
+        <img src="${product.img}">
+        <p>${product.name}</p>
+        <span class="price">${product.price}</span>
+      </div>
+    `;
+  }).join('');
+  productList.forEach(container => {
+    container.innerHTML = html;
+  });
+  
+});
+*/
+// Xuân Mai
+
+document.addEventListener('DOMContentLoaded', () => {
+  const productGrid = document.querySelector('.product-section .product-grid');
+
+  // Lấy sản phẩm từ localStorage
+  let products = JSON.parse(localStorage.getItem('products')) || [];
+
+  // Lọc ra các sản phẩm "Best Seller" (có thể thêm điều kiện tùy ý)
+  let bestSellers = products.filter(product => product.isBestSeller);
+
+  // Render sản phẩm ra màn hình
+  let html = bestSellers.map(product => {
+    return `
+      <div class="product-item">
+        <img src="${product.img}" alt="${product.title}">
+        <p>${product.title}</p>
+        <span class="price">${product.price} đ</span>
+      </div>
+    `;
+  }).join('');
+  
+  // Cập nhật DOM
+  productGrid.innerHTML = html;
+});

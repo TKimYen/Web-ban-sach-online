@@ -1,470 +1,823 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/components/admin/style.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+    />
+    <!-- <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet"> -->
+    <script
+      src="https://kit.fontawesome.com/264e375a82.js"
+      crossorigin="anonymous"
+    ></script>
     <title>Admin</title>
-</head>
-<body>
+  </head>
+  <body>
     <main>
-        <div class="sidebar">
-            <img src="/assets/img/AMYTH.svg">
-            <div class="taskbar">  
-                <p><a href="#" data-page="products">Quản lý sản phẩm</a></p>
-                <p><a href="#" data-page="employees">Quản lý nhân viên</a></p>
-                <p><a href="#" data-page="customers">Quản lý khách hàng</a></p>
-                <p><a href="#" data-page="invoices">Quản lý hóa đơn</a></p>
-                <p><a href="#" data-page="phieunhap">Quản lý phiếu nhập</a></p>
-                <p><a href="#" data-page="stats">Thống kê</a></p>
-            </div>
-
-            <div class="account">
-                <img src=""> <span>admin</span>
-                <img src="" id="logout">
-            </div>
-        </div>
-        <div class="content" id="products">
-            <h2>Sản phẩm</h2>
+      <div class="sidebar">
+        <img src="../../assets/img/AMYTH.svg" />
+        <div class="taskbar">
+          <p><a href="#" data-page="products">Quản lý sản phẩm</a></p>
+          <p><a href="#" data-page="employees">Quản lý nhân viên</a></p>
+          <p><a href="#" data-page="customers">Quản lý khách hàng</a></p>
+          <p><a href="#" data-page="invoices">Quản lý hóa đơn</a></p>
+          <p><a href="#" data-page="stats">Thống kê</a></p>
         </div>
 
+        <div class="account">
+          <img src="" /> <span>admin</span>
+          <img src="" id="logout" />
+        </div>
+      </div>
+      <div class="content" id="products">
+        <h2>Sản Phẩm</h2>
+        <div class="product-search">
+          <div class="product-search-name-price">
+            <div class="search-name">
+              <input id="tenSPTim" type="text" placeholder="Nhập tên sản phẩm" />
+            </div>
+            <div class="search-price">
+              <input id="khoangGiaTimBD" type="number" placeholder="Khoảng giá" min="1"/>
+              <span>-</span>
+              <input id="khoangGiaTimKT" type="number" placeholder="Khoảng giá" min="1" />
+            </div>
+          </div>
+          <button type="button" id="searchProductBtn" onclick="searchProduct()">Tìm</button>
+          <button type="button" id="themSP" onclick="showThemFormProduct()">Thêm</button>
+          <p id="TotalProduct"></p>
+        </div>
+        <!-- Book list section -->
+        <div class="product-list">
+          <table>
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Hình ảnh</th>
+                <th>Tên sách</th>
+                <th>Giá bán</th>
+                <th>Trạng thái</th>
+              </tr>
+            </thead>
+            <tbody id="book-table-body">
+              <!-- Nội dung sẽ được tạo bởi JavaScript -->
+            </tbody>
+          </table>
+          <!-- Pagination -->
+          <div class="pagination" id="paginationProduct">
+          </div>
+        </div>
+      </div>
 
-    <!--Form thêm nhân viên-->
-    <div id="formThemNhanVien" class="modal">
+      <!-- <div id="overlay" class="overlay hidden"></div> -->
+      <!-- Form thêm sản phẩm -->
+      <div id="formThemSanPham" class="modalSP">
+        <form id="themSanPham" class="modal-contentSP">
+          <h1>Thêm sách</h1>
+          <button type="button" class="close" onclick="closeThemFormProduct()">+</button>
+          <div class="content-SP">
+            <div class="ThongTinAnhSP">
+              <label for="themHinhAnh">Hình ảnh sản phẩm</label>
+              <input type="file" id="themHinhAnh" class="productImage" accept="image/*" />
+            </div>
+            <div class="ThongTinSP">
+              <div class="form-group">
+                <label for="themTenSach">Tên sách</label>
+                <input
+                  type="text"
+                  class="themTenSach"
+                  id="themTenSach"
+                  placeholder="Nhập tên sách"
+                />
+              </div>
+
+              <div class="form-group">
+                <label for="themTenNXB">Nhà xuất bản</label>
+                <input id="themTenNXB" type="text" placeholder="Nhập nhà xuất bản">
+              </div>
+
+              <div class="form-group">
+                <label for="themTacGia" class="">Tên tác giả</label>
+                <input
+                  type="text"
+                  id="themTacGia"
+                  class="themTacgia" placeholder="Nhập tên tác giả"
+                />
+              </div>
+
+              <div class="form-group">
+                <label for="themTheLoai">Thể loại</label>
+                <input id="themTheLoai" type="text" class="themTheLoai" placeholder="Nhập thể loại">
+              </div>
+
+              <div class="form-group">
+                <label for="themNamXB" class="">Năm xuất bản</label>
+                <input type="text" class="themNamXB" id="themNamXB" placeholder="Nhập năm xuất bản"/>
+              </div>
+
+              <div class="form-group">
+                <label for="themGiaBia" class="">Giá bìa</label>
+                <input type="text" class="themGiaBia" id="themGiaBia" placeholder="Nhập giá bìa"/>
+              </div>
+
+              <div class="form-group">
+                <label for="themMoTa" class="">Mô tả</label>
+                <input type="text" class="themMoTa" id="themMoTa" placeholder="Nhập mô tả"/>
+              </div>
+              <button
+                type="submit"
+                id="submit-btn-themSanPham"
+                class="submitSP"
+              >
+                Thêm
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+      <!-- Form sửa sản phẩm -->
+      <div id="formSuaSanPham" class="modalSP formSuaSanPham">
+        <form action="" id="suaSanPham" class="suaSanPham modal-contentSP">
+          <h1>Sửa sản phẩm</h1>
+          <button type="button" class="close" onclick="closeSuaFormProduct()">+</button>
+
+          <div class="content-SP">
+            <div class="ThongTinAnhSP">
+              <label for="suaHinhAnh">Hình ảnh sản phẩm</label>
+              <img id="suaPreviewImage" src="" alt="Ảnh sản phẩm" class="previewImage">
+              <input type="file" id="suaHinhAnh" class="productImage" />
+            </div>
+            <div class="ThongTinSP">
+              <div class="form-group">
+                <label for="suaTenSach">Tên sách</label>
+                <input
+                  type="text"
+                  class="suaTenSach"
+                  id="suaTenSach"
+                  placeholder="Nhập tên sách"
+                />
+              </div>
+
+              <div class="form-group">
+                <label for="suaTenNXB">Nhà xuất bản</label>
+                <input type="text" class="suaTenNXB" id="suaTenNXB">
+              </div>
+
+              <div class="form-group">
+                <label for="suaTacGia" class="">Tên tác giả</label>
+                <input
+                  type="text"
+                  id="suaTacGia"
+                  class="suaTacgia"
+                  id="suaTacgia"
+                />
+              </div>
+
+              <div class="form-group">
+                <label for="suaTheLoai">Thể loại</label>
+                <input type="text" class="suaTheLoai" id="suaTheLoai">
+              </div>
+
+              <div class="form-group">
+                <label for="suaNamXB" class="">Năm xuất bản</label>
+                <input type="text" class="suaNamXB" id="suaNamXB" />
+              </div>
+
+              <div class="form-group">
+                <label for="suaGiaBia" class="">Giá bìa</label>
+                <input type="text" class="suaGiaBia" id="suaGiaBia" />
+              </div>
+
+              <div class="form-group">
+                <label for="suaMoTa" class="">Mô tả</label>
+                <input type="text" class="suaMoTa" id="suaMoTa" />
+              </div>
+
+              <div class="status-switch">
+                <span class="suaTrangThai">Trạng thái</span>
+                <input type="checkbox" id="suaTrangThaiSanPham" class="toggle-switch" />
+                <span id="suaTrangThaiSanPhamLabel" class="xem suaTrangThai">Đang hoạt động</span>
+              </div>
+              <button type="submit" id="submit-btn-suaSanPham" class="submitSP" onclick="updateProduct()">
+                Cập nhật
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+      <!-- Form xem sản phẩm -->
+      <div id="formxemSanPham" class="modalSP">
+        <form action="" id="xemNhanVien" class="xemSanPham modal-contentSP">
+          <h1>Xem chi tiết sản phẩm</h1>
+          <button type="button" class="close"onclick="closeDetailFormProduct()">+</button>
+          <div class="content-SP">
+            <div class="ThongTinAnhSP">
+              <label for="xemHinhAnh">Hình ảnh sản phẩm</label>
+              <img id="xemPreviewImage" src="" alt="Ảnh sản phẩm" class="previewImage">
+              <input type="file" id="xemHinhAnh" class="productImage hidden" />
+            </div>
+            <div class="ThongTinSP">
+              <div class="form-group">
+                <span>Tên sách</span>
+                <span id="xemTenSach" class="xem xemTenSach"
+                  >Có hai con mèo ngồi bên cửa sổ</span
+                >
+              </div>
+
+              <div class="form-group">
+                <span for="xemTenNXB">Nhà xuất bản</span>
+                <span id="xemTenNXB" class="xem xemTenNXB"></span>
+              </div>
+
+              <div class="form-group">
+                <span for="xemTacGia" class="">Tên tác giả</span>
+                <span id="xemTacGia" class="xem xemTacGia">Nguyễn Nhật Ánh</span>
+              </div>
+
+              <div class="form-group">
+                <span for="xemTheLoai">Thể loại</span>
+                <span id="xemTheLoai" class="xem xemTheLoai">Văn học</span>
+              </div>
+
+              <div class="form-group">
+                <span for="xemNamXB" class="">Năm xuất bản</span>
+                <span id="xemNamXB" class="xem xemNamXB">2020</span>
+              </div>
+
+              <div class="form-group">
+                <span for="xemGiaBia" class="">Giá bìa</span>
+                <span id="xemGiaBia" class="xem xemGiaBia">110000 đ</span>
+              </div>
+
+              <div class="form-group">
+                <span for="xemMoTa" class="">Mô tả</span>
+                <span id="xemMoTa" class="xem xemMoTa">Đây là một cuốn sách hay</span>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+
+      <div id="overlay" class="overlay hidden"></div>
+      <!--Form thêm nhân viên-->
+      <div id="formThemNhanVien" class="modal">
         <form id="themNhanVien" class="modal-content">
-            <h1>Thêm nhân viên</h1>
-            <button type="button" class="close" onclick="closeThemForm()">+</button>
+          <h1>Thêm nhân viên</h1>
+          <button type="button" class="close" onclick="closeThemForm()">
+            +
+          </button>
 
-            <label for="themName">Tên nhân viên:</label>
-            <input type="text" id="themName" placeholder="Nhập họ và tên">
+          <label for="themName">Tên nhân viên:</label>
+          <input type="text" id="themName" placeholder="Nhập họ và tên" />
 
-            <br>
-            <label for="themPhone">Số điện thoại:</label>
-            <input type="text" id="themPhone" placeholder="Nhập số điện thoại">
+          <br />
+          <label for="themPhone">Số điện thoại:</label>
+          <input type="text" id="themPhone" placeholder="Nhập số điện thoại" />
 
-            <br>
-            <label for="themChucVu">Chức vụ:</label>
-            <input type="text" id="themChucVu" placeholder="Nhập chức vụ">
+          <br />
+          <label for="themChucVu">Chức vụ:</label>
+          <input type="text" id="themChucVu" placeholder="Nhập chức vụ" />
 
-            <div>
-                <button type="submit" name="them">Thêm</button>
-            </div>
+          <!-- <select id="position" required>
+            <option value="Quản lý">Quản lý</option>
+            <option value="Nhân viên">Nhân viên</option>
+          </select>
+          <br/> -->
+          
+          <div>
+            <button type="button" name="them" id="addNV">Thêm</button>
+          </div>
         </form>
-    </div>
-
-    <!--Form sửa nhân viên-->
-    <div id="formSuaNhanVien" class="modal">
+      </div>
+      <!--Form sửa nhân viên-->
+      <div id="formSuaNhanVien" class="modal">
         <form id="suaNhanVien" class="modal-content">
-            <h1>Sửa chi tiết nhân viên</h1>
-            <button type="button" class="close" onclick="closeSuaForm()">+</button>
+          <h1>Sửa chi tiết nhân viên</h1>
+          <button type="button" class="close" onclick="closeSuaForm()">
+            +
+          </button>
 
-            <label for="suaName">Tên nhân viên:</label>
-            <input type="text" id="suaName" placeholder="Nhập họ và tên">
+          <label for="suaName">Tên nhân viên:</label>
+          <input type="text" id="suaName" placeholder="Nhập họ và tên" />
 
-            <br>
-            <label for="suaPhone">Số điện thoại:</label>
-            <input type="text" id="suaPhone" placeholder="Nhập số điện thoại">
+          <br />
+          <label for="suaPhone">Số điện thoại:</label>
+          <input type="text" id="suaPhone" placeholder="Nhập số điện thoại" />
 
-            <br>
-            <label for="suaChucVu">Chức vụ:</label>
-            <input type="text" id="suaChucVu" placeholder="Nhập chức vụ">
+          <br />
+          <label for="suaChucVu">Chức vụ:</label>
+          <!-- <input type="text" id="suaChucVu" placeholder="Nhập chức vụ" /> -->
+          <select id="suaChucVu" required>
+            <option value="Quản lý">Quản lý</option>
+            <option value="Nhân viên">Nhân viên</option>
+          </select>
+          <br/>
 
-            <br>
-            <label for="editTrangThai">Trạng thái: </label>
-            <input type="checkbox" id="suaTrangThai" class="toggle-switch">
-            <span id="suaTrangThaiLabel">Đang hoạt động</span>
-            
-            <div>
-                <button type="button" onclick="updateNhanVien()">Cập nhật</button>
-            </div>
+          <br />
+          <label for="suaTrangThai">Trạng thái: </label>
+          <input type="checkbox" id="suaTrangThai" class="toggle-switch" />
+          <span id="suaTrangThaiLabel">Đang hoạt động</span>
+
+          <div>
+            <button type="button" onclick="updateNhanVien()">Cập nhật</button>
+          </div>
         </form>
-    </div>
-
-    <div class="modal" id="formDetailNhanVien">
+      </div>
+      <!-- Form  chi tiết nhân viên -->
+      <div class="modal" id="formDetailNhanVien">
         <form id="detailNhanVien" class="modal-content">
-            <h2>Thông tin chi tiết nhân viên</h2>
-            <div class="info">
-                <label>Tên khách hàng:</label> <span id="detailName"></span>
-            </div>
-            <div class="info">
-                <label>Số điện thoại:</label> <span id="detailPhone"></span>
-            </div>
-            <div class="info">
-                <label>Chức vụ:</label> <span id="detailChucVu"></span>
-            </div>
-            <div class="info">
-                <label>Trạng thái:</label> <span id="detailTrangThai"></span>
-            </div>
-            <button type="button" class="close" onclick="closeDetailForm()">+</button>
+          <h2>Thông tin chi tiết nhân viên</h2>
+          <div class="info">
+            <label>Tên nhân viên:</label> <span id="detailName"></span>
+          </div>
+          <div class="info">
+            <label>Số điện thoại:</label> <span id="detailPhone"></span>
+          </div>
+          <div class="info">
+            <label>Chức vụ:</label> <span id="detailChucVu"></span>
+          </div>
+          <div class="info">
+            <label>Trạng thái:</label> <span id="detailTrangThai"></span>
+          </div>
+          <button type="button" class="close" onclick="closeDetailForm()">
+            +
+          </button>
         </form>
-    </div>
-    
-        <div class="content hidden" id="employees">
-            <h2>Nhân Viên</h2>
-            <div class="client-search">
-                <input type="text" placeholder="Nhập tên">
-                <button type="button" id="tim">Tìm</button>
-                <button type="button" id="them" onclick="showThemForm();">Thêm+</button>
-                <p>Tổng số lượng: 50</p>
-            </div>
+      </div>
 
-            <div class="client-list">
-                <table>
-                    <thead>
-                        <tr>
-                            <th>ID</th>
-                            <th>Tên nhân viên</th>
-                            <th>Số điện thoại</th>
-                            <th>Chức vụ</th>
-                            <th>Trạng thái</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>01</td>
-                            <td>Võ Xuân Mai</td>
-                            <td>0100203045</td>
-                            <td>Quản lý</td>
-                            <td><span class="status bian">Bị ẩn</span></td>
-                            <td>
-                                <button class="info-btn" onclick="showDetailForm()">i</button>
-                                <button class="edit-btn" onclick="showSuaForm();">✎</button>
-                                <button class="delete-btn">🗑️</button>
-                            </td>
-                        </tr>
+      <!-- nhan vien -->
+      <div class="content hidden" id="employees">
+        <h2>Nhân Viên</h2>
+        <div class="client-search">
+          <input type="text" id="timTen" placeholder="Nhập tên nhân viên " />
+          <button type="button" id="timNV">Tìm</button>
 
-                        <tr>
-                            <td>02</td>
-                            <td>Trần Kim Yến</td>
-                            <td>0100203045</td>
-                            <td>Quản lý</td>
-                            <td><span class="status active">Hoạt động</span></td>
-                            <td>
-                                <button class="info-btn" onclick="showDetailForm()">i</button>
-                                <button class="edit-btn" onclick="showSuaForm();">✎</button>
-                                <button class="delete-btn">🗑️</button>
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td>03</td>
-                            <td>Trương Phúc Hoàng Anh</td>
-                            <td>0100203045</td>
-                            <td>Quản lý</td>
-                            <td><span class="status active">Hoạt động</span></td>
-                            <td>
-                                <button class="info-btn" onclick="showDetailForm()">i</button>
-                                <button class="edit-btn" onclick="showSuaForm();">✎</button>
-                                <button class="delete-btn">🗑️</button>
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td>04</td>
-                            <td>Trần Quỳnh Hương</td>
-                            <td>0100203045</td>
-                            <td>Quản lý</td>
-                            <td><span class="status active">Hoạt động</span></td>
-                            <td>
-                                <button class="info-btn" onclick="showDetailForm()">i</button>
-                                <button class="edit-btn" onclick="showSuaForm();">✎</button>
-                                <button class="delete-btn">🗑️</button>
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td>05</td>
-                            <td>Trần Minh Nhật</td>
-                            <td>0100203045</td>
-                            <td>Quản lý</td>
-                            <td><span class="status active">Hoạt động</span></td>
-                            <td>
-                                <button class="info-btn" onclick="showDetailForm()">i</button>
-                                <button class="edit-btn" onclick="showSuaForm();">✎</button>
-                                <button class="delete-btn">🗑️</button>
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td>06</td>
-                            <td>Võ Hoàng Yến</td>
-                            <td>0100203045</td>
-                            <td>Quản lý</td>
-                            <td><span class="status active">Hoạt động</span></td>
-                            <td>
-                                <button class="info-btn" onclick="showDetailForm()">i</button>
-                                <button class="edit-btn" onclick="showSuaForm();">✎</button>
-                                <button class="delete-btn">🗑️</button>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
+          <button type="button" id="themNV" onclick="showThemForm();">
+            Thêm
+          </button>
         </div>
 
-        <div class="content hidden" id="customers">
-            <h2>Khách hàng</h2>
-            <div class="client-search">
-                <input type="text" placeholder="Nhập số điện thoại">
-                <button type="button">Tìm</button>
-                <p>Tổng số lượng: 50</p>
-            </div>
+        <div class="client-list">
+          <table>
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Tên nhân viên</th>
+                <th>Số điện thoại</th>
+                <th>Chức vụ</th>
+                <th>Trạng thái</th>
+              </tr>
+            </thead>
+            <tbody id="employeeTableBody"></tbody>
+          </table>
 
-            <div class="client-list">
-                <table>
-                    <thead>
-                        <tr>
-                            <th>ID</th>
-                            <th>Tên khách hàng</th>
-                            <th>Số điện thoại</th>
-                            <th>Email</th>
-                            <th>Hành động</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>01</td>
-                            <td>Võ Xuân Mai</td>
-                            <td>0100203045</td>
-                            <td>abc123@gmail.com</td>
-                            <td>
-                                <button class="info-btn">i</button>
-                                <button class="edit-btn">✎</button>
-                                <button class="delete-btn">🗑️</button>
-                            </td>
-                        </tr>
+          <div class="pagination" id="paginationEmployee"></div>
+        </div>
+      </div>
 
-                        <tr>
-                            <td>02</td>
-                            <td>Võ Xuân Mai</td>
-                            <td>0100203045</td>
-                            <td>abc123@gmail.com</td>
-                            <td>
-                                <button class="info-btn">i</button>
-                                <button class="edit-btn">✎</button>
-                                <button class="delete-btn">🗑️</button>
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td>01</td>
-                            <td>Võ Xuân Mai</td>
-                            <td>0100203045</td>
-                            <td>abc123@gmail.com</td>
-                            <td>
-                                <button class="info-btn">i</button>
-                                <button class="edit-btn">✎</button>
-                                <button class="delete-btn">🗑️</button>
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td>01</td>
-                            <td>Võ Xuân Mai</td>
-                            <td>0100203045</td>
-                            <td>abc123@gmail.com</td>
-                            <td>
-                                <button class="info-btn">i</button>
-                                <button class="edit-btn">✎</button>
-                                <button class="delete-btn">🗑️</button>
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td>01</td>
-                            <td>Võ Xuân Mai</td>
-                            <td>0100203045</td>
-                            <td>abc123@gmail.com</td>
-                            <td>
-                                <button class="info-btn">i</button>
-                                <button class="edit-btn">✎</button>
-                                <button class="delete-btn">🗑️</button>
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td>01</td>
-                            <td>Võ Xuân Mai</td>
-                            <td>0100203045</td>
-                            <td>abc123@gmail.com</td>
-                            <td>
-                                <button class="info-btn">i</button>
-                                <button class="edit-btn">✎</button>
-                                <button class="delete-btn">🗑️</button>
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td>01</td>
-                            <td>Võ Xuân Mai</td>
-                            <td>0100203045</td>
-                            <td>abc123@gmail.com</td>
-                            <td>
-                                <button class="info-btn">i</button>
-                                <button class="edit-btn">✎</button>
-                                <button class="delete-btn">🗑️</button>
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td>01</td>
-                            <td>Võ Xuân Mai</td>
-                            <td>0100203045</td>
-                            <td>abc123@gmail.com</td>
-                            <td>
-                                <button class="info-btn">i</button>
-                                <button class="edit-btn">✎</button>
-                                <button class="delete-btn">🗑️</button>
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td>01</td>
-                            <td>Võ Xuân Mai</td>
-                            <td>0100203045</td>
-                            <td>abc123@gmail.com</td>
-                            <td>
-                                <button class="info-btn">i</button>
-                                <button class="edit-btn">✎</button>
-                                <button class="delete-btn">🗑️</button>
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td>01</td>
-                            <td>Võ Xuân Mai</td>
-                            <td>0100203045</td>
-                            <td>abc123@gmail.com</td>
-                            <td>
-                                <button class="info-btn">i</button>
-                                <button class="edit-btn">✎</button>
-                                <button class="delete-btn">🗑️</button>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
+      <!--   end nhân viên  -->
+      <div class="content hidden" id="customers">
+        <h2>Khách hàng</h2>
+        <div class="client-search">
+          <input type="text" placeholder="Nhập tên khách hàng, số điện thoại" />
+          <button type="button">Tìm</button>
+          <p>Tổng số lượng: 50</p>
         </div>
 
-        <div class="content hidden" id="invoices">
-            <h2>Hóa đơn</h2>
-            <div class="client-search">
-                <input type="text" placeholder="Nhập số điện thoại">
-                <button type="button">Tìm</button>
-                <button class="thd">Thêm</button>
-            </div>
+        <div class="client-list">
+          <table>
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Tên khách hàng</th>
+                <th>Số điện thoại</th>
+                <th>Email</th>
+                <th>Hành động</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>01</td>
+                <td>Võ Xuân Mai</td>
+                <td>0100203045</td>
+                <td>abc123@gmail.com</td>
+                <td class="btn-action-group">
+                  <button class="btn-status btn-info">
+                    <i class="fa-solid fa-info"></i>
+                  </button>
+                  <button class="btn-status btn-primary">
+                    <i class="fas fa-edit"></i>
+                  </button>
+                  <button class="btn-status btn-danger">
+                    <i class="fas fa-trash-alt"></i>
+                  </button>
+                </td>
+              </tr>
 
-            <div class="client-list">
-                <table>
-                    <thead>
-                        <tr>
-                            <th>ID</th>
-                            <th>Tên khách hàng</th>
-                            <th>Số điện thoại</th>
-                            <th>Ngày tạo</th>
-                            <th>Tổng tiền</th>
-                            <th>Trạng thái</th>
-                            <th></th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>01</td>
-                            <td>Võ Xuân Mai</td>
-                            <td>0100203045</td>
-                            <td>11/11/2024</td>
-                            <td>Tổng tiền</td>
-                            <td>Hủy</td>
-                            <td>
-                                <button class="info-btn">i</button>
-                                <button class="edit-btn">✎</button>
-                                <button class="delete-btn">🗑️</button>
-                            </td>
-                        </tr>
+              <tr>
+                <td>02</td>
+                <td>Võ Xuân Mai</td>
+                <td>0100203045</td>
+                <td>abc123@gmail.com</td>
+                <td class="btn-action-group">
+                  <button class="btn-status btn-info">
+                    <i class="fa-solid fa-info"></i>
+                  </button>
+                  <button class="btn-status btn-primary">
+                    <i class="fas fa-edit"></i>
+                  </button>
+                  <button class="btn-status btn-danger">
+                    <i class="fas fa-trash-alt"></i>
+                  </button>
+                </td>
+              </tr>
 
-                        <tr>
-                            <td>01</td>
-                            <td>Võ Xuân Mai</td>
-                            <td>0100203045</td>
-                            <td>11/11/2024</td>
-                            <td>Tổng tiền</td>
-                            <td>Hủy</td>
-                            <td>
-                                <button class="info-btn">i</button>
-                                <button class="edit-btn">✎</button>
-                                <button class="delete-btn">🗑️</button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>01</td>
-                            <td>Võ Xuân Mai</td>
-                            <td>0100203045</td>
-                            <td>11/11/2024</td>
-                            <td>Tổng tiền</td>
-                            <td>Hủy</td>
-                            <td>
-                                <button class="info-btn">i</button>
-                                <button class="edit-btn">✎</button>
-                                <button class="delete-btn">🗑️</button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>01</td>
-                            <td>Võ Xuân Mai</td>
-                            <td>0100203045</td>
-                            <td>11/11/2024</td>
-                            <td>Tổng tiền</td>
-                            <td>Hủy</td>
-                            <td>
-                                <button class="info-btn">i</button>
-                                <button class="edit-btn">✎</button>
-                                <button class="delete-btn">🗑️</button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>01</td>
-                            <td>Võ Xuân Mai</td>
-                            <td>0100203045</td>
-                            <td>11/11/2024</td>
-                            <td>Tổng tiền</td>
-                            <td>Hủy</td>
-                            <td>
-                                <button class="info-btn">i</button>
-                                <button class="edit-btn">✎</button>
-                                <button class="delete-btn">🗑️</button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>01</td>
-                            <td>Võ Xuân Mai</td>
-                            <td>0100203045</td>
-                            <td>11/11/2024</td>
-                            <td>Tổng tiền</td>
-                            <td>Hủy</td>
-                            <td>
-                                <button class="info-btn">i</button>
-                                <button class="edit-btn">✎</button>
-                                <button class="delete-btn">🗑️</button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>01</td>
-                            <td>Võ Xuân Mai</td>
-                            <td>0100203045</td>
-                            <td>11/11/2024</td>
-                            <td>Tổng tiền</td>
-                            <td>Hủy</td>
-                            <td>
-                                <button class="info-btn">i</button>
-                                <button class="edit-btn">✎</button>
-                                <button class="delete-btn">🗑️</button>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
+              <tr>
+                <td>01</td>
+                <td>Võ Xuân Mai</td>
+                <td>0100203045</td>
+                <td>abc123@gmail.com</td>
+                <td class="btn-action-group">
+                  <button class="btn-status btn-info">
+                    <i class="fa-solid fa-info"></i>
+                  </button>
+                  <button class="btn-status btn-primary">
+                    <i class="fas fa-edit"></i>
+                  </button>
+                  <button class="btn-status btn-danger">
+                    <i class="fas fa-trash-alt"></i>
+                  </button>
+                </td>
+              </tr>
+
+              <tr>
+                <td>01</td>
+                <td>Võ Xuân Mai</td>
+                <td>0100203045</td>
+                <td>abc123@gmail.com</td>
+                <td class="btn-action-group">
+                  <button class="btn-status btn-info">
+                    <i class="fa-solid fa-info"></i>
+                  </button>
+                  <button class="btn-status btn-primary">
+                    <i class="fas fa-edit"></i>
+                  </button>
+                  <button class="btn-status btn-danger">
+                    <i class="fas fa-trash-alt"></i>
+                  </button>
+                </td>
+              </tr>
+
+              <tr>
+                <td>01</td>
+                <td>Võ Xuân Mai</td>
+                <td>0100203045</td>
+                <td>abc123@gmail.com</td>
+                <td class="btn-action-group">
+                  <button class="btn-status btn-info">
+                    <i class="fa-solid fa-info"></i>
+                  </button>
+                  <button class="btn-status btn-primary">
+                    <i class="fas fa-edit"></i>
+                  </button>
+                  <button class="btn-status btn-danger">
+                    <i class="fas fa-trash-alt"></i>
+                  </button>
+                </td>
+              </tr>
+
+              <tr>
+                <td>01</td>
+                <td>Võ Xuân Mai</td>
+                <td>0100203045</td>
+                <td>abc123@gmail.com</td>
+                <td class="btn-action-group">
+                  <button class="btn-status btn-info">
+                    <i class="fa-solid fa-info"></i>
+                  </button>
+                  <button class="btn-status btn-primary">
+                    <i class="fas fa-edit"></i>
+                  </button>
+                  <button class="btn-status btn-danger">
+                    <i class="fas fa-trash-alt"></i>
+                  </button>
+                </td>
+              </tr>
+
+              <tr>
+                <td>01</td>
+                <td>Võ Xuân Mai</td>
+                <td>0100203045</td>
+                <td>abc123@gmail.com</td>
+                <td class="btn-action-group">
+                  <button class="btn-status btn-info">
+                    <i class="fa-solid fa-info"></i>
+                  </button>
+                  <button class="btn-status btn-primary">
+                    <i class="fas fa-edit"></i>
+                  </button>
+                  <button class="btn-status btn-danger">
+                    <i class="fas fa-trash-alt"></i>
+                  </button>
+                </td>
+              </tr>
+
+              <tr>
+                <td>01</td>
+                <td>Võ Xuân Mai</td>
+                <td>0100203045</td>
+                <td>abc123@gmail.com</td>
+                <td class="btn-action-group">
+                  <button class="btn-status btn-info">
+                    <i class="fa-solid fa-info"></i>
+                  </button>
+                  <button class="btn-status btn-primary">
+                    <i class="fas fa-edit"></i>
+                  </button>
+                  <button class="btn-status btn-danger">
+                    <i class="fas fa-trash-alt"></i>
+                  </button>
+                </td>
+              </tr>
+
+              <tr>
+                <td>01</td>
+                <td>Võ Xuân Mai</td>
+                <td>0100203045</td>
+                <td>abc123@gmail.com</td>
+                <td class="btn-action-group">
+                  <button class="btn-status btn-info">
+                    <i class="fa-solid fa-info"></i>
+                  </button>
+                  <button class="btn-status btn-primary">
+                    <i class="fas fa-edit"></i>
+                  </button>
+                  <button class="btn-status btn-danger">
+                    <i class="fas fa-trash-alt"></i>
+                  </button>
+                </td>
+              </tr>
+
+              <tr>
+                <td>01</td>
+                <td>Võ Xuân Mai</td>
+                <td>0100203045</td>
+                <td>abc123@gmail.com</td>
+                <td class="btn-action-group">
+                  <button class="btn-status btn-info">
+                    <i class="fa-solid fa-info"></i>
+                  </button>
+                  <button class="btn-status btn-primary">
+                    <i class="fas fa-edit"></i>
+                  </button>
+                  <button class="btn-status btn-danger">
+                    <i class="fas fa-trash-alt"></i>
+                  </button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="content hidden" id="invoices">
+        <h2>Hóa đơn</h2>
+        <div class="client-search">
+          <input type="text" placeholder="Nhập tên khách hàng, số điện thoại" />
+          <button type="button">Tìm</button>
+          <button class="thd">Thêm</button>
         </div>
 
+        <div class="client-list">
+          <table>
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Tên khách hàng</th>
+                <th>Số điện thoại</th>
+                <th>Ngày tạo</th>
+                <th>Tổng tiền</th>
+                <th>Trạng thái</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>01</td>
+                <td>Võ Xuân Mai</td>
+                <td>0100203045</td>
+                <td>11/11/2024</td>
+                <td>Tổng tiền</td>
+                <td><span class="status huy">Hủy</span></td>
+                <td class="btn-action-group">
+                  <button class="btn-status btn-info">
+                    <i class="fa-solid fa-info"></i>
+                  </button>
+                  <button class="btn-status btn-primary">
+                    <i class="fas fa-edit"></i>
+                  </button>
+                  <button class="btn-status btn-danger">
+                    <i class="fas fa-trash-alt"></i>
+                  </button>
+                </td>
+              </tr>
+
+              <tr>
+                <td>01</td>
+                <td>Võ Xuân Mai</td>
+                <td>0100203045</td>
+                <td>11/11/2024</td>
+                <td>Tổng tiền</td>
+                <td><span class="status huy">Hủy</span></td>
+                <td class="btn-action-group">
+                  <button class="btn-status btn-info">
+                    <i class="fa-solid fa-info"></i>
+                  </button>
+                  <button class="btn-status btn-primary">
+                    <i class="fas fa-edit"></i>
+                  </button>
+                  <button class="btn-status btn-danger">
+                    <i class="fas fa-trash-alt"></i>
+                  </button>
+                </td>
+              </tr>
+              <tr>
+                <td>01</td>
+                <td>Võ Xuân Mai</td>
+                <td>0100203045</td>
+                <td>11/11/2024</td>
+                <td>Tổng tiền</td>
+                <td><span class="status active">Hoạt động</span></td>
+                <td class="btn-action-group">
+                  <button class="btn-status btn-info">
+                    <i class="fa-solid fa-info"></i>
+                  </button>
+                  <button class="btn-status btn-primary">
+                    <i class="fas fa-edit"></i>
+                  </button>
+                  <button class="btn-status btn-danger">
+                    <i class="fas fa-trash-alt"></i>
+                  </button>
+                </td>
+              </tr>
+              <tr>
+                <td>01</td>
+                <td>Võ Xuân Mai</td>
+                <td>0100203045</td>
+                <td>11/11/2024</td>
+                <td>Tổng tiền</td>
+                <td><span class="status active">Hoạt động</span></td>
+                <td class="btn-action-group">
+                  <button class="btn-status btn-info">
+                    <i class="fa-solid fa-info"></i>
+                  </button>
+                  <button class="btn-status btn-primary">
+                    <i class="fas fa-edit"></i>
+                  </button>
+                  <button class="btn-status btn-danger">
+                    <i class="fas fa-trash-alt"></i>
+                  </button>
+                </td>
+              </tr>
+              <tr>
+                <td>01</td>
+                <td>Võ Xuân Mai</td>
+                <td>0100203045</td>
+                <td>11/11/2024</td>
+                <td>Tổng tiền</td>
+                <td><span class="status active">Hoạt động</span></td>
+                <td class="btn-action-group">
+                  <button class="btn-status btn-info">
+                    <i class="fa-solid fa-info"></i>
+                  </button>
+                  <button class="btn-status btn-primary">
+                    <i class="fas fa-edit"></i>
+                  </button>
+                  <button class="btn-status btn-danger">
+                    <i class="fas fa-trash-alt"></i>
+                  </button>
+                </td>
+              </tr>
+              <tr>
+                <td>01</td>
+                <td>Võ Xuân Mai</td>
+                <td>0100203045</td>
+                <td>11/11/2024</td>
+                <td>Tổng tiền</td>
+                <td><span class="status active">Hoạt động</span></td>
+                <td class="btn-action-group">
+                  <button class="btn-status btn-info">
+                    <i class="fa-solid fa-info"></i>
+                  </button>
+                  <button class="btn-status btn-primary">
+                    <i class="fas fa-edit"></i>
+                  </button>
+                  <button class="btn-status btn-danger">
+                    <i class="fas fa-trash-alt"></i>
+                  </button>
+                </td>
+              </tr>
+              <tr>
+                <td>01</td>
+                <td>Võ Xuân Mai</td>
+                <td>0100203045</td>
+                <td>11/11/2024</td>
+                <td>Tổng tiền</td>
+                <td><span class="status active">Hoạt động</span></td>
+                <td class="btn-action-group">
+                  <button class="btn-status btn-info">
+                    <i class="fa-solid fa-info"></i>
+                  </button>
+                  <button class="btn-status btn-primary">
+                    <i class="fas fa-edit"></i>
+                  </button>
+                  <button class="btn-status btn-danger">
+                    <i class="fas fa-trash-alt"></i>
+                  </button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!--test chi tiết hóa đơn-->
+
+      <!-- Popup Detail Form -->
+
+      <div class="overlay hidden" id="overlay"></div>
+
+      <div class="detail-popup hidden" id="detailPopup">
+        <div class="popup-container">
+          <h2>Chi tiết hóa đơn</h2>
+          <div class="detail-content">
+            <p><strong>ID:</strong> <span id="detailID">01</span></p>
+            <p>
+              <strong>Tên khách hàng:</strong>
+              <span id="detailName">Võ Xuân Mai</span>
+            </p>
+            <p>
+              <strong>Số điện thoại:</strong>
+              <span id="detailPhone">0100203045</span>
+            </p>
+            <p>
+              <strong>Ngày tạo:</strong> <span id="detailDate">11/11/2024</span>
+            </p>
+            <p>
+              <strong>Tổng tiền:</strong>
+              <span id="detailTotal">Tổng tiền</span>
+            </p>
+            <p>
+              <strong>Trạng thái:</strong> <span id="detailStatus">Hủy</span>
+            </p>
+          </div>
+          <div class="popup-buttons">
+            <button type="button" id="closeDetailBtn">Đóng</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="overlay hidden" id="overlay"></div>
+      <!-- Popup Edit Form -->
+      <div class="edit-form hidden" id="editForm">
+        <div class="form-container">
+          <h2>Chỉnh sửa thông tin hóa đơn</h2>
+          <form>
+            <label for="clientID">ID:</label>
+            <input type="text" id="clientID" value="01" readonly />
+
+            <label for="clientName">Tên khách hàng:</label>
+            <input type="text" id="clientName" value="Võ Xuân Mai" />
+
+            <label for="clientPhone">Số điện thoại:</label>
+            <input type="text" id="clientPhone" value="0100203045" />
+
+            <label for="createDate">Ngày tạo:</label>
+            <input type="date" id="createDate" value="2024-11-11" />
+
+            <label for="totalAmount">Tổng tiền:</label>
+            <input type="text" id="totalAmount" value="Tổng tiền" />
+
+            <label for="status">Trạng thái:</label>
+            <select id="status">
+              <option value="Đã thanh toán">Đã thanh toán</option>
+              <option value="Hủy" selected>Hủy</option>
+              <option value="Đang xử lý">Đang xử lý</option>
+            </select>
+
+            <div class="form-buttons">
+              <button type="button" id="saveBtn">Lưu</button>
+              <button type="button" id="cancelBtn">Hủy</button>
+            </div>
+          </form>
+        </div>
+      </div>
+
+<<<<<<< HEAD
         <div class="content hidden" id="phieunhap">
             <h2>Phiếu nhập</h2>
             <div class="client-search">
@@ -648,12 +1001,88 @@
         </div>
 
 
+=======
+      <div class="content hidden" id="stats">
+        <h2>Thống kê</h2>
 
-        <div class="content hidden" id="stats">
-            <h2>Thống kê</h2>
+        <div class="client-search">
+          <div>
+            <label for="filter-type">Xem thống kê theo:</label>
+            <select id="filter-type">
+              <option value="month">Tháng</option>
+              <option value="years">Năm</option>
+            </select>
+          </div>
+          <div>
+            <label for="time-select">Chọn thời gian:</label>
+            <select id="time-select"></select>
+          </div>
+          <button id="Data">Xem thống kê</button>
         </div>
+        <div class="client-list stats-list">
+          <table>
+            <thead>
+              <tr>
+                <th>Tuần</th>
+                <th>Từ ngày</th>
+                <th>Đến ngày</th>
+                <th>Số đơn hàng</th>
+                <th>Số sách đã bán</th>
+                <th>Doanh thu</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td>1/1/2024</td>
+>>>>>>> 598effc1ffaa11c2ee7092cfbe7093820d41234f
 
+                <td>7/1/2024</td>
+                <td>20</td>
+                <td>40</td>
+                <td>5,000,000 đ</td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td>8/1/2024</td>
+
+                <td>14/1/2024</td>
+                <td>20</td>
+                <td>40</td>
+                <td>3,000,000 đ</td>
+              </tr>
+              <tr>
+                <td>3</td>
+                <td>15/1/2024</td>
+
+                <td>21/1/2024</td>
+                <td>20</td>
+                <td>40</td>
+                <td>5,000,000 đ</td>
+              </tr>
+              <tr>
+                <td>4</td>
+                <td>22/1/2024</td>
+
+                <td>28/1/2024</td>
+                <td>20</td>
+                <td>40</td>
+                <td>5,000,000 đ</td>
+              </tr>
+              <tr>
+                <td>5</td>
+                <td>29/1/2024</td>
+
+                <td>31/1/2024</td>
+                <td>20</td>
+                <td>40</td>
+                <td>5,000,000 đ</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
     </main>
-    <script src="admin.js"></script>
-</body>
+    <script src="./admin.js"></script>
+  </body>
 </html>

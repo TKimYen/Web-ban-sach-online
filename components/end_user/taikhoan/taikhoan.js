@@ -6,6 +6,7 @@ const bthDH = document.querySelectorAll('.menu button')[2];
 
 const btnTDC = document.getElementById('addAD'); //nút thêm địa chỉ
 const btnEdit = document.getElementById('edit-address');
+const btnDetails = document.getElementById('details');
 
 const formTTCN = document.querySelector('.form-container');  // Thông tin cá nhân
 const formSDC = document.querySelector('.sodiachi');         // Sổ địa chỉ
@@ -13,6 +14,8 @@ const formDH = document.querySelector('.donhang');           // Đơn hàng
 const formTDC = document.querySelector('.themdiachi');       // Thêm địa chỉ
 const formOVL = document.querySelector(".overlay");          // Overlay
 const formEdit = document.querySelector('.edit-address-popup');
+const formOrderDetails = document.querySelector('.order-details-popup');
+const fOVL = document.querySelector('.order-details-overlay');
 
 // Ẩn tất cả các phần
 function hideAllSections() {
@@ -22,6 +25,8 @@ function hideAllSections() {
     formTDC.style.display = 'none'; 
     formOVL.style.display = 'none';
     formEdit.style.display = 'none';
+    formOrderDetails.style.display = 'none';
+    fOVL.style.display = 'none';
 }
 
 // Sự kiện nhấn vào 'Thông tin cá nhân'
@@ -56,6 +61,8 @@ btnTDC.addEventListener("click", function() {
     formSDC.style.display = 'block';  // Hiển thị sổ địa chỉ
 });
 
+
+
 document.getElementById("huyboAD").addEventListener("click", function() {
     formTDC.style.display = "none";
     formOVL.style.display = "none";
@@ -67,12 +74,19 @@ formOVL.addEventListener("click", function() {
     formSDC.style.display = 'block';
 });
 
+fOVL.addEventListener("click", function() {
+    hideAllSections();
+    formDH.style.display = 'block';
+})
+
 btnEdit.addEventListener("click", function() {
     hideAllSections();  // Ẩn tất cả các phần
     formEdit.style.display = "block";  // Hiển thị form thêm địa chỉ
     formOVL.style.display = "block";  // Hiển thị overlay
     formSDC.style.display = 'block';  // Hiển thị sổ địa chỉ
 });
+
+
 
 // Đóng popup khi nhấn ra ngoài form
 // formOVL.addEventListener("click", function(e) {
@@ -194,14 +208,22 @@ function removeAddress(event) {
     if (event.target.classList.contains('btn-delete')) {
         const addressElement = event.target.closest('.sodiachi-info'); // Lấy phần tử cha của nút Delete
         if (addressElement) {
-            addressElement.remove(); // Xóa phần tử khỏi DOM
+            const confirmed = confirm("Bạn có chắc muốn xóa địa chỉ này không?");
+            if(confirmed){
+                addressElement.remove(); // Xóa phần tử khỏi DOM
+                alert("Địa chỉ đã được xóa."); // Thông báo sau khi xóa
+            }
         }
     }
 }
 function removeItem(itemId) {
     const item = document.getElementById(itemId);
     if (item) {
-      item.remove(); // Xóa phần tử khỏi DOM
+        const confirmed = confirm("Bạn có chắc muốn xóa đơn hàng này không?");
+        if(confirmed){
+            item.remove(); // Xóa phần tử khỏi DOM
+            alert("Đơn hàng đã được xóa."); // Thông báo sau khi xóa
+        }
     }
   }
 
@@ -308,3 +330,62 @@ document.addEventListener('DOMContentLoaded', function() {
         closeEditForm();
     });
 });
+
+document.querySelectorAll('.btn-donhang-chitiet').forEach(button => {
+    button.addEventListener('click', function (event) {
+        // Lấy phần tử cha chứa thông tin đơn hàng
+        const orderItem = this.closest('.donhang-info');
+
+        if (orderItem) {
+            showOrderDetails(orderItem);
+        }
+    });
+});
+
+function showOrderDetails(orderItem) {
+    const orderItemsContainer = document.getElementById('order-items');
+    orderItemsContainer.innerHTML = ''; // Xóa nội dung cũ (nếu có)
+
+    // Lấy thông tin từ phần tử đơn hàng
+    const productName = orderItem.querySelector('.product-img-name h4').innerText;
+    const productImage = orderItem.querySelector('.cart-img-product').src;
+    const productQuantity = orderItem.querySelector('.cart-product p:nth-of-type(1)').innerText.replace('x', '');
+    const productPrice = orderItem.querySelector('.cart-product p:nth-of-type(2)').innerText.replace(' đ', '').replace('.', '');
+
+    // Tính thành tiền
+    const productTotal = parseInt(productQuantity) * parseInt(productPrice);
+
+    // Tạo phần tử chi tiết sản phẩm
+    const productElement = document.createElement('div');
+    productElement.classList.add('order-item');
+    productElement.innerHTML = `
+        <img src="${productImage}" alt="${productName}" style="width: 100px; height: 100px;">
+        <div>
+            <p>Tên sản phẩm: ${productName}</p>
+            <p>Số lượng: ${productQuantity}</p>
+            <p>Đơn giá: ${parseInt(productPrice).toLocaleString('vi-VN')} đ</p>
+            <p>Thành tiền: ${productTotal.toLocaleString('vi-VN')} đ</p>
+        </div>
+    `;
+    orderItemsContainer.appendChild(productElement);
+
+    // Tính tổng tiền
+    const shippingFee = 30000; // Phí vận chuyển
+    const totalAmount = productTotal + shippingFee;
+
+    // Hiển thị tổng tiền và phí vận chuyển
+    document.getElementById('shipping-fee').innerText = `${shippingFee.toLocaleString('vi-VN')} đ`;
+    document.getElementById('total-amount').innerText = `${totalAmount.toLocaleString('vi-VN')} đ`;
+
+    // Hiển thị form chi tiết đơn hàng
+    document.querySelector('.order-details-popup').style.display = 'block';
+    fOVL.style.display = 'block';
+}
+
+// Đóng form chi tiết đơn hàng
+document.getElementById('close-order-details').addEventListener('click', function () {
+    document.querySelector('.order-details-popup').style.display = 'none';
+    document.getElementById('.order-details-overlay').style.display = 'none';
+});
+
+

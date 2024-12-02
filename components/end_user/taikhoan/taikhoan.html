@@ -146,7 +146,7 @@
               <div>
                 <button class="btn"><i class="fas fa-edit"></i> Edit </button>
                   <br>      
-                  <button class="btn-delete" onclick="removeAddress('address-container-1')"><i class="fas fa-trash"></i> Delete</button>
+                  <button class="btn-delete" onclick="removeAddress('address-container-2')"><i class="fas fa-trash"></i> Delete</button>
               </div>
           </div>
 
@@ -159,7 +159,7 @@
               <div>
                   <button class="btn"><i class="fas fa-edit"></i> Edit </button>
                   <br>      
-                  <button class="btn" onclick="removeAddress('address-container-3')"><i class="fas fa-trash"></i> Delete</button>
+                  <button class="btn-delete" onclick="removeAddress('address-container-3')"><i class="fas fa-trash"></i> Delete</button>
               </div>
           </div>
 
@@ -214,7 +214,7 @@
          <div class="overlay"></div> 
          <!-- end div them dia chi-->
 
-                  <!-- Nền tối khi hiển thị form -->
+          <!-- Nền tối khi hiển thị form -->
           <div class="overlay" id="edit-address-overlay"></div>
 
           <!-- Form chỉnh sửa địa chỉ -->
@@ -253,11 +253,11 @@
                 />
                 <h4>Bezonomics Kinh Tế Học Bezos</h4>
               </div>
-              <p>x1</p>
+              <p>x2</p>
               <p>200.000 đ</p>
             </div>
             <div class="btn-donhang-group">
-              <button class="btn-dh btn-donhang-chitiet">Xem chi tiết</button>
+              <button class="btn-dh btn-donhang-chitiet" id="details">Xem chi tiết</button>
               <br />
               <button class="btn-dh btn-donhang-huy" onclick="removeItem('item-container-1')">Hủy đơn hàng</button>
             </div>
@@ -275,7 +275,7 @@
               <p>200.000 đ</p>
             </div>
             <div class="btn-donhang-group">
-              <button class="btn-dh btn-donhang-chitiet">Xem chi tiết</button>
+              <button class="btn-dh btn-donhang-chitiet" id="details">Xem chi tiết</button>
               <br />
               <button class="btn-dh btn-donhang-huy" onclick="removeItem('item-container-2')">Hủy đơn hàng</button>
             </div>
@@ -293,7 +293,7 @@
               <p>200.000 đ</p>
             </div>
             <div class="btn-donhang-group">
-              <button class="btn-dh btn-donhang-chitiet">Xem chi tiết</button>
+              <button class="btn-dh btn-donhang-chitiet" id="details">Xem chi tiết</button>
               <br />
               <button class="btn-dh btn-donhang-huy" onclick="removeItem('item-container-3')">Hủy đơn hàng</button>
             </div>
@@ -301,6 +301,21 @@
         </div>
       </div>
     </div>
+
+    <div class="order-details-overlay"></div>
+     <!-- Form Chi Tiết Đơn Hàng -->
+     <div class="order-details-popup" style="display: none;">
+      <h2>Chi tiết đơn hàng</h2>
+      <div id="order-items">
+          <!-- Chi tiết sản phẩm sẽ được thêm vào đây -->
+      </div>
+      <div id="order-summary">
+          <p>Phí vận chuyển: <span id="shipping-fee">30,000 đ</span></p>
+          <p>Tổng cộng: <span id="total-amount">0 đ</span></p>
+      </div>
+        <button id="close-order-details">Đóng</button>
+     </div>
+     <div id="order-details-overlay" class="overlay" style="display: none;"></div>
 
     <!-- footer -->
     <footer>

@@ -478,6 +478,7 @@ select {
     padding: 20px;
     border-radius: 8px; 
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.05); /* Thêm bóng nhẹ */
+    height: 100%;
 }
 /* form {
     display: grid;
@@ -551,6 +552,7 @@ input[type="checkbox"] {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.05); /* Thêm bóng nhẹ */
     display: block;
     flex-direction: column;  /* Các phần tử con sắp xếp theo chiều dọc */
+    height: 100%;
 }
 
 .sodiachi label {
@@ -827,4 +829,99 @@ input[type="checkbox"] {
     border-color: #007bff; /* Đổi màu viền khi input được chọn */
     box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); /* Tạo hiệu ứng khi focus */
 }
-  
+
+/*Order-details*/
+.order-details-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+    display: none;
+}
+
+.order-details-popup {
+    display: flex;
+    flex-direction: column;
+    gap: 10px; /* Tăng khoảng cách giữa các thành phần để dễ nhìn hơn */
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: var(--white-color);
+    padding: 30px; /* Tăng padding để không gian bên trong rộng rãi hơn */
+    width: 40vw; /* Thay đổi để phù hợp hơn với các kích thước màn hình khác nhau */
+    max-width: 500px; /* Đặt max-width để tránh quá to ở màn hình lớn */
+    border-radius: 10px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); /* Tạo hiệu ứng chiều sâu cho form */
+    z-index: 10001;
+}
+
+/* Căn chỉnh nội dung bên trong form */
+.order-details-popup h2 {
+    margin-top: 0;
+    text-align: center; /* Căn giữa tiêu đề */
+    font-size: 20px;
+    color: #333;
+}
+
+.order-details-popup #order-items {
+    margin: 20px 0;
+    max-height: 300px; /* Giới hạn chiều cao cho danh sách sản phẩm */
+    overflow-y: auto; /* Thêm thanh cuộn nếu nội dung vượt quá */
+}
+
+.order-details-popup #order-summary {
+    border-top: 1px solid #ddd; /* Đường kẻ trên */
+    padding-top: 10px;
+    font-size: 16px;
+    color: #444;
+    display: flex;
+    justify-content: space-between; /* Tách dòng phí vận chuyển và tổng tiền */
+}
+
+.order-item {
+    display: flex; /* Dùng flexbox để bố trí hình ảnh và nội dung */
+    align-items: center; /* Căn giữa nội dung theo chiều dọc */
+    margin-bottom: 20px; /* Khoảng cách giữa các sản phẩm */
+    padding: 10px;
+    border-bottom: 1px solid #ddd; /* Đường kẻ chia cách */
+}
+
+.order-item img {
+    width: 100px; /* Chiều rộng ảnh */
+    height: 100px; /* Chiều cao ảnh */
+    object-fit: cover; /* Đảm bảo ảnh không bị méo */
+    margin-right: 20px; /* Khoảng cách giữa ảnh và nội dung */
+}
+
+.order-item div {
+    display: flex;
+    flex-direction: column; /* Căn nội dung theo chiều dọc */
+    flex-grow: 1; /* Đảm bảo chiếm đủ chiều rộng */
+}
+
+.order-item p {
+    margin: 5px 0; /* Khoảng cách giữa các dòng */
+    font-size: 14px;
+    color: #333;
+}
+
+.order-details-popup button {
+    width: 100%;
+    padding: 10px 0;
+    margin-top: 20px;
+    background: #007bff; /* Màu xanh */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.order-details-popup button:hover {
+    background: #0056b3; /* Màu xanh đậm hơn khi hover */
+}
